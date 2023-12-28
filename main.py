@@ -1,16 +1,30 @@
-# This is a sample Python script.
+import pygame
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# 初始化Pygame
+pygame.init()
 
+# 设置窗口尺寸
+win_width = 800
+win_height = 600
+win = pygame.display.set_mode((win_width, win_height))
+pygame.display.set_caption("My 2D Game")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# 游戏循环
+running = True
+while running:
+    # 检查事件
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
+    # 填充窗口为白色
+    win.fill((255, 255, 255))
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    # 在窗口上绘制一些图形或精灵
+    # 这里可以添加你自己的绘制逻辑，比如绘制角色、地图、物体等
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # 刷新屏幕
+    pygame.display.flip()
+
+# 退出Pygame
+pygame.quit()
