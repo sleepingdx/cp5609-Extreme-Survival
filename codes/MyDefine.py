@@ -1,0 +1,2 @@
+GAME_NAME = 'Extreme Survival'
+GAME_RESOLUTION = (1024, 800)
