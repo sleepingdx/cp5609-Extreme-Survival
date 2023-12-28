@@ -10,4 +10,5 @@ def main():
     game.start()
 
 
-main()  # start game
+# start game
+main()
