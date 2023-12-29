@@ -7,7 +7,6 @@ def main():
     game.start()
     game.run()
     game.end()
-    game.start()
 
 
 # start game
