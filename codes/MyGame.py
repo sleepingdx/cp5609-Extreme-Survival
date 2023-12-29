@@ -10,7 +10,7 @@ class MyGame:
         self.window = pygame.display.set_mode(
             (MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
         pygame.display.set_caption(MyDefine.GAME_NAME)
-        self.alql_sprites = pygame.sprite.Group()
+        self.all_sprites = pygame.sprite.Group()
 
         self.m_player = None
 
