@@ -10,7 +10,7 @@ win = pygame.display.set_mode((win_width, win_height))
 pygame.display.set_caption("Sprite with Keyframes")
 
 # 加载包含多个关键帧的图像
-keyframes_image = pygame.image.load('keyframes_image.png')  # 替换为你自己的包含关键帧的图像
+keyframes_image = pygame.image.load('Actor1.png')  # 替换为你自己的包含关键帧的图像
 
 # 定义关键帧大小和数量
 frame_width = 48
@@ -18,6 +18,8 @@ frame_height = 48
 num_frames_horizontal = keyframes_image.get_width() // frame_width
 
 # 创建精灵类
+
+
 class KeyframeSprite(pygame.sprite.Sprite):
     def __init__(self, frames, frame_index):
         super().__init__()
@@ -30,12 +32,14 @@ class KeyframeSprite(pygame.sprite.Sprite):
         # 这里可以添加精灵的更新逻辑
         pass
 
+
 # 根据关键帧数量切分图像并保存每个关键帧的图像
 frames_list = []
 for i in range(num_frames_horizontal):
     left = i * frame_width
     frame_surface = pygame.Surface((frame_width, frame_height))
-    frame_surface.blit(keyframes_image, (0, 0), (left, 0, frame_width, frame_height))
+    frame_surface.blit(keyframes_image, (0, 0),
+                       (left, 0, frame_width, frame_height))
     frames_list.append(frame_surface)
 
 # 创建多个精灵对象，每个对象对应一个关键帧
