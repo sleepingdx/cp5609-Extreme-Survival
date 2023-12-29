@@ -11,12 +11,13 @@ class MyGame:
             (MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
         pygame.display.set_caption(MyDefine.GAME_NAME)
         self.all_sprites = pygame.sprite.Group()
+        self.m_clock = pygame.time.Clock()
 
         self.m_player = None
 
     def start(self):
         # Characters
-        self.m_player = Character()
+        self.m_player = Character(0, 3, 3, MyDefine.MAIN_ROLE_DIRECTORY)
         self.all_sprites.add(self.m_player)
 
     def run(self):
@@ -27,6 +28,9 @@ class MyGame:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+
+            # Lock frame rate
+            # self.m_clock.tick(MyDefine.GAME_FRAME_RATE)
 
             # 填充窗口为白色
             self.window.fill(MyDefine.BACKGROUND_COLOR)
@@ -40,9 +44,12 @@ class MyGame:
             pygame.display.flip()
 
     def update(self):
+        """Only run logic related code"""
+        # Execute 'update' methods of all sprites through sprites group
         self.all_sprites.update()
 
     def render(self):
+        """Only run graphics rendering related code"""
         self.all_sprites.draw(self.window)
 
     def end(self):
