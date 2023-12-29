@@ -10,7 +10,7 @@ class MyGame:
         self.window = pygame.display.set_mode(
             (MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
         pygame.display.set_caption(MyDefine.GAME_NAME)
-        self.all_sprites = pygame.sprite.Group()
+        self.alql_sprites = pygame.sprite.Group()
 
         self.m_player = None
 
@@ -39,11 +39,11 @@ class MyGame:
             # 刷新屏幕
             pygame.display.flip()
 
-    def end(self):
-        pygame.quit()
-
     def update(self):
         self.all_sprites.update()
 
     def render(self):
         self.all_sprites.draw(self.window)
+
+    def end(self):
+        pygame.quit()
