@@ -7,8 +7,7 @@ class MyGame:
 
     def __init__(self):
         pygame.init()
-        self.window = pygame.display.set_mode(
-            (MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
+        self.window = pygame.display.set_mode((MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
         pygame.display.set_caption(MyDefine.GAME_NAME)
         self.all_sprites = pygame.sprite.Group()
         self.m_clock = pygame.time.Clock()

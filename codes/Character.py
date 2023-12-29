@@ -4,7 +4,6 @@ import math
 import time
 from codes import MyDefine
 
-
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
 # Basic move speed (m/s)
@@ -24,17 +23,12 @@ class Character(pygame.sprite.Sprite):
         self.m_frameCount = frameCount
         self.m_resFile = resFile
         self.m_action = {'direction': 0, 'index': 0}  # (0:↓ 1:→ 2:↑ 3:←)
-        self.m_millisec = MyDefine.convert_nsec_to_msec(time.time_ns())
+        self.rect = None
+        self.m_milliseconds = MyDefine.convert_nsec_to_msec(time.time_ns())
 
         # Load resource
         self.resImage = pygame.image.load(self.m_resFile).convert()
         self.image = None
-
-        # Action frames
-        num_frames_horizontal = self.resImage.get_width(
-        ) // MyDefine.CHARACTER_RESOLUTION[0]
-        num_frames_vertical = self.resImage.get_height(
-        ) // MyDefine.CHARACTER_RESOLUTION[1]
 
         # Counter-Clockwise Direction (↓ → ↑ ←)
         self.m_frames = []
@@ -42,22 +36,22 @@ class Character(pygame.sprite.Sprite):
             frames = []
             for j in range(self.m_frameCount):
                 frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
-                frame_surface.blit(self.resImage, (0, 0), ((self.m_col + j) * MyDefine.CHARACTER_RESOLUTION[0], (self.m_row + i) * MyDefine.CHARACTER_RESOLUTION[1],
-                                                           MyDefine.CHARACTER_RESOLUTION[0], MyDefine.CHARACTER_RESOLUTION[1]))
+                frame_surface.blit(self.resImage, (0, 0), ((self.m_col + j) * MyDefine.CHARACTER_RESOLUTION[0],
+                                                           (self.m_row + i) * MyDefine.CHARACTER_RESOLUTION[1],
+                                                           MyDefine.CHARACTER_RESOLUTION[0],
+                                                           MyDefine.CHARACTER_RESOLUTION[1]))
                 frames.append(frame_surface)
             self.m_frames.append(frames)
 
     def update(self):
         """Update frame status"""
-        curMillisec = MyDefine.convert_nsec_to_msec(time.time_ns())
-        if (math.floor(BASIC_CHARACTER_ACTION_FREQUENCY * (curMillisec - self.m_millisec) / 1000) > 0):
+        curMillisecond = MyDefine.convert_nsec_to_msec(time.time_ns())
+        if math.floor(BASIC_CHARACTER_ACTION_FREQUENCY * (curMillisecond - self.m_milliseconds) / 1000) > 0:
             self.m_action['index'] += 1
-            self.m_millisec = curMillisec
+            self.m_milliseconds = curMillisecond
 
-        self.m_action['index'] = (
-            self.m_action['index']) % self.m_frameCount
-        self.image = self.m_frames[self.m_action['direction']
-                                   ][self.m_action['index']]
+        self.m_action['index'] = (self.m_action['index']) % self.m_frameCount
+        self.image = self.m_frames[self.m_action['direction']][self.m_action['index']]
         self.setCenterPos(400, 300)
 
     def setCenterPos(self, x, z):
