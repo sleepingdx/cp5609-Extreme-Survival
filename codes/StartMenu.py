@@ -1,3 +1,5 @@
+import os
+
 import pygame
 import sys
 
@@ -25,6 +27,14 @@ def draw_text(text, x, y, color=black):
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
+# 获取背景图像的路径，使用原始字符串
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 获取上一级目录的路径
+parent_dir = os.path.dirname(current_dir)
+background_path = os.path.join(parent_dir, r"res\Background\Startpage.png")
+
+# 加载背景图像
+background_image = pygame.image.load(background_path)
 # 主循环
 running = True
 while running:
@@ -41,6 +51,8 @@ while running:
 
     # 清屏
     screen.fill(white)
+    # 绘制背景图像
+    screen.blit(background_image, (0, 0))
 
     # 显示标题
     draw_text("Extreme Survival", width // 2, 100)
