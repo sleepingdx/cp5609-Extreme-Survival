@@ -1,5 +1,3 @@
-from codes import MyDefine
-from codes import MyGame
-
-class GameLevel:
-    """"""
+class GaleLevel:
+    def __init__(self):
+        pass

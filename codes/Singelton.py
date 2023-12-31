@@ -1,12 +1,9 @@
 class Singleton:
     """Singleton module"""
+    m_instances = {}
 
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def getInstance():
-        return singleton_instance
-
-
-singleton_instance = Singleton()
+    @classmethod
+    def getInstance(cls):
+        if cls not in cls.m_instances:
+            cls.m_instances[cls] = cls()
+        return cls.m_instances[cls]

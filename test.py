@@ -1,75 +1,62 @@
 import pygame
+import pygame.image
+import math
+import time
+from codes import MyDefine
 
-# 初始化Pygame
-pygame.init()
-
-# 设置窗口尺寸
-win_width = 800
-win_height = 600
-win = pygame.display.set_mode((win_width, win_height))
-pygame.display.set_caption("Character Sprite Example")
-
-# 加载包含人物关键帧的图片
-character_frames_image = pygame.image.load(
-    'Actor1.png')  # 替换为你自己的关键帧图片
-
-# 定义每个关键帧的宽度和高度
-frame_width = 48
-frame_height = 48
-
-# 计算水平和垂直方向上的关键帧数量
-num_frames_horizontal = character_frames_image.get_width() // frame_width
-num_frames_vertical = character_frames_image.get_height() // frame_height
-
-# 存储关键帧的列表
-frames_list = []
-for i in range(num_frames_vertical):
-    for j in range(num_frames_horizontal):
-        left = j * frame_width
-        top = i * frame_height
-        frame_surface = pygame.Surface((frame_width, frame_height))
-        frame_surface.blit(character_frames_image, (0, 0),
-                           (left, top, frame_width, frame_height))
-        frames_list.append(frame_surface)
-
-# 创建精灵类
+# Direction of a character
+MAX_CHARACTER_DIRECTION_COUNT = 4
+# Basic move speed (m/s)
+BASIC_CHARACTER_MOVE_SPEED = 0.5
+# Basic action frequency of a character (frame/second)
+BASIC_CHARACTER_ACTION_FREQUENCY = 4
 
 
 class Character(pygame.sprite.Sprite):
-    def __init__(self, frames):
+    """Basic class of all characters"""
+
+    def __init__(self, row, col, frameCount, resFile):
+        """Constructive method"""
         super().__init__()
-        self.frames = frames  # 存储所有关键帧的图像
-        self.index = 0  # 当前关键帧索引
-        self.image = self.frames[self.index]  # 设置当前精灵的图像
-        self.rect = self.image.get_rect()
-        self.rect.center = (win_width // 2, win_height // 2)  # 初始位置在窗口中心
+
+        # Initialize member-variables
+        self.m_row = row
+        self.m_col = col
+        self.m_frameCount = frameCount
+        self.m_resFile = resFile
+        self.m_action = {'direction': 0, 'index': 0}  # (0:↓ 1:→ 2:↑ 3:←)
+        self.rect = None
+        self.m_milliseconds = MyDefine.convert_nsec_to_msec(time.time_ns())
+
+        # Load resource
+        self.resImage = pygame.image.load(self.m_resFile).convert()
+        self.image = None
+
+        # Counter-Clockwise Direction (↓ → ↑ ←)
+        self.m_frames = []
+        for i in range(MAX_CHARACTER_DIRECTION_COUNT):
+            frames = []
+            for j in range(self.m_frameCount):
+                frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
+                frame_surface.blit(self.resImage, (0, 0), ((self.m_col + j) * MyDefine.CHARACTER_RESOLUTION[0],
+                                                           (self.m_row + i) * MyDefine.CHARACTER_RESOLUTION[1],
+                                                           MyDefine.CHARACTER_RESOLUTION[0],
+                                                           MyDefine.CHARACTER_RESOLUTION[1]))
+                frames.append(frame_surface)
+            self.m_frames.append(frames)
 
     def update(self):
-        # 更新精灵的图像为下一帧
-        self.index = (self.index + 1) % len(self.frames)
-        self.image = self.frames[self.index]
+        """Update frame status"""
+        curMillisecond = MyDefine.convert_nsec_to_msec(time.time_ns())
+        if math.floor(BASIC_CHARACTER_ACTION_FREQUENCY * (curMillisecond - self.m_milliseconds) / 1000) > 0:
+            self.m_action['index'] += 1
+            self.m_milliseconds = curMillisecond
 
+        self.m_action['index'] = (self.m_action['index']) % self.m_frameCount
+        self.image = self.m_frames[self.m_action['direction']][self.m_action['index']]
+        self.setCenterPos(400, 300)
 
-# 创建人物精灵对象
-character = Character(frames_list)
-
-# 创建精灵组
-all_sprites = pygame.sprite.Group()
-all_sprites.add(character)
-
-# 游戏循环
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    win.fill((255, 255, 255))
-
-    # 更新和绘制所有精灵
-    all_sprites.update()
-    all_sprites.draw(win)
-
-    pygame.display.flip()
-
-pygame.quit()
+    def setCenterPos(self, x, z):
+        """Set center position of the character"""
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, z)

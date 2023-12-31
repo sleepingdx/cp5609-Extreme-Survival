@@ -1,15 +1,24 @@
 import pygame
 import pygame.image
+import math
+import time
 from codes import MyDefine
 from codes.ImageManager import ImageManager
 
+# Basic action frequency (f/s)
+BASIC_ACTION_FREQUENCY = 4
+
 
 class Action(pygame.sprite.Sprite):
-    """"""
+    """Subclass of Sprite"""
 
     def __init__(self):
         super().__init__()
+        self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         self.m_frames = []
+        self.m_index = 0
+        self.image = None
+        self.rect = None
 
     def loadAction(self, resName, actName, beginRow, beginCol, endRow, endCol):
         """Load action spirits"""
@@ -22,3 +31,14 @@ class Action(pygame.sprite.Sprite):
                                                     MyDefine.CHARACTER_RESOLUTION[0],
                                                     MyDefine.CHARACTER_RESOLUTION[1]))
                 self.m_frames.append(frame_surface)
+
+    def update(self):
+        curSec = MyDefine.convert_nsec_to_msec(time.time_ns())
+        if math.floor(BASIC_ACTION_FREQUENCY * (curSec - self.m_sec) / 1000) > 0:
+            self.m_index = (self.m_index + 1) % len(self.m_frames)
+            self.m_sec = curSec
+        self.image = self.m_frames[self.m_index]
+
+    def setCenterPos(self, x, z):
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, z)
