@@ -41,20 +41,20 @@
         "name": "stand",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "up", "list": [[3,1]]},
-          {"name": "right", "list": [[2,1]]},
-          {"name": "down", "list": [[0,1]]},
-          {"name": "left", "list": [[1,1]]}
+          {"name": "up", "list": [[3,4]]},
+          {"name": "right", "list": [[2,4]]},
+          {"name": "down", "list": [[0,4]]},
+          {"name": "left", "list": [[1,4]]}
         ]
       },
       {
         "name": "move",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "up", "list": [[3,0],[3,2]]},
-          {"name": "right", "list": [[2,0],[2,2]]},
-          {"name": "down", "list": [[0,0],[0,2]]},
-          {"name": "left", "list": [[1,0],[1,2]]}
+          {"name": "up", "list": [[3,3],[3,5]]},
+          {"name": "right", "list": [[2,3],[2,5]]},
+          {"name": "down", "list": [[0,3],[0,5]]},
+          {"name": "left", "list": [[1,3],[1,5]]}
         ]
       }
     ]
@@ -71,20 +71,20 @@
         "name": "stand",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "up", "list": [[3,1]]},
-          {"name": "right", "list": [[2,1]]},
-          {"name": "down", "list": [[0,1]]},
-          {"name": "left", "list": [[1,1]]}
+          {"name": "up", "list": [[3,7]]},
+          {"name": "right", "list": [[2,7]]},
+          {"name": "down", "list": [[0,7]]},
+          {"name": "left", "list": [[1,7]]}
         ]
       },
       {
         "name": "move",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "up", "list": [[3,0],[3,2]]},
-          {"name": "right", "list": [[2,0],[2,2]]},
-          {"name": "down", "list": [[0,0],[0,2]]},
-          {"name": "left", "list": [[1,0],[1,2]]}
+          {"name": "up", "list": [[3,6],[3,8]]},
+          {"name": "right", "list": [[2,6],[2,8]]},
+          {"name": "down", "list": [[0,6],[0,8]]},
+          {"name": "left", "list": [[1,6],[1,8]]}
         ]
       }
     ]
@@ -101,20 +101,20 @@
         "name": "stand",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "up", "list": [[3,1]]},
-          {"name": "right", "list": [[2,1]]},
-          {"name": "down", "list": [[0,1]]},
-          {"name": "left", "list": [[1,1]]}
+          {"name": "up", "list": [[3,10]]},
+          {"name": "right", "list": [[2,10]]},
+          {"name": "down", "list": [[0,10]]},
+          {"name": "left", "list": [[1,10]]}
         ]
       },
       {
         "name": "move",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "up", "list": [[3,0],[3,2]]},
-          {"name": "right", "list": [[2,0],[2,2]]},
-          {"name": "down", "list": [[0,0],[0,2]]},
-          {"name": "left", "list": [[1,0],[1,2]]}
+          {"name": "up", "list": [[3,9],[3,1]]},
+          {"name": "right", "list": [[2,9],[2,1]]},
+          {"name": "down", "list": [[0,9],[0,1]]},
+          {"name": "left", "list": [[1,9],[1,1]]}
         ]
       }
     ]
