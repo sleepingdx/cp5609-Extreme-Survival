@@ -16,7 +16,7 @@ class CharacterManager(Singleton):
             for i in range(len(self.m_characters)):
                 self.m_characters[i].update()
 
-    def appendCharacter(self, name, character):
+    def append_character(self, name, character):
         """
         Append character to dictionary
         :param name: Character name
@@ -29,7 +29,7 @@ class CharacterManager(Singleton):
         else:
             return False
 
-    def findCharacter(self, name):
+    def find_character(self, name):
         """
         Find character object by character name
         :param name: Character name
@@ -37,7 +37,7 @@ class CharacterManager(Singleton):
         """
         return self.m_characters[name]
 
-    def deleteCharacter(self, name):
+    def delete_character(self, name):
         """
         Delete from dictionary
         :param name: Character name

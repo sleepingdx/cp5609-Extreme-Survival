@@ -20,9 +20,9 @@ class Action(pygame.sprite.Sprite):
         self.image = None
         self.rect = None
 
-    def loadAction(self, resName, actName, beginRow, beginCol, endRow, endCol):
+    def load_action(self, resName, actName, beginRow, beginCol, endRow, endCol):
         """Load action spirits"""
-        res = ImageManager.getInstance().findResourceByName(resName)
+        res = ImageManager.get_instance().find_resource_by_name(resName)
         for i in range(endRow - beginRow):
             for j in range(endCol - beginCol):
                 frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
@@ -39,6 +39,6 @@ class Action(pygame.sprite.Sprite):
             self.m_sec = curSec
         self.image = self.m_frames[self.m_index]
 
-    def setCenterPos(self, x, z):
+    def set_center_pos(self, x, z):
         self.rect = self.image.get_rect()
         self.rect.center = (x, z)

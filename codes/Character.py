@@ -13,9 +13,9 @@ class Character:
         super().__init__()
         # Actions
         self.m_actions = {}
-        self.m_curAction = 0
+        self.m_current = 0
 
-    def appendAction(self, name, action):
+    def append_action(self, name, action):
         """
         Append action by action name
         :param name: Action name
@@ -24,14 +24,14 @@ class Character:
         """
         self.m_actions[name] = action
 
-    def changeAction(self, index):
+    def change_action(self, index):
         """
         Change the current action
         :param index: index of character's action
         :return: T/F
         """
         if 0 <= index < len(CHARACTER_ACTIONS):
-            self.m_curAction = index
+            self.m_current = index
             return True
         else:
             return False
@@ -39,5 +39,5 @@ class Character:
     def update(self):
         pass
 
-    def setCenterPos(self, x, z):
-        self.m_actions[self.m_curAction].setCenterPos(x, z)
+    def set_center_pos(self, x, z):
+        self.m_actions[self.m_current].set_center_pos(x, z)

@@ -41,11 +41,11 @@ class MyGame:
             pygame.display.flip()
 
     def update(self):
-        CharacterManager.getInstance().update()
-        SpriteManager.getInstance().update()
+        CharacterManager.get_instance().update()
+        SpriteManager.get_instance().update()
 
     def render(self):
-        SpriteManager.getInstance().render(self.m_window)
+        SpriteManager.get_instance().render(self.m_window)
 
     def end(self):
         pygame.quit()

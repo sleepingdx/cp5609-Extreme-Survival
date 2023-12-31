@@ -8,7 +8,7 @@ class SpriteManager(Singleton):
     def __init__(self):
         self.m_sprites = pygame.sprite.Group()
 
-    def addSprite(self, sprite):
+    def append_sprite(self, sprite):
         self.m_sprites.add(sprite)
 
     def update(self):

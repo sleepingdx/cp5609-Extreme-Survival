@@ -8,7 +8,7 @@ class ImageManager(Singleton):
     def __init__(self):
         self.m_resDirectory = {}  # Resource Directory
 
-    def loadResource(self, name, file):
+    def load_resource(self, name, file):
         """
         Load resource and add to resource directory
         :param name: Resource name
@@ -21,7 +21,7 @@ class ImageManager(Singleton):
             # image: the image resource
             self.m_resDirectory[name]: {'file': file, 'image': image}
 
-    def findResourceByName(self, name):
+    def find_resource_by_name(self, name):
         """
         Find the image by using resource name
         :param name: Resource name
