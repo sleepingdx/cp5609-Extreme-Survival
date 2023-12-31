@@ -2,6 +2,7 @@ import pygame
 from codes import MyDefine
 from codes.SpriteManager import SpriteManager
 from codes.CharacterManager import CharacterManager
+from codes.GameLevelManager import GameLevelManager
 
 
 class MyGame:
@@ -15,7 +16,7 @@ class MyGame:
         self.m_player = None
 
     def start(self):
-        pass
+        GameLevelManager.get_instance().start(0)
 
     def run(self):
         # 游戏循环

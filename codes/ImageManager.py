@@ -8,18 +8,17 @@ class ImageManager(Singleton):
     def __init__(self):
         self.m_resDirectory = {}  # Resource Directory
 
-    def load_resource(self, name, file):
+    def load_resource(self, name, filename):
         """
         Load resource and add to resource directory
         :param name: Resource name
-        :param file: Resource File directory
+        :param filename: Resource File directory
         :return: None
         """
-        if ~self.m_resDirectory[name]:
-            image = pygame.image.load(file).convert()
-            # file: the image file name
-            # image: the image resource
-            self.m_resDirectory[name]: {'file': file, 'image': image}
+        if name not in self.m_resDirectory:
+            image = pygame.image.load(filename).convert()
+            # file: the image file name image: the image resource
+            self.m_resDirectory[name] = {'filename': filename, 'image': image}
 
     def find_resource_by_name(self, name):
         """

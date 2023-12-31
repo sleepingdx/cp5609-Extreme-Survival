@@ -1,18 +1,15 @@
 from codes.Singelton import Singleton
+from codes import MyDefine
+from codes.Json import Json
+from codes.GameLevel import GameLevel
 
 
 class GameLevelManager(Singleton):
     """Centralized management of all game levels"""
 
     def __init__(self):
-        self.m_gameLevels = []
+        self.m_gameLevels = [GameLevel(0), GameLevel(1), GameLevel(2)]
         self.m_current = 0
-
-    def append_character(self, obj):
-        pass
-
-    def append_terrain(self, obj):
-        pass
 
     def start(self, index):
         """

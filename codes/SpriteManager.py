@@ -11,6 +11,9 @@ class SpriteManager(Singleton):
     def append_sprite(self, sprite):
         self.m_sprites.add(sprite)
 
+    def delete_sprite(self, sprite):
+        self.m_sprites.remove(sprite)
+
     def update(self):
         self.m_sprites.update()
 

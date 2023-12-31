@@ -1,9 +1,11 @@
+from codes.SpriteManager import SpriteManager
+
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
 # Basic move speed (m/s)
 BASIC_CHARACTER_MOVE_SPEED = 0.5
 # Actions
-CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Die')
+CHARACTER_ACTIONS = ('stand', 'move', 'attack', 'die')
 
 
 class Character:
@@ -11,6 +13,9 @@ class Character:
 
     def __init__(self):
         super().__init__()
+        # Position
+        self.m_x = 0
+        self.m_z = 0
         # Actions
         self.m_actions = {}
         self.m_current = 0
@@ -23,6 +28,8 @@ class Character:
         :return: None
         """
         self.m_actions[name] = action
+        if CHARACTER_ACTIONS[self.m_current] == name:
+            SpriteManager.get_instance().append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
 
     def change_action(self, index):
         """
@@ -31,7 +38,9 @@ class Character:
         :return: T/F
         """
         if 0 <= index < len(CHARACTER_ACTIONS):
+            SpriteManager.get_instance().delete_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             self.m_current = index
+            SpriteManager.get_instance().append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             return True
         else:
             return False
@@ -40,4 +49,6 @@ class Character:
         pass
 
     def set_center_pos(self, x, z):
-        self.m_actions[self.m_current].set_center_pos(x, z)
+        self.m_x = x
+        self.m_z = z
+        # self.m_actions[CHARACTER_ACTIONS[self.m_current]].set_center_pos(x, z)

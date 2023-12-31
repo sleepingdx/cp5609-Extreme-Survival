@@ -11,6 +11,9 @@ CHARACTER_RESOLUTION = (48, 48)  # the resolution of one character
 MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png')  # image resource of main role
 GAME_FRAME_RATE = 200  # frame rate of the game
 
+JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gamelevels.json")
+JSON_CHARACTERS_FILE = os.path.join(current_folder, "../res/json/characters.json")
+
 
 def convert_nsec_to_msec(nanosecond):
     """Convert nanoseconds to milliseconds"""

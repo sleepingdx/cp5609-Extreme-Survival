@@ -1,19 +1,122 @@
-{
-  "game-level-1": {
-    "characters": [
+[
+  {
+    "id": 0,
+    "type": "Player",
+    "name": "dx01",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
       {
-        "id": 0,
-        "type": "player",
-        "name": "dx01",
-        "portrait": "../res/portrait/001.png",
-        "hp": 1.0,
-        "mp": 1.0,
-        "position": {
-          "x": 400,
-          "z": 300
-        }
+        "name": "stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,1]]},
+          {"name": "right", "list": [[2,1]]},
+          {"name": "down", "list": [[0,1]]},
+          {"name": "left", "list": [[1,1]]}
+        ]
+      },
+      {
+        "name": "move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,0],[3,2]]},
+          {"name": "right", "list": [[2,0],[2,2]]},
+          {"name": "down", "list": [[0,0],[0,2]]},
+          {"name": "left", "list": [[1,0],[1,2]]}
+        ]
       }
-    ],
-    "terrain": {}
+    ]
+  },
+  {
+    "id": 1,
+    "type": "Npc",
+    "name": "dx02",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,1]]},
+          {"name": "right", "list": [[2,1]]},
+          {"name": "down", "list": [[0,1]]},
+          {"name": "left", "list": [[1,1]]}
+        ]
+      },
+      {
+        "name": "move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,0],[3,2]]},
+          {"name": "right", "list": [[2,0],[2,2]]},
+          {"name": "down", "list": [[0,0],[0,2]]},
+          {"name": "left", "list": [[1,0],[1,2]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "Item",
+    "name": "dx03",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,1]]},
+          {"name": "right", "list": [[2,1]]},
+          {"name": "down", "list": [[0,1]]},
+          {"name": "left", "list": [[1,1]]}
+        ]
+      },
+      {
+        "name": "move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,0],[3,2]]},
+          {"name": "right", "list": [[2,0],[2,2]]},
+          {"name": "down", "list": [[0,0],[0,2]]},
+          {"name": "left", "list": [[1,0],[1,2]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "Equipment",
+    "name": "dx01",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,1]]},
+          {"name": "right", "list": [[2,1]]},
+          {"name": "down", "list": [[0,1]]},
+          {"name": "left", "list": [[1,1]]}
+        ]
+      },
+      {
+        "name": "move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "up", "list": [[3,0],[3,2]]},
+          {"name": "right", "list": [[2,0],[2,2]]},
+          {"name": "down", "list": [[0,0],[0,2]]},
+          {"name": "left", "list": [[1,0],[1,2]]}
+        ]
+      }
+    ]
   }
-}
+]
