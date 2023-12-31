@@ -1,0 +1,19 @@
+{
+  "game-level-1": {
+    "characters": [
+      {
+        "id": 0,
+        "type": "player",
+        "name": "dx01",
+        "portrait": "../res/portrait/001.png",
+        "hp": 1.0,
+        "mp": 1.0,
+        "position": {
+          "x": 400,
+          "z": 300
+        }
+      }
+    ],
+    "terrain": {}
+  }
+}
