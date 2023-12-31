@@ -1,6 +1,7 @@
 import pygame
 from codes import MyDefine
 from codes.Character import Character
+from codes.ImageManager import ImageManager
 
 
 class MyGame:
