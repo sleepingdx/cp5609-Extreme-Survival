@@ -16,8 +16,7 @@ class Character:
         super().__init__()
         # Position
         self.m_position = Vector(0, 0)
-        self.m_x = 0
-        self.m_z = 0
+        self.m_orientation = Vector(0, 0)
         # Actions
         self.m_actions = {}
         self.m_current = 0

@@ -13,6 +13,7 @@ GAME_FRAME_RATE = 200  # frame rate of the game
 
 JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gamelevels.json")
 JSON_CHARACTERS_FILE = os.path.join(current_folder, "../res/json/characters.json")
+JSON_FSM_FILE = os.path.join(current_folder, "../res/json/fsm.json")
 
 
 def convert_nsec_to_msec(nanosecond):
