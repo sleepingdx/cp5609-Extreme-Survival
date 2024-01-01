@@ -4,7 +4,7 @@ from codes.Vector import Vector
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
 # Actions
-CHARACTER_ACTIONS = ('stand', 'move', 'attack', 'die')
+CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Die')
 
 
 class Character:

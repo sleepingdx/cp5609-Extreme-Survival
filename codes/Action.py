@@ -7,7 +7,7 @@ from codes.ImageManager import ImageManager
 
 # Basic action frequency (f/s)
 BASIC_ACTION_FREQUENCY = 4
-ACTION_ORIENTATION = ["up", "right", "down", "left"]
+ACTION_ORIENTATION = ["Up", "Right", "Down", "Left"]
 
 
 class Action(pygame.sprite.Sprite):
