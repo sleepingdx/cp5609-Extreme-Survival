@@ -55,7 +55,7 @@ class Action(pygame.sprite.Sprite):
             self.m_frame_index = (self.m_frame_index + 1) % len(self.m_frames[ACTION_ORIENTATION[self.m_orientation]])
             self.m_sec = curSec
         self.image = self.m_frames[ACTION_ORIENTATION[self.m_orientation]][self.m_frame_index]
-        self.set_center_pos(self.m_object.m_x, self.m_object.m_z)
+        self.set_center_pos(self.m_object.m_position.x, self.m_object.m_position.z)
 
     def set_center_pos(self, x, z):
         if self.image:

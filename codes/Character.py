@@ -1,4 +1,5 @@
 from codes.SpriteManager import SpriteManager
+from codes.Vector import Vector
 
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
@@ -14,6 +15,7 @@ class Character:
     def __init__(self):
         super().__init__()
         # Position
+        self.m_position = Vector(0, 0)
         self.m_x = 0
         self.m_z = 0
         # Actions
@@ -49,6 +51,4 @@ class Character:
         pass
 
     def set_center_pos(self, x, z):
-        self.m_x = x
-        self.m_z = z
-        # self.m_actions[CHARACTER_ACTIONS[self.m_current]].set_center_pos(x, z)
+        self.m_position = Vector(x, z)
