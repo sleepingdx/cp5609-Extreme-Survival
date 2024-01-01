@@ -11,8 +11,9 @@ CHARACTER_RESOLUTION = (48, 48)  # the resolution of one character
 BASIC_CHARACTER_MOVE_SPEED = 1.5  # Basic move speed (m/s)
 MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png')  # image resource of main role
 GAME_FRAME_RATE = 200  # frame rate of the game
+ARRIVE_TARGET_POS_RANGE = 1  # distance from the target position, entering this range is considered to have been reached
 
-JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gamelevels.json")
+JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gameLevels.json")
 JSON_CHARACTERS_FILE = os.path.join(current_folder, "../res/json/characters.json")
 JSON_FSM_FILE = os.path.join(current_folder, "../res/json/fsm.json")
 

@@ -24,3 +24,9 @@ class Vector:
             self.x /= magnitude
             self.z /= magnitude
         return self
+
+    def calculate_magnitude(self):
+        return math.sqrt(self.x ** 2 + self.z ** 2)
+
+    def calculate_magnitude2(self):
+        return self.x ** 2 + self.z ** 2
