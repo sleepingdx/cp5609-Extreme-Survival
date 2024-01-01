@@ -5,7 +5,7 @@ class State:
     def begin(self):
         pass
 
-    def run(self):
+    def update(self):
         pass
 
     def end(self):

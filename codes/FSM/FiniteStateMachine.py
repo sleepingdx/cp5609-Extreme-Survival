@@ -16,9 +16,9 @@ class FiniteStateMachine:
         for key in self.m_fsm.keys():
             self.m_states[key] = globals()[key](obj)
 
-    def run(self):
+    def update(self):
         if ENUM_FSM_STATES[self.m_current] in self.m_states:
-            self.m_states[ENUM_FSM_STATES[self.m_current]].run()
+            self.m_states[ENUM_FSM_STATES[self.m_current]].update()
 
     def change_status(self, index):
         if index in self.m_fsm[ENUM_FSM_STATES[self.m_current]]:

@@ -22,31 +22,31 @@ class CharacterManager(Singleton):
                 if hasattr(self.m_characters[i], "trigger_event"):
                     self.m_characters[i].trigger_event(event)
 
-    def append_character(self, name, character):
+    def append_character(self, character_id, character):
         """
         Append character to dictionary
-        :param name: Character name
+        :param character_id: Character id
         :param character: Character object
         :return: T/F
         """
-        if ~self.m_characters[name]:
-            self.m_characters[name] = character
+        if character_id not in self.m_characters:
+            self.m_characters[character_id] = character
             return True
         else:
             return False
 
-    def find_character(self, name):
+    def find_character(self, character_id):
         """
         Find character object by character name
-        :param name: Character name
+        :param character_id: Character id
         :return: The character object
         """
-        return self.m_characters[name]
+        return self.m_characters[character_id]
 
-    def delete_character(self, name):
+    def delete_character(self, character_id):
         """
         Delete from dictionary
-        :param name: Character name
+        :param character_id: Character id
         :return: None
         """
-        self.m_characters[name] = None
+        self.m_characters[character_id] = None

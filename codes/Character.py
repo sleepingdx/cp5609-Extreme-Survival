@@ -3,8 +3,6 @@ from codes.Vector import Vector
 
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
-# Basic move speed (m/s)
-BASIC_CHARACTER_MOVE_SPEED = 0.5
 # Actions
 CHARACTER_ACTIONS = ('stand', 'move', 'attack', 'die')
 

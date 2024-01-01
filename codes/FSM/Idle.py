@@ -10,8 +10,8 @@ class Idle(State):
         super().begin()
         self.m_object.change_action(0)
 
-    def run(self):
-        super().run()
+    def update(self):
+        super().update()
         pass
 
     def end(self):

@@ -1,7 +1,8 @@
 from codes.JsonManager import JsonManager
 from codes.ImageManager import ImageManager
-from codes.SpriteManager import SpriteManager
 from codes.Action import Action
+from codes.CharacterManager import CharacterManager
+from codes.SpriteManager import SpriteManager
 from codes.Character import Character
 from codes.Player import Player
 from codes.Npc import Npc
@@ -24,6 +25,7 @@ class GameLevel:
             for j in range(len(characters)):
                 if characters[j]["id"] == objects[i]["id"]:
                     character = globals()[characters[j]["type"]]()
+                    CharacterManager.get_instance().append_character(objects[i]["id"], character)
                     for k in range(len(characters[j]["actions"])):
                         action = Action(character)
                         action.m_orientation = objects[i]["orientation"]

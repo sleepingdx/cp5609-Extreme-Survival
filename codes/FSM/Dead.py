@@ -10,8 +10,8 @@ class Dead(State):
         super().begin()
         self.m_object.change_action(3)
 
-    def run(self):
-        super().run()
+    def update(self):
+        super().update()
         pass
 
     def end(self):

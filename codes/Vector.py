@@ -23,3 +23,4 @@ class Vector:
         if magnitude != 0:
             self.x /= magnitude
             self.z /= magnitude
+        return self
