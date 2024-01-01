@@ -3,29 +3,31 @@ from codes import MyDefine
 from codes.SpriteManager import SpriteManager
 from codes.CharacterManager import CharacterManager
 from codes.GameLevelManager import GameLevelManager
+from codes.EventTriggerManager import EventTriggerManager
+from codes.EventTrigger import EventTrigger
 
 
-class MyGame:
+class MyGame(EventTrigger):
 
     def __init__(self):
+        super().__init__()
         pygame.init()
         self.m_window = pygame.display.set_mode((MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
         pygame.display.set_caption(MyDefine.GAME_NAME)
         self.m_clock = pygame.time.Clock()
-
         self.m_player = None
+        self.m_running = False
+        EventTriggerManager.get_instance().append_trigger(self)
 
     def start(self):
         GameLevelManager.get_instance().start(0)
 
     def run(self):
         # 游戏循环
-        running = True
-        while running:
+        self.m_running = True
+        while self.m_running:
             # 检查事件
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
+            EventTriggerManager.get_instance().trigger()
 
             # Lock frame rate
             # self.m_clock.tick(MyDefine.GAME_FRAME_RATE)
@@ -50,3 +52,7 @@ class MyGame:
 
     def end(self):
         pygame.quit()
+
+    def trigger(self, event):
+        if event.type == pygame.QUIT:
+            self.m_running = False

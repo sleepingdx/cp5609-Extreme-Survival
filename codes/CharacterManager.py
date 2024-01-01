@@ -16,6 +16,12 @@ class CharacterManager(Singleton):
             for i in range(len(self.m_characters)):
                 self.m_characters[i].update()
 
+    def trigger_event(self, event):
+        if self.m_characters:
+            for i in range(len(self.m_characters)):
+                if hasattr(self.m_characters[i], "trigger_event"):
+                    self.m_characters[i].trigger_event(event)
+
     def append_character(self, name, character):
         """
         Append character to dictionary
