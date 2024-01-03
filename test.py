@@ -1,62 +1,62 @@
 import pygame
+import pygame.image
+import math
+import time
+from codes import MyDefine
 
-# 初始化Pygame
-pygame.init()
+# Direction of a character
+MAX_CHARACTER_DIRECTION_COUNT = 4
+# Basic move speed (m/s)
+BASIC_CHARACTER_MOVE_SPEED = 0.5
+# Basic action frequency of a character (frame/second)
+BASIC_CHARACTER_ACTION_FREQUENCY = 4
 
-# 设置窗口尺寸
-win_width = 800
-win_height = 600
-win = pygame.display.set_mode((win_width, win_height))
-pygame.display.set_caption("Sprite with Keyframes")
 
-# 加载包含多个关键帧的图像
-keyframes_image = pygame.image.load('keyframes_image.png')  # 替换为你自己的包含关键帧的图像
+class Character(pygame.sprite.Sprite):
+    """Basic class of all characters"""
 
-# 定义关键帧大小和数量
-frame_width = 48
-frame_height = 48
-num_frames_horizontal = keyframes_image.get_width() // frame_width
-
-# 创建精灵类
-class KeyframeSprite(pygame.sprite.Sprite):
-    def __init__(self, frames, frame_index):
+    def __init__(self, row, col, frameCount, resFile):
+        """Constructive method"""
         super().__init__()
-        self.frames = frames  # 存储所有关键帧的图像
-        self.image = frames[frame_index]  # 设置当前精灵的图像
-        self.rect = self.image.get_rect()
-        self.rect.center = (win_width // 2, win_height // 2)  # 初始位置在窗口中心
+
+        # Initialize member-variables
+        self.m_row = row
+        self.m_col = col
+        self.m_frameCount = frameCount
+        self.m_resFile = resFile
+        self.m_action = {'direction': 0, 'index': 0}  # (0:↓ 1:→ 2:↑ 3:←)
+        self.rect = None
+        self.m_milliseconds = MyDefine.convert_nsec_to_msec(time.time_ns())
+
+        # Load resource
+        self.resImage = pygame.image.load(self.m_resFile).convert()
+        self.image = None
+
+        # Counter-Clockwise Direction (↓ → ↑ ←)
+        self.m_frames = []
+        for i in range(MAX_CHARACTER_DIRECTION_COUNT):
+            frames = []
+            for j in range(self.m_frameCount):
+                frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
+                frame_surface.blit(self.resImage, (0, 0), ((self.m_col + j) * MyDefine.CHARACTER_RESOLUTION[0],
+                                                           (self.m_row + i) * MyDefine.CHARACTER_RESOLUTION[1],
+                                                           MyDefine.CHARACTER_RESOLUTION[0],
+                                                           MyDefine.CHARACTER_RESOLUTION[1]))
+                frames.append(frame_surface)
+            self.m_frames.append(frames)
 
     def update(self):
-        # 这里可以添加精灵的更新逻辑
-        pass
+        """Update frame status"""
+        curMillisecond = MyDefine.convert_nsec_to_msec(time.time_ns())
+        if math.floor(BASIC_CHARACTER_ACTION_FREQUENCY * (curMillisecond - self.m_milliseconds) / 1000) > 0:
+            self.m_action['index'] += 1
+            self.m_milliseconds = curMillisecond
 
-# 根据关键帧数量切分图像并保存每个关键帧的图像
-frames_list = []
-for i in range(num_frames_horizontal):
-    left = i * frame_width
-    frame_surface = pygame.Surface((frame_width, frame_height))
-    frame_surface.blit(keyframes_image, (0, 0), (left, 0, frame_width, frame_height))
-    frames_list.append(frame_surface)
+        self.m_action['index'] = (self.m_action['index']) % self.m_frameCount
+        self.image = self.m_frames[self.m_action['direction']][self.m_action['index']]
+        self.setCenterPos(400, 300)
 
-# 创建多个精灵对象，每个对象对应一个关键帧
-all_sprites = pygame.sprite.Group()
-for i in range(len(frames_list)):
-    sprite = KeyframeSprite(frames_list, i)
-    all_sprites.add(sprite)
-
-# 游戏循环
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    win.fill((255, 255, 255))
-
-    # 更新和绘制所有精灵
-    all_sprites.update()
-    all_sprites.draw(win)
-
-    pygame.display.flip()
-
-pygame.quit()
+    def setCenterPos(self, x, z):
+        """Set center position of the character"""
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, z)

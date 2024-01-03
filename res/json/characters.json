@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "type": "Player",
+    "name": "dx01",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,1]]},
+          {"name": "Right", "list": [[2,1]]},
+          {"name": "Down", "list": [[0,1]]},
+          {"name": "Left", "list": [[1,1]]}
+        ]
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,0],[3,2]]},
+          {"name": "Right", "list": [[2,0],[2,2]]},
+          {"name": "Down", "list": [[0,0],[0,2]]},
+          {"name": "Left", "list": [[1,0],[1,2]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "type": "Npc",
+    "name": "dx02",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,4]]},
+          {"name": "Right", "list": [[2,4]]},
+          {"name": "Down", "list": [[0,4]]},
+          {"name": "Left", "list": [[1,4]]}
+        ]
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,3],[3,5]]},
+          {"name": "Right", "list": [[2,3],[2,5]]},
+          {"name": "Down", "list": [[0,3],[0,5]]},
+          {"name": "Left", "list": [[1,3],[1,5]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "Item",
+    "name": "dx03",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,7]]},
+          {"name": "Right", "list": [[2,7]]},
+          {"name": "Down", "list": [[0,7]]},
+          {"name": "Left", "list": [[1,7]]}
+        ]
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,6],[3,8]]},
+          {"name": "Right", "list": [[2,6],[2,8]]},
+          {"name": "Down", "list": [[0,6],[0,8]]},
+          {"name": "Left", "list": [[1,6],[1,8]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "Equipment",
+    "name": "dx01",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,10]]},
+          {"name": "Right", "list": [[2,10]]},
+          {"name": "Down", "list": [[0,10]]},
+          {"name": "Left", "list": [[1,10]]}
+        ]
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,9],[3,1]]},
+          {"name": "Right", "list": [[2,9],[2,1]]},
+          {"name": "Down", "list": [[0,9],[0,1]]},
+          {"name": "Left", "list": [[1,9],[1,1]]}
+        ]
+      }
+    ]
+  }
+]
