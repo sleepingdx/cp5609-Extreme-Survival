@@ -18,7 +18,8 @@ black = (0, 0, 0)
 green = (0, 255, 0)
 
 # 字体设置为默认字体
-font = pygame.font.Font(None, 36)
+font_button = pygame.font.Font(None, 36)
+font_text = pygame.font.Font(None, 80)
 
 # 获取背景图像的路径，使用原始字符串
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -31,7 +32,12 @@ background_image = pygame.image.load(background_path)
 
 # 函数：显示文本
 def draw_text(text, x, y, color=black):
-    text_surface = font.render(text, True, color)
+    text_surface = font_text.render(text, True, color)
+    text_rect = text_surface.get_rect(center=(x, y))
+    screen.blit(text_surface, text_rect)
+
+def draw_button(text, x, y, color=black):
+    text_surface = font_button.render(text, True, color)
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
@@ -58,16 +64,16 @@ while running:
     # 绘制背景图像
     screen.blit(background_image, (0, 0))
     # 显示标题
-    draw_text("Character Selection", width // 2, 100)
+    draw_text("Character Selection", width // 2, 50)
 
     # 创建按钮
     warrior_button_rect = pygame.Rect(width // 4 -100, 600, 200, 50)
     pygame.draw.rect(screen, white, warrior_button_rect)
-    draw_text("Warrior", warrior_button_rect.centerx, warrior_button_rect.centery, black)
+    draw_button("Warrior", warrior_button_rect.centerx, warrior_button_rect.centery, black)
 
     archer_button_rect = pygame.Rect(width-(width // 4 +150), 600, 200, 50)
     pygame.draw.rect(screen, white, archer_button_rect)
-    draw_text("Archer", archer_button_rect.centerx, archer_button_rect.centery, black)
+    draw_button("Archer", archer_button_rect.centerx, archer_button_rect.centery, black)
 
     # 更新屏幕
     pygame.display.flip()
