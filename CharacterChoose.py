@@ -58,18 +58,20 @@ while running:
             running = False
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            pygame.quit()
             if warrior_button_rect.collidepoint(event.pos):
+                pygame.quit()
                 character_selected = "Warrior"
                 args_to_pass = ['0']
                 subprocess.run(["python", "main.py"] + args_to_pass)
                 print("Selected Warrior")
+                sys.exit()
             elif archer_button_rect.collidepoint(event.pos):
+                pygame.quit()
                 character_selected = "Archer"
                 args_to_pass = ['1']
                 subprocess.run(["python", "main.py"] + args_to_pass)
                 print("Selected Archer")
-            sys.exit()
+                sys.exit()
 
     # 清屏
     screen.fill(white)
