@@ -1,6 +1,7 @@
 import pygame
+import subprocess
+import sys
 from codes import MyDefine
-from codes.GlobalVariables import GlobalVariables
 from codes.SpriteManager import SpriteManager
 from codes.CharacterManager import CharacterManager
 from codes.GameLevelManager import GameLevelManager
@@ -53,6 +54,8 @@ class MyGame(EventTrigger):
 
     def end(self):
         pygame.quit()
+        subprocess.run(["python", "CharacterChoose.py"])
+        sys.exit()
 
     def trigger(self, event):
         if event.type == pygame.QUIT:
