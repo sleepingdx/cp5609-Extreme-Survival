@@ -1,28 +1,28 @@
 [
   {
     "characters": [
-      {"id": 0, "position": [100, 100], "orientation": 2},
-      {"id": 1, "position": [200, 200], "orientation": 2},
+      {"id": -1, "position": [100, 100], "orientation": 2},
       {"id": 2, "position": [300, 300], "orientation": 2},
-      {"id": 3, "position": [400, 400], "orientation": 2}
+      {"id": 3, "position": [400, 400], "orientation": 2},
+      {"id": 4, "position": [400, 400], "orientation": 2}
     ],
     "terrain": {}
   },
   {
     "characters": [
-      {"id": 0, "position": [100, 100], "orientation": 2},
-      {"id": 1, "position": [200, 200], "orientation": 2},
+      {"id": -1, "position": [100, 100], "orientation": 2},
       {"id": 2, "position": [300, 300], "orientation": 2},
-      {"id": 3, "position": [400, 400], "orientation": 2}
+      {"id": 3, "position": [400, 400], "orientation": 2},
+      {"id": 4, "position": [400, 400], "orientation": 2}
     ],
     "terrain": {}
   },
   {
     "characters": [
-      {"id": 0, "position": [100, 100], "orientation": 2},
-      {"id": 1, "position": [200, 200], "orientation": 2},
+      {"id": -1, "position": [100, 100], "orientation": 2},
       {"id": 2, "position": [300, 300], "orientation": 2},
-      {"id": 3, "position": [400, 400], "orientation": 2}
+      {"id": 3, "position": [400, 400], "orientation": 2},
+      {"id": 4, "position": [400, 400], "orientation": 2}
     ],
     "terrain": {}
   }

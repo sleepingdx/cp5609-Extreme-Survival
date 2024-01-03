@@ -1,3 +1,5 @@
+from codes import MyDefine
+from codes.GlobalVariables import GlobalVariables
 from codes.JsonManager import JsonManager
 from codes.ImageManager import ImageManager
 from codes.Action import Action
@@ -22,6 +24,8 @@ class GameLevel:
         characters = JsonManager.get_instance().m_json_characters
         objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][CHARACTERS_KEY]
         for i in range(len(objects)):
+            if objects[i]["id"] == MyDefine.INVALID_ID:
+                objects[i]["id"] = GlobalVariables.get_instance().m_role_id
             for j in range(len(characters)):
                 if characters[j]["id"] == objects[i]["id"]:
                     character = globals()[characters[j]["type"]]()

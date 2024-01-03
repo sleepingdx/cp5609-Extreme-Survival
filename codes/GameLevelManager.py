@@ -14,6 +14,7 @@ class GameLevelManager(Singleton):
     def start(self, index):
         """
         Start the current game leve
+        :param role_id: the character that the player chose
         :param index: index of current game level
         :return: T/F
         """

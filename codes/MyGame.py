@@ -1,5 +1,6 @@
 import pygame
 from codes import MyDefine
+from codes.GlobalVariables import GlobalVariables
 from codes.SpriteManager import SpriteManager
 from codes.CharacterManager import CharacterManager
 from codes.GameLevelManager import GameLevelManager
