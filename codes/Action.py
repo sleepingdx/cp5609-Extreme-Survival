@@ -4,10 +4,12 @@ import math
 import time
 from codes import MyDefine
 from codes.ImageManager import ImageManager
+from codes.Vector import Vector
 
 # Basic action frequency (f/s)
 BASIC_ACTION_FREQUENCY = 4
 ACTION_ORIENTATION = ["Up", "Right", "Down", "Left"]
+ACTION_VECTORS = [Vector(0, -1), Vector(1, 0), Vector(0, 1), Vector(-1, 0)]
 
 
 class Action(pygame.sprite.Sprite):
@@ -50,6 +52,13 @@ class Action(pygame.sprite.Sprite):
             self.m_frames[orientationName].append(frame_surface)
 
     def update(self):
+        max_value = self.m_object.m_orientation.dot_product(ACTION_VECTORS[self.m_orientation])
+        for i in range(len(ACTION_VECTORS)):
+            dot_value = self.m_object.m_orientation.dot_product(ACTION_VECTORS[i])
+            if dot_value >= max_value:
+                max_value = dot_value
+                self.m_orientation = i
+
         curSec = MyDefine.convert_nsec_to_msec(time.time_ns())
         if math.floor(BASIC_ACTION_FREQUENCY * (curSec - self.m_sec) / 1000) > 0:
             self.m_frame_index = (self.m_frame_index + 1) % len(self.m_frames[ACTION_ORIENTATION[self.m_orientation]])

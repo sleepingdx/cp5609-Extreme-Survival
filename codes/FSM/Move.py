@@ -25,6 +25,7 @@ class Move(State):
             return
         else:
             vector.normalize()
+            self.m_object.m_orientation = vector
             self.m_object.m_position += vector * MyDefine.PIXELS_PER_METER * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (
                     elapsed_sec / 1000)
 
