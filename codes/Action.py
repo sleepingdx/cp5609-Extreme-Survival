@@ -52,11 +52,11 @@ class Action(pygame.sprite.Sprite):
             self.m_frames[orientationName].append(frame_surface)
 
     def update(self):
-        max_value = self.m_object.m_orientation.dot_product(ACTION_VECTORS[self.m_orientation])
+        max_dot_value = self.m_object.m_orientation.dot_product(ACTION_VECTORS[self.m_orientation])
         for i in range(len(ACTION_VECTORS)):
             dot_value = self.m_object.m_orientation.dot_product(ACTION_VECTORS[i])
-            if dot_value >= max_value:
-                max_value = dot_value
+            if dot_value > max_dot_value:
+                max_dot_value = dot_value
                 self.m_orientation = i
 
         curSec = MyDefine.convert_nsec_to_msec(time.time_ns())
