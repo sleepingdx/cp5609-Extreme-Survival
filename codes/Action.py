@@ -44,7 +44,7 @@ class Action(pygame.sprite.Sprite):
     def load_action_from_list(self, actionName, orientationName, frames):
         res = ImageManager.get_instance().find_resource_by_name(actionName)
         for i in range(len(frames)):
-            frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
+            frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION, pygame.SRCALPHA)
             frame_surface.blit(res["image"], (0, 0), (frames[i][1] * MyDefine.CHARACTER_RESOLUTION[0],
                                                       frames[i][0] * MyDefine.CHARACTER_RESOLUTION[1],
                                                       MyDefine.CHARACTER_RESOLUTION[0],
