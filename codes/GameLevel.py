@@ -22,7 +22,7 @@ class GameLevel:
         # Characters
         characters = JsonManager.get_instance().m_json_characters
         objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][CHARACTERS_KEY]
-        for i in range(len(objects)):
+        for i in range(len(objects) - 1, -1, -1):
             if objects[i]["id"] == MyDefine.INVALID_ID:
                 objects[i]["id"] = GlobalVariables.get_instance().m_role_id
             for j in range(len(characters)):
