@@ -2,8 +2,9 @@ import pygame
 import subprocess
 import sys
 from codes import MyDefine
-from codes.CharacterManager import CharacterManager
 from codes.GameLevelManager import GameLevelManager
+from codes.CharacterManager import CharacterManager
+from codes.TerrainManager import TerrainManager
 from codes.EventTriggerManager import EventTriggerManager
 from codes.EventTrigger import EventTrigger
 
@@ -47,9 +48,11 @@ class MyGame(EventTrigger):
 
     @staticmethod
     def update():
+        TerrainManager.get_instance().update()
         CharacterManager.get_instance().update()
 
     def render(self):
+        TerrainManager.get_instance().render(self.m_window)
         CharacterManager.get_instance().render(self.m_window)
 
     @staticmethod

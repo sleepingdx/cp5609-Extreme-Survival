@@ -3,6 +3,7 @@ from codes.GlobalVariables import GlobalVariables
 from codes.JsonManager import JsonManager
 from codes.Action import Action
 from codes.CharacterManager import CharacterManager
+from codes.TerrainManager import TerrainManager
 from codes.Character import Character
 from codes.Player import Player
 from codes.Npc import Npc
@@ -18,6 +19,10 @@ class GameLevel:
         self.m_index = index
 
     def start(self):
+        # Terrain
+        terrain_index = JsonManager.get_instance().m_json_gameLevels[self.m_index][TERRAIN_KEY]
+        TerrainManager.get_instance().load_terrain(terrain_index)
+        TerrainManager.get_instance().change_terrain(terrain_index)
         # Characters
         characters = JsonManager.get_instance().m_json_characters
         objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][CHARACTERS_KEY]

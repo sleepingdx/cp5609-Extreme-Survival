@@ -8,7 +8,7 @@
       {"id": 5, "position": [500, 500], "orientation": 2},
       {"id": 6, "position": [600, 600], "orientation": 2}
     ],
-    "terrain": {}
+    "terrain": 0
   },
   {
     "characters": [
@@ -17,7 +17,7 @@
       {"id": 3, "position": [400, 400], "orientation": 2},
       {"id": 4, "position": [400, 400], "orientation": 2}
     ],
-    "terrain": {}
+    "terrain": 1
   },
   {
     "characters": [
@@ -26,6 +26,6 @@
       {"id": 3, "position": [400, 400], "orientation": 2},
       {"id": 4, "position": [400, 400], "orientation": 2}
     ],
-    "terrain": {}
+    "terrain": 2
   }
 ]
