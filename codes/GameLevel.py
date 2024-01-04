@@ -1,7 +1,6 @@
 from codes import MyDefine
 from codes.GlobalVariables import GlobalVariables
 from codes.JsonManager import JsonManager
-from codes.ImageManager import ImageManager
 from codes.Action import Action
 from codes.CharacterManager import CharacterManager
 from codes.Character import Character
