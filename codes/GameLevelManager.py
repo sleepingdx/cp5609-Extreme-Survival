@@ -1,6 +1,4 @@
 from codes.Singelton import Singleton
-from codes import MyDefine
-from codes.Json import Json
 from codes.GameLevel import GameLevel
 
 
@@ -14,7 +12,6 @@ class GameLevelManager(Singleton):
     def start(self, index):
         """
         Start the current game leve
-        :param role_id: the character that the player chose
         :param index: index of current game level
         :return: T/F
         """

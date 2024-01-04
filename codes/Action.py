@@ -15,7 +15,7 @@ ACTION_VECTORS = [Vector(0, -1), Vector(1, 0), Vector(0, 1), Vector(-1, 0)]
 class Action(pygame.sprite.Sprite):
     """Subclass of Sprite"""
 
-    def __init__(self, obj):
+    def __init__(self, obj, filename):
         super().__init__()
         self.m_object = obj
         self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
@@ -29,9 +29,12 @@ class Action(pygame.sprite.Sprite):
         self.m_frame_index = 0
         self.image = None
         self.rect = None
+        # 因为不是一次性加在全部资源， 所以每次使用前需要确认该资源已经被加载了
+        ImageManager.get_instance().load_resource(filename, filename)
+        self.m_filename = filename
 
-    def load_action_by_index(self, actionName, orientationName, beginRow, beginCol, endRow, endCol):
-        res = ImageManager.get_instance().find_resource_by_name(actionName)
+    def load_action_by_index(self, orientationName, beginRow, beginCol, endRow, endCol):
+        res = ImageManager.get_instance().find_resource_by_name(self.m_filename)
         for i in range(endRow - beginRow):
             for j in range(endCol - beginCol):
                 frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
@@ -41,8 +44,8 @@ class Action(pygame.sprite.Sprite):
                                                     MyDefine.CHARACTER_RESOLUTION[1]))
                 self.m_frames[orientationName].append(frame_surface)
 
-    def load_action_from_list(self, actionName, orientationName, frames):
-        res = ImageManager.get_instance().find_resource_by_name(actionName)
+    def load_action_from_list(self, orientationName, frames):
+        res = ImageManager.get_instance().find_resource_by_name(self.m_filename)
         for i in range(len(frames)):
             frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION, pygame.SRCALPHA)
             frame_surface.blit(res["image"], (0, 0), (frames[i][1] * MyDefine.CHARACTER_RESOLUTION[0],

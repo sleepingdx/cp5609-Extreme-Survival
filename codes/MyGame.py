@@ -2,7 +2,6 @@ import pygame
 import subprocess
 import sys
 from codes import MyDefine
-from codes.SpriteManager import SpriteManager
 from codes.CharacterManager import CharacterManager
 from codes.GameLevelManager import GameLevelManager
 from codes.EventTriggerManager import EventTriggerManager
@@ -21,7 +20,8 @@ class MyGame(EventTrigger):
         self.m_running = False
         EventTriggerManager.get_instance().append_trigger(self)
 
-    def start(self):
+    @staticmethod
+    def start():
         GameLevelManager.get_instance().start(0)
 
     def run(self):
@@ -45,14 +45,15 @@ class MyGame(EventTrigger):
             # 刷新屏幕
             pygame.display.flip()
 
-    def update(self):
+    @staticmethod
+    def update():
         CharacterManager.get_instance().update()
-        SpriteManager.get_instance().update()
 
     def render(self):
-        SpriteManager.get_instance().render(self.m_window)
+        CharacterManager.get_instance().render(self.m_window)
 
-    def end(self):
+    @staticmethod
+    def end():
         pygame.quit()
         subprocess.run(["python", "CharacterChoose.py"])
         sys.exit()

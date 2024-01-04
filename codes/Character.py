@@ -16,6 +16,7 @@ class Character:
         self.m_position = Vector(0, 0)
         self.m_orientation = Vector(0, 0)
         # Actions
+        self.m_spriteMgr = SpriteManager()
         self.m_actions = {}
         self.m_current = 0
 
@@ -28,7 +29,7 @@ class Character:
         """
         self.m_actions[name] = action
         if CHARACTER_ACTIONS[self.m_current] == name:
-            SpriteManager.get_instance().append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
+            self.m_spriteMgr.append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
 
     def change_action(self, index):
         """
@@ -37,15 +38,18 @@ class Character:
         :return: T/F
         """
         if 0 <= index < len(CHARACTER_ACTIONS):
-            SpriteManager.get_instance().delete_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
+            self.m_spriteMgr.delete_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             self.m_current = index
-            SpriteManager.get_instance().append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
+            self.m_spriteMgr.append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             return True
         else:
             return False
 
     def update(self):
-        pass
+        self.m_spriteMgr.update()
+
+    def render(self, window):
+        self.m_spriteMgr.render(window)
 
     def set_center_pos(self, x, z):
         self.m_position = Vector(x, z)

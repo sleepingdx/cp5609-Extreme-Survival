@@ -108,7 +108,7 @@
         ]
       },
       {
-        "name": "Die",
+        "name": "Move",
         "filename": "./res/items/Chest.png",
         "frames": [
           {"name": "Up", "list": [[2, 0], [2, 1], [2, 2]]},

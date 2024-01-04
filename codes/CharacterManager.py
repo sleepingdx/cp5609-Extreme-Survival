@@ -16,6 +16,11 @@ class CharacterManager(Singleton):
             for key in self.m_characters:
                 self.m_characters[key].update()
 
+    def render(self, window):
+        if self.m_characters:
+            for key in self.m_characters:
+                self.m_characters[key].render(window)
+
     def trigger_event(self, event):
         if self.m_characters:
             for key in self.m_characters:
