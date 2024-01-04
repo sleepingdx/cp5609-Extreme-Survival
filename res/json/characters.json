@@ -121,6 +121,46 @@
   },
   {
     "id": 4,
+    "type": "Item",
+    "name": "sword",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/items/Inside_C.png",
+        "frames": [
+          {"name": "Up", "list": [[2,8]]},
+          {"name": "Right", "list": [[2,8]]},
+          {"name": "Down", "list": [[2,8]]},
+          {"name": "Left", "list": [[2,8]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "Item",
+    "name": "sword",
+    "portrait": "",
+    "hp": 1.0,
+    "mp": 1.0,
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/items/Inside_C.png",
+        "frames": [
+          {"name": "Up", "list": [[2,11]]},
+          {"name": "Right", "list": [[2,11]]},
+          {"name": "Down", "list": [[2,11]]},
+          {"name": "Left", "list": [[2,11]]}
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
     "type": "Equipment",
     "name": "machete",
     "portrait": "",
@@ -140,7 +180,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 7,
     "type": "Equipment",
     "name": "sword",
     "portrait": "",
@@ -160,7 +200,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 8,
     "type": "Equipment",
     "name": "bow",
     "portrait": "",
