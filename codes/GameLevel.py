@@ -30,9 +30,6 @@ class GameLevel:
                     character = globals()[characters[j]["type"]]()
                     CharacterManager.get_instance().append_character(objects[i]["id"], character)
                     for k in range(len(characters[j]["actions"])):
-                        # 因为不是一次性加在全部资源， 所以每次使用前需要确认该资源已经被加载了
-                        ImageManager.get_instance().load_resource(characters[j]["actions"][k]["filename"],
-                                                                  characters[j]["actions"][k]["filename"])
                         action = Action(character, characters[j]["actions"][k]["filename"])
                         action.m_orientation = objects[i]["orientation"]
                         character.append_action(characters[j]["actions"][k]["name"], action)
