@@ -6,7 +6,7 @@ from codes.BlockLayer import BlockLayer
 class Collider:
     def __init__(self, action, pos, radius, obj):
         self.m_action = action
-        self.m_position = pos
+        self.m_relative_pos = pos
         self.m_radius = radius
         self.m_object = obj
         self.m_row = MyDefine.INVALID_ID
@@ -16,7 +16,7 @@ class Collider:
         blocks = BlockLayer.get_instance().m_blocks
         objects = BlockLayer.get_instance().m_objects
 
-        pos = Vector(x, z) + self.m_position
+        pos = Vector(x, z) + self.m_relative_pos
         row = int(pos.z // MyDefine.BLOCK_RESOLUTION[0])
         col = int(pos.x // MyDefine.BLOCK_RESOLUTION[1])
         if self.m_row != row or self.m_col != col:
