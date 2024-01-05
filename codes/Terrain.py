@@ -2,6 +2,7 @@ import math
 import random
 from codes import MyDefine
 from codes.ImageManager import ImageManager
+from codes.BlockLayer import BlockLayer
 
 
 class Terrain:
@@ -20,6 +21,7 @@ class Terrain:
                 col = json['tiles'][r][c]
                 row.append(col)
             self.m_tiles.append(row)
+        self.m_block_layer = BlockLayer(json)
 
     def update(self):
         pass
