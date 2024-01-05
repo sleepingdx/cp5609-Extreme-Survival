@@ -33,25 +33,20 @@ class Action(pygame.sprite.Sprite):
         ImageManager.get_instance().load_resource(filename, filename)
         self.m_filename = filename
 
-    def load_action_by_index(self, orientationName, beginRow, beginCol, endRow, endCol):
+    def load_action_by_index(self, orientationName, beginRow, beginCol, endRow, endCol, resolution):
         res = ImageManager.get_instance().find_resource_by_name(self.m_filename)
         for i in range(endRow - beginRow):
             for j in range(endCol - beginCol):
-                frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION)
-                frame_surface.blit(res[1], (0, 0), (i * MyDefine.CHARACTER_RESOLUTION[0],
-                                                    j * MyDefine.CHARACTER_RESOLUTION[1],
-                                                    MyDefine.CHARACTER_RESOLUTION[0],
-                                                    MyDefine.CHARACTER_RESOLUTION[1]))
+                frame_surface = pygame.Surface(resolution)
+                frame_surface.blit(res[1], (0, 0), (i * resolution[0], j * resolution[1], resolution[0], resolution[1]))
                 self.m_frames[orientationName].append(frame_surface)
 
-    def load_action_from_list(self, orientationName, frames):
+    def load_action_from_list(self, orientationName, frames, resolution):
         res = ImageManager.get_instance().find_resource_by_name(self.m_filename)
         for i in range(len(frames)):
-            frame_surface = pygame.Surface(MyDefine.CHARACTER_RESOLUTION, pygame.SRCALPHA)
-            frame_surface.blit(res["image"], (0, 0), (frames[i][1] * MyDefine.CHARACTER_RESOLUTION[0],
-                                                      frames[i][0] * MyDefine.CHARACTER_RESOLUTION[1],
-                                                      MyDefine.CHARACTER_RESOLUTION[0],
-                                                      MyDefine.CHARACTER_RESOLUTION[1]))
+            frame_surface = pygame.Surface(resolution, pygame.SRCALPHA)
+            frame_surface.blit(res["image"], (0, 0), (
+                frames[i][1] * resolution[0], frames[i][0] * resolution[1], resolution[0], resolution[1]))
             self.m_frames[orientationName].append(frame_surface)
 
     def update(self):

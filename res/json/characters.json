@@ -6,6 +6,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -36,6 +37,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -66,6 +68,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -96,6 +99,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -126,6 +130,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -146,6 +151,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -166,6 +172,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -186,6 +193,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
@@ -206,6 +214,7 @@
     "portrait": "",
     "hp": 1.0,
     "mp": 1.0,
+    "resolution": [48,48],
     "actions": [
       {
         "name": "Stand",
