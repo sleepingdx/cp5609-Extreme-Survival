@@ -16,7 +16,6 @@ class Collider:
         blocks = BlockLayer.get_instance().m_blocks
         objects = BlockLayer.get_instance().m_objects
 
-        # self.image.get_rect()
         pos = Vector(x, z) + self.m_position
         row = int(pos.z // MyDefine.BLOCK_RESOLUTION[0])
         col = int(pos.x // MyDefine.BLOCK_RESOLUTION[1])
