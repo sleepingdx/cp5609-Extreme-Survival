@@ -4,6 +4,7 @@ from codes.JsonManager import JsonManager
 from codes.Action import Action
 from codes.CharacterManager import CharacterManager
 from codes.TerrainManager import TerrainManager
+from codes.BlockLayer import BlockLayer
 from codes.Character import Character
 from codes.Player import Player
 from codes.Npc import Npc
@@ -23,6 +24,9 @@ class GameLevel:
         terrain_index = JsonManager.get_instance().m_json_gameLevels[self.m_index][TERRAIN_KEY]
         TerrainManager.get_instance().load_terrain(terrain_index)
         TerrainManager.get_instance().change_terrain(terrain_index)
+        # block layer
+        json_blocks = JsonManager.get_instance().m_json_terrain[terrain_index]['blocks']
+        BlockLayer.get_instance().load_blocks(json_blocks)
         # Characters
         characters = JsonManager.get_instance().m_json_characters
         objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][CHARACTERS_KEY]
@@ -40,7 +44,7 @@ class GameLevel:
                         for l in range(len(characters[j]["actions"][k]["frames"])):
                             action.load_action_from_list(characters[j]["actions"][k]["frames"][l]["name"],
                                                          characters[j]["actions"][k]["frames"][l]["list"],
-                                                         characters[j]["resolution"])
+                                                         characters[j]["resolution"], characters[j]["colliders"])
                     character.set_center_pos(objects[i]["position"][0], objects[i]["position"][1])
 
     def update(self):

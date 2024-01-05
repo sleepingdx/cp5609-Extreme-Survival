@@ -7,6 +7,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -38,6 +39,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -69,6 +71,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -100,6 +103,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -131,6 +135,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -152,6 +157,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -173,6 +179,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -194,6 +201,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",
@@ -215,6 +223,7 @@
     "hp": 1.0,
     "mp": 1.0,
     "resolution": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
         "name": "Stand",

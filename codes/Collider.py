@@ -1,26 +1,33 @@
 from codes import MyDefine
+from codes.Vector import Vector
+from codes.BlockLayer import BlockLayer
 
 
 class Collider:
-    def __init__(self, pos, radius, obj, block_layer):
+    def __init__(self, action, pos, radius, obj):
+        self.m_action = action
         self.m_position = pos
         self.m_radius = radius
         self.m_object = obj
-        self.m_block_layer = block_layer
         self.m_row = MyDefine.INVALID_ID
         self.m_col = MyDefine.INVALID_ID
 
-    def update(self):
-        pos = self.m_object.m_position
-        row = pos.z % MyDefine.BLOCK_RESOLUTION[0]
-        col = pos.x % MyDefine.BLOCK_RESOLUTION[1]
+    def update(self, x, z):
+        blocks = BlockLayer.get_instance().m_blocks
+        objects = BlockLayer.get_instance().m_objects
+
+        # self.image.get_rect()
+        pos = Vector(x, z) + self.m_position
+        row = int(pos.z // MyDefine.BLOCK_RESOLUTION[0])
+        col = int(pos.x // MyDefine.BLOCK_RESOLUTION[1])
         if self.m_row != row or self.m_col != col:
             if self.m_row != MyDefine.INVALID_ID and self.m_col != MyDefine.INVALID_ID:
-                if self.m_block_layer.m_blocks[self.m_row][self.m_col] == MyDefine.BLOCK_PLACEHOLDERS[2]:
-                    self.m_block_layer.m_blocks[self.m_row][self.m_col] = MyDefine.BLOCK_PLACEHOLDERS[0]
-                    self.m_block_layer.m_objects[f'{self.m_row},{self.m_col}'] = None
+                if blocks[self.m_row][self.m_col] == MyDefine.BLOCK_PLACEHOLDERS[2]:
+                    blocks[self.m_row][self.m_col] = MyDefine.BLOCK_PLACEHOLDERS[0]
+                    objects[f'{self.m_row},{self.m_col}'] = None
             self.m_row = row
             self.m_col = col
-            if self.m_block_layer.m_blocks[self.m_row][self.m_col] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                self.m_block_layer.m_blocks[self.m_row][self.m_col] = MyDefine.BLOCK_PLACEHOLDERS[2]
-                self.m_block_layer.m_objects[f'{self.m_row},{self.m_col}'] = self.m_object
+            if 0 <= self.m_row < len(blocks) and 0 <= self.m_col < len(blocks[self.m_row]):
+                if blocks[self.m_row][self.m_col] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                    blocks[self.m_row][self.m_col] = MyDefine.BLOCK_PLACEHOLDERS[2]
+                    objects[f'{self.m_row},{self.m_col}'] = self.m_object

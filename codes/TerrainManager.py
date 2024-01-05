@@ -21,6 +21,10 @@ class TerrainManager(Singleton):
         if 0 <= index < len(self.m_terrains):
             self.m_current = index
 
+    def get_terrain(self, index):
+        if 0 <= index < len(self.m_terrains):
+            return self.m_terrains[index]
+
     def update(self):
         if 0 <= self.m_current < len(self.m_terrains):
             self.m_terrains[self.m_current].update()

@@ -1,9 +1,14 @@
 from codes import MyDefine
+from codes.Singelton import Singleton
 
 
-class BlockLayer:
-    def __init__(self, json):
-        self.m_blocks = json['blocks']
+class BlockLayer(Singleton):
+    def __init__(self):
+        self.m_blocks = None
+        self.m_objects = {}
+
+    def load_blocks(self, json):
+        self.m_blocks = json
         self.m_objects = {}
         for row in range(len(self.m_blocks)):
             for col in range(len(self.m_blocks[row])):
