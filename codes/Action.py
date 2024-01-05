@@ -7,7 +7,7 @@ from codes.ImageManager import ImageManager
 from codes.Vector import Vector
 from codes.Collider import Collider
 
-BASIC_ACTION_FREQUENCY = 4  # Basic action frequency (f/s)
+BASIC_ACTION_FREQUENCY = 6  # Basic action frequency (f/s)
 ACTION_ORIENTATION = ["Up", "Right", "Down", "Left"]
 ACTION_VECTORS = [Vector(0, -1), Vector(1, 0), Vector(0, 1), Vector(-1, 0)]
 
