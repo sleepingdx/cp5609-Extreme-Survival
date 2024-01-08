@@ -44,13 +44,14 @@ class Move(State):
                             self.m_object.m_fsm.change_status(0)
                             return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
-                        target = objects[f'{r},{c}']
-                        if target and target != self.m_object:
-                            distance = (target.m_position - new_pos).calculate_magnitude2()
-                            if distance < (
-                                    target.get_rect().width / 2 + self.m_object.get_rect().width / 2) ** 2:
-                                self.m_object.m_fsm.change_status(0)
-                                return
+                        for i in range(len(objects[f'{r},{c}'])):
+                            if objects[f'{r},{c}'][i] and objects[f'{r},{c}'][i] != self.m_object:
+                                distance = (objects[f'{r},{c}'][i].m_position - new_pos).calculate_magnitude2()
+                                if distance < (
+                                        objects[f'{r},{c}'][
+                                            i].get_rect().width / 2 + self.m_object.get_rect().width / 2) ** 2:
+                                    self.m_object.m_fsm.change_status(0)
+                                    return
                     else:
                         pass
             self.m_object.m_position = new_pos
