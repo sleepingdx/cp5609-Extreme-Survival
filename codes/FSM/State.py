@@ -17,8 +17,7 @@ class State:
         blocks = BlockLayer.get_instance().m_blocks
         objects = BlockLayer.get_instance().m_objects
         if self.m_row != row or self.m_col != col:
-            if self.m_row != MyDefine.INVALID_ID and self.m_col != MyDefine.INVALID_ID:
-                BlockLayer.get_instance().delete(self.m_row, self.m_col, self.m_object, MyDefine.BLOCK_PLACEHOLDERS[0])
+            # BlockLayer.get_instance().remove(self.m_row, self.m_col, self.m_object, MyDefine.BLOCK_PLACEHOLDERS[0])
             self.m_row = row
             self.m_col = col
             if 0 <= self.m_row < len(blocks) and 0 <= self.m_col < len(blocks[self.m_row]):

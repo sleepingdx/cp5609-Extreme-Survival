@@ -15,13 +15,13 @@ class BlockLayer(Singleton):
                 self.m_objects[f'{row},{col}'] = []
 
     def append(self, row, col, obj, enum):
-        if self.m_blocks[row][col] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-            self.m_blocks[row][col] = enum
-            if enum == MyDefine.BLOCK_PLACEHOLDERS[2]:
-                self.m_objects[f'{row},{col}'].append(obj)
+        if 0 <= row < len(self.m_blocks) and 0 <= col < len(self.m_blocks):
+            if self.m_blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[1]:
+                self.m_blocks[row][col] = enum
+            self.m_objects[f'{row},{col}'].append(obj)
 
-    def delete(self, row, col, obj, enum):
-        if self.m_blocks[row][col] and self.m_blocks[row][col] == MyDefine.BLOCK_PLACEHOLDERS[2]:
-            self.m_blocks[row][col] = enum
-            if enum == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                self.m_objects[f'{row},{col}'].remove(obj)
+    def remove(self, row, col, obj, enum):
+        if 0 <= row < len(self.m_blocks) and 0 <= col < len(self.m_blocks):
+            if self.m_blocks[row][col] == MyDefine.BLOCK_PLACEHOLDERS[1]:
+                self.m_blocks[row][col] = enum
+            self.m_objects[f'{row},{col}'].remove(obj)

@@ -31,29 +31,26 @@ class Move(State):
                        MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
             # Collision Detection
             blocks = BlockLayer.get_instance().m_blocks
-            objects = BlockLayer.get_instance().m_objects
-            for r in range(self.m_row - 1, self.m_row + 1):
-                for c in range(self.m_col - 1, self.m_col + 1):
+            for r in range(max(0, self.m_row - 1), min(self.m_row + 1 + 1, len(blocks))):
+                for c in range(max(0, self.m_col - 1), min(self.m_col + 1 + 1, len(blocks[r]))):
                     if blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[1]:
                         center_pos = Vector(
                             c * MyDefine.BLOCK_RESOLUTION[0] + MyDefine.BLOCK_PLACEHOLDERS[0] / 2,
                             r * MyDefine.BLOCK_PLACEHOLDERS[1] + MyDefine.BLOCK_RESOLUTION[1] / 2)
                         distance = (center_pos - new_pos).calculate_magnitude2()
-                        if distance < (
-                                self.m_object.get_rect().width / 2 + MyDefine.BLOCK_RESOLUTION[0] / 2) ** 2:
+                        if distance < (self.m_object.get_rect().width / 2 + MyDefine.BLOCK_RESOLUTION[0] / 2) ** 2:
                             self.m_object.m_fsm.change_status(0)
                             return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
-                        for i in range(len(objects[f'{r},{c}'])):
-                            if objects[f'{r},{c}'][i] and objects[f'{r},{c}'][i] != self.m_object:
-                                distance = (objects[f'{r},{c}'][i].m_position - new_pos).calculate_magnitude2()
-                                if distance < (
-                                        objects[f'{r},{c}'][
-                                            i].get_rect().width / 2 + self.m_object.get_rect().width / 2) ** 2:
-                                    self.m_object.m_fsm.change_status(0)
-                                    return
-                    else:
-                        pass
+                        objects = BlockLayer.get_instance().m_objects[f'{r},{c}']
+                        if objects:
+                            for i in range(len(objects)):
+                                if objects[i] and objects[i] != self.m_object:
+                                    distance = (objects[i].m_position - new_pos).calculate_magnitude2()
+                                    if distance < (
+                                            objects[i].get_rect().width / 2 + self.m_object.get_rect().width / 2):
+                                        self.m_object.m_fsm.change_status(0)
+                                        return
             self.m_object.m_position = new_pos
 
     def end(self):
