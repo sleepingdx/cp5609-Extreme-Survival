@@ -1,4 +1,6 @@
+from codes import MyDefine
 from codes.FSM.State import State
+from codes.BlockLayer import BlockLayer
 
 
 class Idle(State):
@@ -12,7 +14,6 @@ class Idle(State):
 
     def update(self):
         super().update()
-        pass
 
     def end(self):
         super().end()

@@ -1,5 +1,8 @@
+import time
+from codes import MyDefine
 from codes.SpriteManager import SpriteManager
 from codes.Vector import Vector
+from codes.FSM.FiniteStateMachine import FiniteStateMachine
 
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
@@ -19,6 +22,10 @@ class Character:
         self.m_spriteMgr = SpriteManager()
         self.m_actions = {}
         self.m_current = 0
+        # FSM
+        self.m_fsm = FiniteStateMachine(self, "Character")
+        self.m_target_pos = Vector(0, 0)
+        self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
 
     def append_action(self, name, action):
         """
@@ -46,6 +53,7 @@ class Character:
             return False
 
     def update(self):
+        self.m_fsm.update()
         self.m_spriteMgr.update()
 
     def render(self, window):
@@ -53,3 +61,6 @@ class Character:
 
     def set_center_pos(self, x, z):
         self.m_position = Vector(x, z)
+
+    def get_rect(self):
+        return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect

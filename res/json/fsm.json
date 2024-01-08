@@ -1,5 +1,5 @@
 {
-  "Player":
+  "Character":
   {
     "Idle": [1, 2, 3],
     "Move": [0, 2, 3],
