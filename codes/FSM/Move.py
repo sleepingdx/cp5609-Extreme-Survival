@@ -35,10 +35,11 @@ class Move(State):
                 for c in range(max(0, self.m_col - 1), min(self.m_col + 1 + 1, len(blocks[r]))):
                     if blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[1]:
                         center_pos = Vector(
-                            c * MyDefine.BLOCK_RESOLUTION[0] + MyDefine.BLOCK_PLACEHOLDERS[0] / 2,
-                            r * MyDefine.BLOCK_PLACEHOLDERS[1] + MyDefine.BLOCK_RESOLUTION[1] / 2)
+                            c * MyDefine.BLOCK_RESOLUTION[0] + MyDefine.BLOCK_RESOLUTION[0] / MyDefine.COLLIDER_RANGE,
+                            r * MyDefine.BLOCK_RESOLUTION[1] + MyDefine.BLOCK_RESOLUTION[1] / MyDefine.COLLIDER_RANGE)
                         distance = (center_pos - new_pos).calculate_magnitude2()
-                        if distance < (self.m_object.get_rect().width / 2 + MyDefine.BLOCK_RESOLUTION[0] / 2) ** 2:
+                        if distance < ((self.m_object.get_rect().width +
+                                        MyDefine.BLOCK_RESOLUTION[0]) / MyDefine.COLLIDER_RANGE) ** 2:
                             self.m_object.m_fsm.change_status(0)
                             return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
@@ -47,8 +48,8 @@ class Move(State):
                             for i in range(len(objects)):
                                 if objects[i] and objects[i] != self.m_object:
                                     distance = (objects[i].m_position - new_pos).calculate_magnitude2()
-                                    if distance < (
-                                            objects[i].get_rect().width / 2 + self.m_object.get_rect().width / 2):
+                                    if (distance < (objects[i].get_rect().width / MyDefine.COLLIDER_RANGE
+                                                    + self.m_object.get_rect().width / MyDefine.COLLIDER_RANGE) ** 2):
                                         self.m_object.m_fsm.change_status(0)
                                         return
             self.m_object.m_position = new_pos
