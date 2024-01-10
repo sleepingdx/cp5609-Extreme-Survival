@@ -16,7 +16,7 @@ class ImageManager(Singleton):
         :return: None
         """
         if name not in self.m_resDirectory:
-            image = pygame.image.load(filename)
+            image = pygame.image.load(filename).convert()
             # file: the image file name image: the image resource
             self.m_resDirectory[name] = {'filename': filename, 'image': image}
 
