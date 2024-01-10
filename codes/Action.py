@@ -5,7 +5,6 @@ import time
 from codes import MyDefine
 from codes.ImageManager import ImageManager
 from codes.Vector import Vector
-from codes.Collider import Collider
 
 BASIC_ACTION_FREQUENCY = 6  # Basic action frequency (f/s)
 ACTION_ORIENTATION = ["Up", "Right", "Down", "Left"]
@@ -34,33 +33,21 @@ class Action(pygame.sprite.Sprite):
         ImageManager.get_instance().load_resource(filename, filename)
         self.m_filename = filename
 
-    def load_action_by_index(self, orientationName, beginRow, beginCol, endRow, endCol, resolution, colliders):
+    def load_action_by_index(self, orientationName, beginRow, beginCol, endRow, endCol, resolution):
         res = ImageManager.get_instance().find_resource_by_name(self.m_filename)
         for i in range(endRow - beginRow):
             for j in range(endCol - beginCol):
                 frame_surface = pygame.Surface(resolution)
                 frame_surface.blit(res[1], (0, 0), (i * resolution[0], j * resolution[1], resolution[0], resolution[1]))
                 self.m_frames[orientationName].append(frame_surface)
-        # Colliders
-        for i in range(len(colliders['indices'])):
-            pair = colliders['indices'][i]
-            collider = Collider(self, Vector(pair[1] * resolution[0], pair[0] * resolution[1]), colliders['radius'],
-                                self.m_object)
-            self.m_colliders.append(collider)
 
-    def load_action_from_list(self, orientationName, frames, resolution, colliders):
+    def load_action_from_list(self, orientationName, frames, resolution):
         res = ImageManager.get_instance().find_resource_by_name(self.m_filename)
         for i in range(len(frames)):
             frame_surface = pygame.Surface(resolution, pygame.SRCALPHA)
             frame_surface.blit(res["image"], (0, 0), (
                 frames[i][1] * resolution[0], frames[i][0] * resolution[1], resolution[0], resolution[1]))
             self.m_frames[orientationName].append(frame_surface)
-        # Colliders
-        for i in range(len(colliders['indices'])):
-            pair = colliders['indices'][i]
-            collider = Collider(self, Vector(pair[1] * resolution[0], pair[0] * resolution[1]), colliders['radius'],
-                                self.m_object)
-            self.m_colliders.append(collider)
 
     def update(self):
         max_dot_value = self.m_object.m_orientation.dot_product(ACTION_VECTORS[self.m_orientation])
@@ -77,10 +64,6 @@ class Action(pygame.sprite.Sprite):
             self.m_sec = curSec
         self.image = self.m_frames[ACTION_ORIENTATION[self.m_orientation]][self.m_frame_index]
         self.set_center_pos(self.m_object.m_position.x, self.m_object.m_position.z)
-
-        for i in range(len(self.m_colliders)):
-            self.m_colliders[i].update(self.m_object.m_position.x - self.image.get_rect().width / 2,
-                                       self.m_object.m_position.z - self.image.get_rect().height / 2)
 
     def set_center_pos(self, x, z):
         if self.image:

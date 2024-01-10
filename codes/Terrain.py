@@ -1,8 +1,8 @@
+import pygame
 import math
 import random
 from codes import MyDefine
 from codes.ImageManager import ImageManager
-from codes.BlockLayer import BlockLayer
 
 
 class Terrain:

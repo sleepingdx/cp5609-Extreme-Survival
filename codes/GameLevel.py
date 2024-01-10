@@ -44,7 +44,7 @@ class GameLevel:
                         for l in range(len(characters[j]["actions"][k]["frames"])):
                             action.load_action_from_list(characters[j]["actions"][k]["frames"][l]["name"],
                                                          characters[j]["actions"][k]["frames"][l]["list"],
-                                                         characters[j]["resolution"], characters[j]["colliders"])
+                                                         characters[j]["resolution"])
                     character.set_center_pos(objects[i]["position"][0], objects[i]["position"][1])
 
     def update(self):

@@ -14,7 +14,8 @@ class MyGame(EventTrigger):
     def __init__(self):
         super().__init__()
         pygame.init()
-        self.m_window = pygame.display.set_mode((MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
+        self.m_window = pygame.display.set_mode((MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]),
+                                                pygame.SRCALPHA)
         pygame.display.set_caption(MyDefine.GAME_NAME)
         self.m_clock = pygame.time.Clock()
         self.m_player = None

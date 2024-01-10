@@ -16,7 +16,7 @@ class State:
         col = int(self.m_object.m_position.x // MyDefine.BLOCK_RESOLUTION[1])
         blocks = BlockLayer.get_instance().m_blocks
         if self.m_row != row or self.m_col != col:
-            # BlockLayer.get_instance().remove(self.m_row, self.m_col, self.m_object, MyDefine.BLOCK_PLACEHOLDERS[0])
+            BlockLayer.get_instance().remove(self.m_row, self.m_col, self.m_object, MyDefine.BLOCK_PLACEHOLDERS[0])
             self.m_row = row
             self.m_col = col
             if 0 <= self.m_row < len(blocks) and 0 <= self.m_col < len(blocks[self.m_row]):
