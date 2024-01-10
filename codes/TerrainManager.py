@@ -29,6 +29,10 @@ class TerrainManager(Singleton):
         if 0 <= self.m_current < len(self.m_terrains):
             self.m_terrains[self.m_current].update()
 
-    def render(self, window):
+    def render_base_layer(self, window):
         if 0 <= self.m_current < len(self.m_terrains):
-            self.m_terrains[self.m_current].render(window)
+            self.m_terrains[self.m_current].render_base_layer(window)
+
+    def render_masking_layer(self, window):
+        if 0 <= self.m_current < len(self.m_terrains):
+            self.m_terrains[self.m_current].render_masking_layer(window)

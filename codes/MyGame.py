@@ -53,8 +53,9 @@ class MyGame(EventTrigger):
         CharacterManager.get_instance().update()
 
     def render(self):
-        TerrainManager.get_instance().render(self.m_window)
+        TerrainManager.get_instance().render_base_layer(self.m_window)
         CharacterManager.get_instance().render(self.m_window)
+        TerrainManager.get_instance().render_masking_layer(self.m_window)
 
     @staticmethod
     def end():
