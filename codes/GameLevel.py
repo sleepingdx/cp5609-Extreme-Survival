@@ -25,7 +25,7 @@ class GameLevel:
         TerrainManager.get_instance().load_terrain(terrain_index)
         TerrainManager.get_instance().change_terrain(terrain_index)
         # block layer
-        json_blocks = JsonManager.get_instance().m_json_terrain[terrain_index]['blocks']
+        json_blocks = JsonManager.get_instance().m_json_terrain[terrain_index]['block_layer']
         BlockLayer.get_instance().load_blocks(json_blocks)
         # Characters
         characters = JsonManager.get_instance().m_json_characters
