@@ -14,7 +14,6 @@ class Character:
     """Basic class of all characters"""
 
     def __init__(self):
-        super().__init__()
         # Position
         self.m_position = Vector(0, 0)
         self.m_orientation = Vector(0, 0)
@@ -26,6 +25,8 @@ class Character:
         self.m_fsm = FiniteStateMachine(self, "Character")
         self.m_target_pos = Vector(0, 0)
         self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
+        # Collision
+        self.m_collision_rect = MyDefine.BLOCK_COLLIDER_RECT
 
     def append_action(self, name, action):
         """

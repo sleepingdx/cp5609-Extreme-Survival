@@ -36,6 +36,7 @@ class GameLevel:
             for j in range(len(characters)):
                 if characters[j]["id"] == objects[i]["id"]:
                     character = globals()[characters[j]["type"]]()
+                    character.m_collision_rect = characters[j]["collision_rect"]
                     CharacterManager.get_instance().append_character(objects[i]["id"], character)
                     for k in range(len(characters[j]["actions"])):
                         action = Action(character, characters[j]["actions"][k]["filename"])

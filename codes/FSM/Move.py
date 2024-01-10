@@ -44,10 +44,10 @@ class Move(State):
                         #     self.m_object.m_fsm.change_status(0)
                         #     return
                         if CollisionDetection.detect_block_collision(
-                                (center_pos.x, center_pos.z, MyDefine.BLOCK_COLLIDER_RANGE[0],
-                                 MyDefine.BLOCK_COLLIDER_RANGE[1]),
-                                (new_pos.x, new_pos.z, MyDefine.BLOCK_COLLIDER_RANGE[0],
-                                 MyDefine.BLOCK_COLLIDER_RANGE[1])):
+                                (center_pos.x, center_pos.z, MyDefine.BLOCK_COLLIDER_RECT[0],
+                                 MyDefine.BLOCK_COLLIDER_RECT[1]),
+                                (new_pos.x, new_pos.z, self.m_object.m_collision_rect[0],
+                                 self.m_object.m_collision_rect[1])):
                             self.m_object.m_fsm.change_status(0)
                             return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
@@ -62,10 +62,10 @@ class Move(State):
                                     #          MyDefine.BLOCK_RESOLUTION[0] / MyDefine.COLLIDER_RADIUS)):
                                     if CollisionDetection.detect_block_collision(
                                             (objects[i].m_position.x, objects[i].m_position.z,
-                                             MyDefine.BLOCK_COLLIDER_RANGE[0],
-                                             MyDefine.BLOCK_COLLIDER_RANGE[1]),
-                                            (new_pos.x, new_pos.z, MyDefine.BLOCK_COLLIDER_RANGE[0],
-                                             MyDefine.BLOCK_COLLIDER_RANGE[1])):
+                                             objects[i].m_collision_rect[0],
+                                             objects[i].m_collision_rect[1]),
+                                            (new_pos.x, new_pos.z, self.m_object.m_collision_rect[0],
+                                             self.m_object.m_collision_rect[1])):
                                         self.m_object.m_fsm.change_status(0)
                                         return
             self.m_object.m_position = new_pos
