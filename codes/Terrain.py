@@ -45,7 +45,8 @@ class Terrain:
         for row in range(len(self.base_layer_1)):
             for col in range(len(self.base_layer_1[row])):
                 res = ImageManager.get_instance().find_resource_by_name(self.m_files[self.base_layer_1[row][col][0]])
-                window.blit(res["image"], (col * MyDefine.TILE_RESOLUTION[0], row * MyDefine.TILE_RESOLUTION[1]),
+                window.blit(res["image"],
+                            (col * MyDefine.TILE_RESOLUTION[0] - 6, row * MyDefine.TILE_RESOLUTION[1] - 6),
                             (self.base_layer_1[row][col][1][1] * MyDefine.TILE_RESOLUTION[0],
                              self.base_layer_1[row][col][1][0] * MyDefine.TILE_RESOLUTION[1],
                              MyDefine.TILE_RESOLUTION[0],
@@ -57,7 +58,8 @@ class Terrain:
                 if self.base_layer_2[row][col][0] != MyDefine.INVALID_ID:
                     res = ImageManager.get_instance().find_resource_by_name(
                         self.m_files[self.base_layer_2[row][col][0]])
-                    window.blit(res["image"], (col * MyDefine.TILE_RESOLUTION[0], row * MyDefine.TILE_RESOLUTION[1]),
+                    window.blit(res["image"],
+                                (col * MyDefine.TILE_RESOLUTION[0] - 6, row * MyDefine.TILE_RESOLUTION[1] - 6),
                                 (self.base_layer_2[row][col][1][1] * MyDefine.TILE_RESOLUTION[0],
                                  self.base_layer_2[row][col][1][0] * MyDefine.TILE_RESOLUTION[1],
                                  MyDefine.TILE_RESOLUTION[0],
@@ -69,7 +71,8 @@ class Terrain:
                 if self.m_masking_layer[row][col][0] != MyDefine.INVALID_ID:
                     res = ImageManager.get_instance().find_resource_by_name(
                         self.m_files[self.m_masking_layer[row][col][0]])
-                    window.blit(res["image"], (col * MyDefine.TILE_RESOLUTION[0], row * MyDefine.TILE_RESOLUTION[1]),
+                    window.blit(res["image"],
+                                (col * MyDefine.TILE_RESOLUTION[0] - 6, row * MyDefine.TILE_RESOLUTION[1] - 6),
                                 (self.m_masking_layer[row][col][1][1] * MyDefine.TILE_RESOLUTION[0],
                                  self.m_masking_layer[row][col][1][0] * MyDefine.TILE_RESOLUTION[1],
                                  MyDefine.TILE_RESOLUTION[0],
