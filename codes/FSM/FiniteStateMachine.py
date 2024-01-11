@@ -21,7 +21,7 @@ class FiniteStateMachine:
             self.m_states[ENUM_FSM_STATES[self.m_current]].update()
 
     def change_status(self, index):
-        if index in self.m_fsm[ENUM_FSM_STATES[self.m_current]]:
+        if index in self.m_fsm[ENUM_FSM_STATES[self.m_current]] and index != ENUM_FSM_STATES[self.m_current]:
             self.m_states[ENUM_FSM_STATES[self.m_current]].end()
             self.m_current = index
             self.m_states[ENUM_FSM_STATES[self.m_current]].begin()

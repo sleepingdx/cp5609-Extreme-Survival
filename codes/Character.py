@@ -31,6 +31,10 @@ class Character:
         self.m_id = MyDefine.INVALID_ID
         self.m_row = MyDefine.INVALID_ID
         self.m_col = MyDefine.INVALID_ID
+        self.m_max_hp = 1
+        self.m_hp = self.m_max_hp
+        self.m_max_mp = 1
+        self.m_mp = self.m_max_mp
 
     def append_action(self, name, action):
         """
@@ -69,3 +73,11 @@ class Character:
 
     def get_rect(self):
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
+
+    def onDamaged(self, hp):
+        self.m_hp += hp
+        if self.m_hp <= 0:
+            self.onDied()
+
+    def onDied(self):
+        self.m_fsm.change_status(3)

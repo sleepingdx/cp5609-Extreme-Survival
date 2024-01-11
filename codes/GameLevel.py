@@ -38,6 +38,10 @@ class GameLevel:
                     character = globals()[characters[j]["type"]]()
                     character.m_collision_rect = characters[j]["collision_rect"]
                     character.m_id = characters[j]["id"]
+                    character.m_max_hp = characters[j]['hp']
+                    character.m_hp = character.m_max_hp
+                    character.m_max_mp = characters[j]['mp']
+                    character.m_mp = character.m_max_mp
                     CharacterManager.get_instance().append_character(objects[i]["id"], character)
                     for k in range(len(characters[j]["actions"])):
                         action = Action(character, characters[j]["actions"][k]["filename"])

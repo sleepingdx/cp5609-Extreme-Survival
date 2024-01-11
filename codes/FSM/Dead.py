@@ -12,7 +12,6 @@ class Dead(State):
 
     def update(self):
         super().update()
-        pass
 
     def end(self):
         super().end()

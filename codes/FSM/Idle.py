@@ -1,6 +1,4 @@
-from codes import MyDefine
 from codes.FSM.State import State
-from codes.BlockLayer import BlockLayer
 
 
 class Idle(State):
