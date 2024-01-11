@@ -29,6 +29,7 @@ class Action(pygame.sprite.Sprite):
         self.m_colliders = []
         self.image = None
         self.rect = None
+        self.m_completed = False
         # 因为不是一次性加在全部资源， 所以每次使用前需要确认该资源已经被加载了
         ImageManager.get_instance().load_resource(filename, filename)
         self.m_filename = filename
@@ -62,6 +63,8 @@ class Action(pygame.sprite.Sprite):
             self.m_frame_index = (self.m_frame_index + 1) % len(
                 self.m_frames[ACTION_ORIENTATION[self.m_orientation]])
             self.m_sec = curSec
+            if self.m_frame_index == 0:
+                self.m_completed = True
         self.image = self.m_frames[ACTION_ORIENTATION[self.m_orientation]][self.m_frame_index]
         self.set_center_pos(self.m_object.m_position.x, self.m_object.m_position.z)
 

@@ -57,6 +57,8 @@ class Character:
             self.m_spriteMgr.delete_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             self.m_current = index
             self.m_spriteMgr.append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
+            self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_completed = False
+            self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_frame_index = 0
             return True
         else:
             return False
@@ -74,6 +76,10 @@ class Character:
     def get_rect(self):
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
+    def attack(self, obj):
+        self.m_fsm.change_status(2)
+        pass
+
     def onDamaged(self, hp):
         self.m_hp += hp
         if self.m_hp <= 0:
@@ -81,3 +87,8 @@ class Character:
 
     def onDied(self):
         self.m_fsm.change_status(3)
+
+    def is_action_completed(self, index):
+        if self.m_actions[CHARACTER_ACTIONS[index]].m_completed:
+            return True
+        return False

@@ -9,7 +9,6 @@ from codes.CollisionDection import CollisionDetection
 class Move(State):
     def __init__(self, obj):
         super().__init__(obj)
-        self.m_object = obj
 
     def begin(self):
         super().begin()

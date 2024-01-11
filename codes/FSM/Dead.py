@@ -4,7 +4,6 @@ from codes.FSM.State import State
 class Dead(State):
     def __init__(self, obj):
         super().__init__(obj)
-        self.m_object = obj
 
     def begin(self):
         super().begin()
