@@ -18,7 +18,12 @@
           {"name": "Right", "list": [[2,1]]},
           {"name": "Down", "list": [[0,1]]},
           {"name": "Left", "list": [[1,1]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Move",
@@ -28,7 +33,12 @@
           {"name": "Right", "list": [[2,0],[2,2]]},
           {"name": "Down", "list": [[0,0],[0,2]]},
           {"name": "Left", "list": [[1,0],[1,2]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Attack",
@@ -38,7 +48,12 @@
           {"name": "Right", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
           {"name": "Down", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
           {"name": "Left", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]}
-        ]
+        ],
+        "effect": {
+          "filename": "./res/effects/Darkness4.png",
+          "resolution": [192,192],
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
+        }
       },
       {
         "name": "Die",
@@ -48,7 +63,12 @@
           {"name": "Right", "list": [[5,6]]},
           {"name": "Down", "list": [[5,6]]},
           {"name": "Left", "list": [[5,6]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -71,7 +91,12 @@
           {"name": "Right", "list": [[6,10]]},
           {"name": "Down", "list": [[4,10]]},
           {"name": "Left", "list": [[5,10]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Move",
@@ -81,7 +106,12 @@
           {"name": "Right", "list": [[6,9],[6,11]]},
           {"name": "Down", "list": [[4,9],[4,11]]},
           {"name": "Left", "list": [[5,9],[5,11]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Attack",
@@ -91,7 +121,12 @@
           {"name": "Right", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
           {"name": "Down", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
           {"name": "Left", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]}
-        ]
+        ],
+        "effect": {
+          "filename": "./res/effects/Darkness4.png",
+          "resolution": [192,192],
+          "frames": [[3,2],[3,3],[3,4],[4,0]]
+        }
       },
       {
         "name": "Die",
@@ -101,7 +136,12 @@
           {"name": "Right", "list": [[5,6]]},
           {"name": "Down", "list": [[5,6]]},
           {"name": "Left", "list": [[5,6]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -124,7 +164,12 @@
           {"name": "Right", "list": [[6,4]]},
           {"name": "Down", "list": [[4,4]]},
           {"name": "Left", "list": [[5,4]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Move",
@@ -134,7 +179,12 @@
           {"name": "Right", "list": [[6,3],[6,5]]},
           {"name": "Down", "list": [[4,3],[4,5]]},
           {"name": "Left", "list": [[5,3],[5,5]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Die",
@@ -144,7 +194,12 @@
           {"name": "Right", "list": [[10,9]]},
           {"name": "Down", "list": [[10,9]]},
           {"name": "Left", "list": [[10,9]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -167,7 +222,12 @@
           {"name": "Right", "list": [[0, 0], [0, 1], [0, 2]]},
           {"name": "Down", "list": [[0, 0], [0, 1], [0, 2]]},
           {"name": "Left", "list": [[0, 0], [0, 1], [0, 2]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       },
       {
         "name": "Die",
@@ -177,7 +237,12 @@
           {"name": "Right", "list": [[2, 0], [2, 1], [2, 2]]},
           {"name": "Down", "list": [[2, 0], [2, 1], [2, 2]]},
           {"name": "Left", "list": [[2, 0], [2, 1], [2, 2]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -200,7 +265,12 @@
           {"name": "Right", "list": [[2,8]]},
           {"name": "Down", "list": [[2,8]]},
           {"name": "Left", "list": [[2,8]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -223,7 +293,12 @@
           {"name": "Right", "list": [[2,11]]},
           {"name": "Down", "list": [[2,11]]},
           {"name": "Left", "list": [[2,11]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -246,7 +321,12 @@
           {"name": "Right", "list": [[1,1]]},
           {"name": "Down", "list": [[1,1]]},
           {"name": "Left", "list": [[1,1]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -269,7 +349,12 @@
           {"name": "Right", "list": [[1,0]]},
           {"name": "Down", "list": [[1,0]]},
           {"name": "Left", "list": [[1,0]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   },
@@ -292,7 +377,12 @@
           {"name": "Right", "list": [[0,3]]},
           {"name": "Down", "list": [[0,3]]},
           {"name": "Left", "list": [[0,3]]}
-        ]
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
       }
     ]
   }

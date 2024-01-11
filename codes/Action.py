@@ -30,8 +30,10 @@ class Action(pygame.sprite.Sprite):
         self.image = None
         self.rect = None
         self.m_completed = False
+        self.m_effect = None
         # 因为不是一次性加在全部资源， 所以每次使用前需要确认该资源已经被加载了
-        ImageManager.get_instance().load_resource(filename, filename)
+        if filename != '':
+            ImageManager.get_instance().load_resource(filename, filename)
         self.m_filename = filename
 
     def load_action_by_index(self, orientationName, beginRow, beginCol, endRow, endCol, resolution):

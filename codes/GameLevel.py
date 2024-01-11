@@ -5,6 +5,7 @@ from codes.Action import Action
 from codes.CharacterManager import CharacterManager
 from codes.TerrainManager import TerrainManager
 from codes.BlockLayer import BlockLayer
+from codes.Effect import Effect
 from codes.Character import Character
 from codes.Player import Player
 from codes.Npc import Npc
@@ -51,6 +52,9 @@ class GameLevel:
                             action.load_action_from_list(characters[j]["actions"][k]["frames"][l]["name"],
                                                          characters[j]["actions"][k]["frames"][l]["list"],
                                                          characters[j]["resolution"])
+                            action.m_effect = Effect(characters[j]["actions"][k]["effect"]["filename"])
+                            action.m_effect.load_frames(characters[j]["actions"][k]["effect"]["frames"],
+                                                        characters[j]["actions"][k]["effect"]["resolution"])
                     character.set_center_pos(objects[i]["position"][0], objects[i]["position"][1])
 
     def update(self):

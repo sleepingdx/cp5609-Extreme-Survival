@@ -54,8 +54,15 @@ class Character:
         :return: T/F
         """
         if 0 <= index < len(CHARACTER_ACTIONS):
+            self.m_spriteMgr.delete_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_effect)
             self.m_spriteMgr.delete_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             self.m_current = index
+            if self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_effect.m_filename != '':
+                self.m_spriteMgr.append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_effect)
+                self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_effect.set_center_pos(self.m_position.x,
+                                                                                          self.m_position.z)
+                self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_effect.m_completed = False
+                self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_effect.m_frame_index = 0
             self.m_spriteMgr.append_sprite(self.m_actions[CHARACTER_ACTIONS[self.m_current]])
             self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_completed = False
             self.m_actions[CHARACTER_ACTIONS[self.m_current]].m_frame_index = 0
@@ -77,6 +84,7 @@ class Character:
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
     def attack(self, obj):
+        obj.onDamaged(-10)
         self.m_fsm.change_status(2)
         pass
 
