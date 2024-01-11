@@ -2,10 +2,10 @@
   {
     "characters": [
       {"id": -1, "position": [150, 100], "orientation": 2},
-      {"id": 2, "position": [250, 300], "orientation": 2},
-      {"id": 3, "position": [400, 300], "orientation": 2},
-      {"id": 4, "position": [550, 300], "orientation": 2},
-      {"id": 5, "position": [700, 300], "orientation": 2}
+      {"id": 2, "position": [720, 600], "orientation": 2},
+      {"id": 3, "position": [860, 300], "orientation": 2},
+      {"id": 4, "position": [520, 50], "orientation": 2},
+      {"id": 5, "position": [520, 650], "orientation": 2}
     ],
     "terrain": 0
   },
