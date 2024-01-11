@@ -46,7 +46,7 @@ class Terrain:
             for col in range(len(self.base_layer_1[row])):
                 res = ImageManager.get_instance().find_resource_by_name(self.m_files[self.base_layer_1[row][col][0]])
                 window.blit(res["image"],
-                            (col * MyDefine.TILE_RESOLUTION[0], row * MyDefine.TILE_RESOLUTION[1]),
+                            (col * MyDefine.TILE_RESOLUTION[0] - 6, row * MyDefine.TILE_RESOLUTION[1] - 6),
                             (self.base_layer_1[row][col][1][1] * MyDefine.TILE_RESOLUTION[0],
                              self.base_layer_1[row][col][1][0] * MyDefine.TILE_RESOLUTION[1],
                              MyDefine.TILE_RESOLUTION[0],
