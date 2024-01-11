@@ -84,8 +84,9 @@ class Character:
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
     def attack(self, obj):
-        obj.onDamaged(-10)
         self.m_fsm.change_status(2)
+        if obj:
+            obj.onDamaged(-10)
 
     def onDamaged(self, hp):
         self.m_hp += hp

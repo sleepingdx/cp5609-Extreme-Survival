@@ -28,3 +28,5 @@ class FiniteStateMachine:
             self.m_last_state = self.m_current
             self.m_current = index
             self.m_states[ENUM_FSM_STATES[self.m_current]].begin()
+            return True
+        return False
