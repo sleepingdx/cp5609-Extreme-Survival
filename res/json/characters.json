@@ -34,10 +34,10 @@
         "name": "Attack",
         "filename": "./res/characters/Actor1_1.png",
         "frames": [
-          {"name": "Up", "list": [[0,3],[0,4],[2,3]]},
-          {"name": "Right", "list": [[0,3],[0,4],[2,3]]},
-          {"name": "Down", "list": [[0,3],[0,4],[2,3]]},
-          {"name": "Left", "list": [[0,3],[0,4],[2,3]]}
+          {"name": "Up", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
+          {"name": "Right", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
+          {"name": "Down", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
+          {"name": "Left", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]}
         ]
       },
       {
@@ -67,35 +67,35 @@
         "name": "Stand",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "Up", "list": [[3,4]]},
-          {"name": "Right", "list": [[2,4]]},
-          {"name": "Down", "list": [[0,4]]},
-          {"name": "Left", "list": [[1,4]]}
+          {"name": "Up", "list": [[7,10]]},
+          {"name": "Right", "list": [[6,10]]},
+          {"name": "Down", "list": [[4,10]]},
+          {"name": "Left", "list": [[5,10]]}
         ]
       },
       {
         "name": "Move",
         "filename": "./res/characters/Actor1.png",
         "frames": [
-          {"name": "Up", "list": [[3,3],[3,5]]},
-          {"name": "Right", "list": [[2,3],[2,5]]},
-          {"name": "Down", "list": [[0,3],[0,5]]},
-          {"name": "Left", "list": [[1,3],[1,5]]}
+          {"name": "Up", "list": [[7,9],[7,11]]},
+          {"name": "Right", "list": [[6,9],[6,11]]},
+          {"name": "Down", "list": [[4,9],[4,11]]},
+          {"name": "Left", "list": [[5,9],[5,11]]}
         ]
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Actor2_4.png",
+        "filename": "./res/characters/Actor2_7.png",
         "frames": [
-          {"name": "Up", "list": [[0,3],[0,4],[2,3]]},
-          {"name": "Right", "list": [[0,3],[0,4],[2,3]]},
-          {"name": "Down", "list": [[0,3],[0,4],[2,3]]},
-          {"name": "Left", "list": [[0,3],[0,4],[2,3]]}
+          {"name": "Up", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
+          {"name": "Right", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
+          {"name": "Down", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]},
+          {"name": "Left", "list": [[0,3],[0,4],[2,3],[0,5],[1,6],[4,6],[4,7],[1,7],[1,8]]}
         ]
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor2_4.png",
+        "filename": "./res/characters/Actor2_7.png",
         "frames": [
           {"name": "Up", "list": [[5,6]]},
           {"name": "Right", "list": [[5,6]]},
