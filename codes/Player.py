@@ -17,7 +17,8 @@ class Player(Character, EventTrigger):
         super().update()
 
     def trigger(self, event):
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        # Clicked on the right button
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
             mouse_pos = pygame.mouse.get_pos()
             self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
             self.m_target_pos = Vector(mouse_pos[0], mouse_pos[1])
