@@ -27,6 +27,10 @@ class Character:
         self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         # Collision
         self.m_collision_rect = MyDefine.BLOCK_COLLIDER_RECT
+        #
+        self.m_id = MyDefine.INVALID_ID
+        self.m_row = MyDefine.INVALID_ID
+        self.m_col = MyDefine.INVALID_ID
 
     def append_action(self, name, action):
         """

@@ -32,8 +32,8 @@ class Move(State):
                        MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
             # Collision Detection
             blocks = BlockLayer.get_instance().m_blocks
-            for r in range(max(0, self.m_row - 1), min(self.m_row + 1 + 1, len(blocks))):
-                for c in range(max(0, self.m_col - 1), min(self.m_col + 1 + 1, len(blocks[r]))):
+            for r in range(max(0, self.m_object.m_row - 1), min(self.m_object.m_row + 1 + 1, len(blocks))):
+                for c in range(max(0, self.m_object.m_col - 1), min(self.m_object.m_col + 1 + 1, len(blocks[r]))):
                     if blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[1]:
                         center_pos = Vector(
                             c * MyDefine.BLOCK_RESOLUTION[0] + MyDefine.BLOCK_RESOLUTION[0] / MyDefine.COLLIDER_RADIUS,
