@@ -13,26 +13,26 @@ class CollisionDetection:
         """
         # top-left, top-right, bottom-left, bottom-right
         rect_1 = (
-            (collider_1[0] - collider_1[2] / 2, collider_1[1] - collider_1[3] / 2),
-            (collider_1[0] + collider_1[2] / 2, collider_1[1] - collider_1[3] / 2),
-            (collider_1[0] - collider_1[2] / 2, collider_1[1] + collider_1[3] / 2),
-            (collider_1[0] + collider_1[2] / 2, collider_1[1] + collider_1[3] / 2)
+            (collider_1[0] - collider_1[2] / 2.2, collider_1[1] - collider_1[3] / 2),
+            (collider_1[0] + collider_1[2] / 2.2, collider_1[1] - collider_1[3] / 2),
+            (collider_1[0] - collider_1[2] / 2.2, collider_1[1] + collider_1[3] / 2),
+            (collider_1[0] + collider_1[2] / 2.2, collider_1[1] + collider_1[3] / 2)
         )
         border_1 = {
-            'left': collider_1[0] - collider_1[2] / 2.5,
-            'right': collider_1[0] + collider_1[2] / 2.5,
+            'left': collider_1[0] - collider_1[2] / 2.2,
+            'right': collider_1[0] + collider_1[2] / 2.2,
             'top': collider_1[1] - collider_1[3] / 2,
             'bottom': collider_1[1] + collider_1[3] / 2
         }
         rect_2 = (
-            (collider_2[0] - collider_2[2] / 2, collider_2[1] - collider_2[3] / 2),
-            (collider_2[0] + collider_2[2] / 2, collider_2[1] - collider_2[3] / 2),
-            (collider_2[0] - collider_2[2] / 2, collider_2[1] + collider_2[3] / 2),
-            (collider_2[0] + collider_2[2] / 2, collider_2[1] + collider_2[3] / 2)
+            (collider_2[0] - collider_2[2] / 2.2, collider_2[1] - collider_2[3] / 2),
+            (collider_2[0] + collider_2[2] / 2.2, collider_2[1] - collider_2[3] / 2),
+            (collider_2[0] - collider_2[2] / 2.2, collider_2[1] + collider_2[3] / 2),
+            (collider_2[0] + collider_2[2] / 2.2, collider_2[1] + collider_2[3] / 2)
         )
         border_2 = {
-            'left': collider_2[0] - collider_2[2] / 2.5,
-            'right': collider_2[0] + collider_2[2] / 2.5,
+            'left': collider_2[0] - collider_2[2] / 2.2,
+            'right': collider_2[0] + collider_2[2] / 2.2,
             'top': collider_2[1] - collider_2[3] / 2,
             'bottom': collider_2[1] + collider_2[3] / 2
         }
