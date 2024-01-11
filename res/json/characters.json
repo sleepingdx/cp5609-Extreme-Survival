@@ -75,7 +75,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor1_1.png",
+        "filename": "./res/characters/Actor2_4.png",
         "frames": [
           {"name": "Up", "list": [[5,6]]},
           {"name": "Right", "list": [[5,6]]},
@@ -108,7 +108,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "./res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[7,3],[7,5]]},
           {"name": "Right", "list": [[6,3],[6,5]]},
@@ -118,12 +118,12 @@
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor1_1.png",
+        "filename": "./res/items/Inside_C.png",
         "frames": [
-          {"name": "Up", "list": [[5,6]]},
-          {"name": "Right", "list": [[5,6]]},
-          {"name": "Down", "list": [[5,6]]},
-          {"name": "Left", "list": [[5,6]]}
+          {"name": "Up", "list": [[10,9]]},
+          {"name": "Right", "list": [[10,9]]},
+          {"name": "Down", "list": [[10,9]]},
+          {"name": "Left", "list": [[10,9]]}
         ]
       }
     ]
