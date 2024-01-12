@@ -7,7 +7,7 @@ from codes.FSM.FiniteStateMachine import FiniteStateMachine
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
 # Actions
-CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Damage', 'Die')
+CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Die')
 
 
 class Character:
@@ -86,13 +86,15 @@ class Character:
     def attack(self, obj):
         obj.onDamaged(-10)
         self.m_fsm.change_status(2)
+        pass
 
     def onDamaged(self, hp):
         self.m_hp += hp
-        self.m_fsm.change_status(3)
+        if self.m_hp <= 0:
+            self.onDied()
 
     def onDied(self):
-        self.m_fsm.change_status(4)
+        self.m_fsm.change_status(3)
 
     def is_action_completed(self, index):
         if self.m_actions[CHARACTER_ACTIONS[index]].m_completed:
