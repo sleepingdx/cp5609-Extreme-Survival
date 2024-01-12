@@ -86,6 +86,9 @@ class Character:
     def get_rect(self):
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
+    def move(self):
+        self.m_fsm.change_status(1)
+
     def attack(self, obj):
         self.m_fsm.change_status(2)
         if obj:
