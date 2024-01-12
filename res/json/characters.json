@@ -7,7 +7,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [30, 40],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -95,7 +95,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [30, 40],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -183,7 +183,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [30, 40],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -241,7 +241,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [36, 30],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -284,7 +284,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [36, 30],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -312,7 +312,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [36, 36],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -340,7 +340,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [36, 36],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -368,7 +368,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [36, 36],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
@@ -396,7 +396,7 @@
     "hp": 1000,
     "mp": 1000,
     "resolution": [48,48],
-    "collision_rect": [36, 49],
+    "collision_rect": [40,40],
     "colliders": {"radius": 24, "indices": [[0,0]]},
     "actions": [
       {
