@@ -7,7 +7,7 @@ class Dead(State):
 
     def begin(self):
         super().begin()
-        self.m_object.change_action(3)
+        self.m_object.change_action(4)
 
     def update(self):
         super().update()

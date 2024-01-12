@@ -13,6 +13,7 @@ class Move(State):
     def begin(self):
         super().begin()
         self.m_object.change_action(1)
+        self.m_object.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
 
     def update(self):
         super().update()

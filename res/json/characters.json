@@ -59,10 +59,25 @@
         "name": "Die",
         "filename": "./res/characters/Actor1_1.png",
         "frames": [
-          {"name": "Up", "list": [[5,6]]},
-          {"name": "Right", "list": [[5,6]]},
-          {"name": "Down", "list": [[5,6]]},
-          {"name": "Left", "list": [[5,6]]}
+          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Damage",
+        "filename": "./res/characters/Actor1_1.png",
+        "frames": [
+          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
         ],
         "effect": {
           "filename": "",
@@ -132,10 +147,25 @@
         "name": "Die",
         "filename": "./res/characters/Actor2_7.png",
         "frames": [
-          {"name": "Up", "list": [[5,6]]},
-          {"name": "Right", "list": [[5,6]]},
-          {"name": "Down", "list": [[5,6]]},
-          {"name": "Left", "list": [[5,6]]}
+          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Damage",
+        "filename": "./res/characters/Actor2_7.png",
+        "frames": [
+          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
         ],
         "effect": {
           "filename": "",
@@ -233,10 +263,10 @@
         "name": "Die",
         "filename": "./res/items/Chest.png",
         "frames": [
-          {"name": "Up", "list": [[2, 0], [2, 1], [2, 2]]},
-          {"name": "Right", "list": [[2, 0], [2, 1], [2, 2]]},
-          {"name": "Down", "list": [[2, 0], [2, 1], [2, 2]]},
-          {"name": "Left", "list": [[2, 0], [2, 1], [2, 2]]}
+          {"name": "Up", "list": [[2,0],[2,1],[2,2]]},
+          {"name": "Right", "list": [[2,0],[2,1],[2,2]]},
+          {"name": "Down", "list": [[2,0],[2,1],[2,2]]},
+          {"name": "Left", "list": [[2,0],[2,1],[2,2]]}
         ],
         "effect": {
           "filename": "",
