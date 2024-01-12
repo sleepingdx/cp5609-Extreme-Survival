@@ -14,9 +14,10 @@ class CollideDetection:
 
         # 使用 mask 对象检测碰撞
         if obstacle_mask:
-            if sprite.mask.overlap_area(obstacle_mask, (target_rect.x - rect.x, target_rect.y - rect.y)) > 0:
+            count = sprite.mask.overlap_area(obstacle_mask, (target_rect.x - rect.x, target_rect.y - rect.y))
+            if count > 40:
                 # 如果发生重叠，可以在这里进行处理，比如改变颜色或者执行其他逻辑
-                print("Pixel-perfect Collision")
+                print(f"overlap_area:{count}")
                 return True
         return False
 
