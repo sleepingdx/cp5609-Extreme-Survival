@@ -60,11 +60,14 @@ class Move(State):
                             for i in range(len(objects)):
                                 if objects[i] and objects[i] != self.m_object:
                                     # Pixel collide detection
-                                    if CollideDetection.detect_sprite_collide(self.m_object.get_current_action(),
-                                                                              orientation * CONST_DEVIATION,
-                                                                              [objects[i].m_spriteMgr.m_sprites]):
+                                    # if CollideDetection.detect_sprite_collide(self.m_object.get_current_action(),
+                                    #                                           orientation * CONST_DEVIATION,
+                                    #                                           [objects[i].m_spriteMgr.m_sprites]):
+                                    if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
+                                                                            orientation * CONST_DEVIATION,
+                                                                            objects[i].get_current_action().mask,
+                                                                            objects[i].get_current_action().rect):
                                         self.m_object.m_fsm.change_status(0)
-                                        # self.m_object.set_center_pos(500, 500)
                                         return
         self.m_object.set_center_pos(new_pos.x, new_pos.z)
 
