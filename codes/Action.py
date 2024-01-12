@@ -29,6 +29,7 @@ class Action(pygame.sprite.Sprite):
         self.m_colliders = []
         self.image = None
         self.rect = None
+        self.mask = None
         self.m_completed = False
         self.m_effect = None
         # 因为不是一次性加在全部资源， 所以每次使用前需要确认该资源已经被加载了
@@ -41,7 +42,7 @@ class Action(pygame.sprite.Sprite):
         for i in range(endRow - beginRow):
             for j in range(endCol - beginCol):
                 frame_surface = pygame.Surface(resolution)
-                frame_surface.blit(res[1], (0, 0), (i * resolution[0], j * resolution[1], resolution[0], resolution[1]))
+                frame_surface.blit(res["image"], (0, 0), (i * resolution[0], j * resolution[1], resolution[0], resolution[1]))
                 self.m_frames[orientationName].append(frame_surface)
 
     def load_action_from_list(self, orientationName, frames, resolution):
@@ -68,6 +69,7 @@ class Action(pygame.sprite.Sprite):
             if self.m_frame_index == 0:
                 self.m_completed = True
         self.image = self.m_frames[ACTION_ORIENTATION[self.m_orientation]][self.m_frame_index]
+        self.mask = pygame.mask.from_surface(self.image)
         self.set_center_pos(self.m_object.m_position.x, self.m_object.m_position.z)
 
     def set_center_pos(self, x, z):

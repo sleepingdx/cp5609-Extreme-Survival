@@ -1,5 +1,8 @@
 import math
 import random
+
+import pygame.mask
+
 from codes import MyDefine
 from codes.ImageManager import ImageManager
 
@@ -29,6 +32,22 @@ class Terrain:
                 col = json['base_layer_2'][r][c]
                 row.append(col)
             self.base_layer_2.append(row)
+
+        self.mask_layer_2 = []
+        for r in range(len(json['base_layer_2'])):
+            row = []
+            for c in range(len(json['base_layer_2'][r])):
+                if self.base_layer_2[r][c][0] != MyDefine.INVALID_ID:
+                    res = ImageManager.get_instance().find_resource_by_name(self.m_files[self.base_layer_2[r][c][0]])
+                    rect = pygame.Rect(self.base_layer_2[r][c][1][1] * MyDefine.TILE_RESOLUTION[0],
+                                       self.base_layer_2[r][c][1][0] * MyDefine.TILE_RESOLUTION[1],
+                                       MyDefine.TILE_RESOLUTION[0],
+                                       MyDefine.TILE_RESOLUTION[1])
+                    col = pygame.mask.from_surface(res["image"].subsurface(rect))
+                    row.append(col)
+                else:
+                    row.append(None)
+            self.mask_layer_2.append(row)
         # Masking layer
         self.m_masking_layer = []
         for r in range(len(json['masking_layer'])):

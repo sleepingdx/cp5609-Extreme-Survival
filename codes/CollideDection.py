@@ -1,10 +1,62 @@
+import pygame
+import pygame.sprite
 from codes.Vector import Vector
 
 
-class CollisionDetection:
+class CollideDetection:
 
     @staticmethod
-    def detect_block_collision(collider_1, collider_2):
+    def detect_mask_collide(sprite, new_pos, obstacle_mask, rect):
+        if not sprite.rect:
+            return False
+        # 计算目标位置
+        target_rect = sprite.rect.move(new_pos.x, new_pos.z)
+
+        # 使用 mask 对象检测碰撞
+        if obstacle_mask:
+            if sprite.mask.overlap_area(obstacle_mask, (target_rect.x - rect.x, target_rect.y - rect.y)) > 0:
+                # 如果发生重叠，可以在这里进行处理，比如改变颜色或者执行其他逻辑
+                print("Pixel-perfect Collision")
+                return True
+        return False
+
+    @staticmethod
+    def detect_sprite_collide(sprite, new_pos, obstacles):
+        if not sprite.rect:
+            return False
+        # 计算目标位置
+        target_rect = sprite.rect.move(new_pos.x, new_pos.z)
+
+        # 检查目标位置是否与其他精灵组中的任何精灵相交
+        for obstacle_group in obstacles:
+            for obstacle in obstacle_group:
+                # 使用 mask 对象检测碰撞
+                if pygame.mask.from_surface(sprite.image).overlap(pygame.mask.from_surface(obstacle.image), (
+                        target_rect.x - obstacle.rect.x, target_rect.y - obstacle.rect.y)):
+                    # 如果发生重叠，可以在这里进行处理，比如改变颜色或者执行其他逻辑
+                    print(f"Pixel-perfect Collision with {obstacle}")
+                    return True
+        return False
+
+    @staticmethod
+    def detect_sprite_collide_by_different_group(group1, group2):
+        # 检测像素级碰撞
+        if pygame.sprite.groupcollide(group1, group2, False, False, pygame.sprite.collide_mask):
+            print("Pixel-perfect Collision")
+            return True
+        return False
+
+    @staticmethod
+    def detect_sprite_collide_by_different_group_ex(group1, group2):
+        # 检测像素级碰撞
+        collisions = pygame.sprite.groupcollide(group1, group2, False, False, pygame.sprite.collide_mask)
+        for sprite1, collided_sprites in collisions.items():
+            for sprite2 in collided_sprites:
+                return True, sprite1, sprite2
+        return False, None, None
+
+    @staticmethod
+    def detect_block_collide(collider_1, collider_2):
         """
         Detect the collision between collider_1 and collider_2
         :param collider_1: (center_x, center_z, width, height)
@@ -49,7 +101,7 @@ class CollisionDetection:
         return False
 
     @staticmethod
-    def detect_circle_collision(collider_1, collider_2):
+    def detect_circle_collide(collider_1, collider_2):
         """
         Detect the collision between collider_1 and collider_2
         :param collider_1: (center_x, center_z, radius)

@@ -1,6 +1,7 @@
 import pygame
 import subprocess
 import sys
+
 from codes import MyDefine
 from codes.GameLevelManager import GameLevelManager
 from codes.CharacterManager import CharacterManager
@@ -24,7 +25,7 @@ class MyGame(EventTrigger):
 
     @staticmethod
     def start():
-        GameLevelManager.get_instance().start(0)
+        GameLevelManager.get_instance().start(GameLevelManager.get_instance().m_current)
 
     def run(self):
         # 游戏循环
@@ -61,7 +62,7 @@ class MyGame(EventTrigger):
     @staticmethod
     def end():
         pygame.quit()
-        subprocess.run(["python", "CharacterChoose.py"])
+        # subprocess.run(["python", "CharacterChoose.py"])
         sys.exit()
 
     def trigger(self, event):

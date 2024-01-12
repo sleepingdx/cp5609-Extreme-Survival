@@ -12,17 +12,17 @@ from codes.Npc import Npc
 from codes.Item import Item
 from codes.Equipment import Equipment
 
-CHARACTERS_KEY = "characters"
-TERRAIN_KEY = "terrain"
-
 
 class GameLevel:
+    CHARACTERS_KEY = "characters"
+    TERRAIN_KEY = "terrain"
+
     def __init__(self, index):
         self.m_index = index
 
     def start(self):
         # Terrain
-        terrain_index = JsonManager.get_instance().m_json_gameLevels[self.m_index][TERRAIN_KEY]
+        terrain_index = JsonManager.get_instance().m_json_gameLevels[self.m_index][GameLevel.TERRAIN_KEY]
         TerrainManager.get_instance().load_terrain(terrain_index)
         TerrainManager.get_instance().change_terrain(terrain_index)
         # block layer
@@ -30,7 +30,7 @@ class GameLevel:
         BlockLayer.get_instance().load_blocks(json_blocks)
         # Characters
         characters = JsonManager.get_instance().m_json_characters
-        objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][CHARACTERS_KEY]
+        objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][GameLevel.CHARACTERS_KEY]
         for i in range(len(objects) - 1, -1, -1):
             if objects[i]["id"] == MyDefine.INVALID_ID:
                 objects[i]["id"] = GlobalVariables.get_instance().m_role_id

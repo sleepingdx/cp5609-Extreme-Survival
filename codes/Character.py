@@ -36,6 +36,9 @@ class Character:
         self.m_max_mp = 1
         self.m_mp = self.m_max_mp
 
+    def get_current_action(self):
+        return self.m_actions[CHARACTER_ACTIONS[self.m_current]]
+
     def append_action(self, name, action):
         """
         Append action by action name
