@@ -15,9 +15,8 @@ class Injured(State):
         if self.m_object.is_action_completed(self.m_object.m_current):
             if self.m_object.m_hp <= 0:
                 self.m_object.onDied()
-            else:
-                if not self.m_object.m_fsm.change_status(self.m_object.m_fsm.m_last_state):
-                    self.m_object.m_fsm.change_status(0)
+            elif self.m_object.m_fsm.m_last_state != 3:
+                self.m_object.m_fsm.change_status(self.m_object.m_fsm.m_last_state)
 
     def end(self):
         super().end()
