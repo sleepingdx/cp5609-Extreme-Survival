@@ -64,27 +64,27 @@ class Move(State):
                         rect = pygame.Rect(c * MyDefine.TILE_RESOLUTION[0], r * MyDefine.TILE_RESOLUTION[1],
                                            MyDefine.TILE_RESOLUTION[0], MyDefine.TILE_RESOLUTION[1])
                         # Pixel collide detection
-                        # if terrain.mask_layer_2[r][c]:
-                        #     if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
-                        #                                             orientation * CONST_DEVIATION,
-                        #                                             terrain.mask_layer_2[r][c], rect):
-                        #         self.m_object.m_fsm.change_status(0)
-                        #         return
+                        if terrain.mask_layer_2[r][c]:
+                            if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
+                                                                    orientation * CONST_DEVIATION,
+                                                                    terrain.mask_layer_2[r][c], rect):
+                                self.m_object.m_fsm.change_status(0)
+                                return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
                         objects = BlockLayer.get_instance().m_objects[f'{r},{c}']
-                        # if objects:
-                        #     for i in range(len(objects)):
-                        #         if objects[i] and objects[i] != self.m_object:
-                        #             # Pixel collide detection
-                        #             # if CollideDetection.detect_sprite_collide(self.m_object.get_current_action(),
-                        #             #                                           orientation * CONST_DEVIATION,
-                        #             #                                           [objects[i].m_spriteMgr.m_sprites]):
-                        #             if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
-                        #                                                     orientation * CONST_DEVIATION,
-                        #                                                     objects[i].get_current_action().mask,
-                        #                                                     objects[i].get_current_action().rect):
-                        #                 self.m_object.m_fsm.change_status(0)
-                        #                 return
+                        if objects:
+                            for i in range(len(objects)):
+                                if objects[i] and objects[i] != self.m_object:
+                                    # Pixel collide detection
+                                    # if CollideDetection.detect_sprite_collide(self.m_object.get_current_action(),
+                                    #                                           orientation * CONST_DEVIATION,
+                                    #                                           [objects[i].m_spriteMgr.m_sprites]):
+                                    if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
+                                                                            orientation * CONST_DEVIATION,
+                                                                            objects[i].get_current_action().mask,
+                                                                            objects[i].get_current_action().rect):
+                                        self.m_object.m_fsm.change_status(0)
+                                        return
         self.m_object.set_center_pos(new_pos.x, new_pos.z)
 
     def end(self):
