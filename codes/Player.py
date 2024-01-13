@@ -23,7 +23,7 @@ class Player(Character, EventTrigger):
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
             mouse_pos = pygame.mouse.get_pos()
             distance = (Vector(mouse_pos[0], mouse_pos[1]) - self.m_position).calculate_magnitude2()
-            if distance <= (MyDefine.BLOCK_RESOLUTION[0] * 3) ** 2:
+            if distance <= (MyDefine.BLOCK_RESOLUTION[0] * 5) ** 2:
                 self.m_path.clear()
                 self.m_target_pos = Vector(mouse_pos[0], mouse_pos[1])
             else:
