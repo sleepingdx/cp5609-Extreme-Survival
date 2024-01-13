@@ -2,15 +2,15 @@ from codes import MyDefine
 from codes.GlobalVariables import GlobalVariables
 from codes.JsonManager import JsonManager
 from codes.Action import Action
-from codes.CharacterManager import CharacterManager
 from codes.TerrainManager import TerrainManager
 from codes.BlockLayer import BlockLayer
 from codes.Effect import Effect
-from codes.Character import Character
-from codes.Player import Player
-from codes.Npc import Npc
-from codes.Item import Item
-from codes.Equipment import Equipment
+from codes.characters.CharacterManager import CharacterManager
+from codes.characters.Character import Character
+from codes.characters.Player import Player
+from codes.characters.Npc import Npc
+from codes.characters.Equipment import Equipment
+from codes.characters.Item import Item
 
 
 class GameLevel:

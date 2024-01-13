@@ -1,4 +1,4 @@
-from codes.Character import Character
+from codes.characters.Character import Character
 
 class Equipment(Character):
     """Equipments that fall to the ground can be picked up"""
