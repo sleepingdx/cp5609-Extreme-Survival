@@ -30,7 +30,16 @@ class Player(Character, EventTrigger):
                 blocks = BlockLayer.get_instance().m_blocks
                 row = int(mouse_pos[1] // MyDefine.BLOCK_RESOLUTION[0])
                 col = int(mouse_pos[0] // MyDefine.BLOCK_RESOLUTION[1])
+                if blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+                    direction = ((row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
+                                 (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
+                    for i in range(len(direction)):
+                        if blocks[direction[i][0]][direction[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                            row = direction[i][0]
+                            col = direction[i][1]
+                            break
                 self.m_path = PathFinding.astar_positions(blocks, (self.m_row, self.m_col), (row, col))
+                self.m_path.pop()
                 self.m_path.append(Vector(mouse_pos[0], mouse_pos[1]))
             self.m_path_index = 0
             self.move()
