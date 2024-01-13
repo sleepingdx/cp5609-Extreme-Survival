@@ -22,6 +22,6 @@ class BlockLayer(Singleton):
 
     def remove(self, row, col, obj):
         if 0 <= row < len(self.m_blocks) and 0 <= col < len(self.m_blocks[row]):
+            self.m_objects[f'{row},{col}'].remove(obj)
             if self.m_blocks[row][col] == MyDefine.BLOCK_PLACEHOLDERS[2] and len(self.m_objects[f'{row},{col}']) <= 0:
                 self.m_blocks[row][col] = MyDefine.BLOCK_PLACEHOLDERS[0]
-            self.m_objects[f'{row},{col}'].remove(obj)
