@@ -1,11 +1,11 @@
 [
   {
     "characters": [
-      {"id": -1, "position": [150, 100], "orientation": 2},
-      {"id": 2, "position": [720, 600], "orientation": 2},
-      {"id": 3, "position": [890, 230], "orientation": 2},
-      {"id": 4, "position": [520, 60], "orientation": 2},
-      {"id": 5, "position": [500, 650], "orientation": 2}
+      {"id": -1, "position": [144, 96], "orientation": 2},
+      {"id": 2, "position": [720, 576], "orientation": 2},
+      {"id": 3, "position": [864, 240], "orientation": 2},
+      {"id": 4, "position": [528, 48], "orientation": 2},
+      {"id": 5, "position": [528, 672], "orientation": 2}
     ],
     "terrain": 0
   },
