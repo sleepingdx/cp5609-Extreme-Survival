@@ -56,5 +56,6 @@ class PathFinding:
         positions = []
         for i in range(len(path)):
             positions.append(
-                Vector(path[i][1] * MyDefine.BLOCK_RESOLUTION[0], path[i][0] * MyDefine.BLOCK_RESOLUTION[1]))
+                Vector(path[i][1] * MyDefine.BLOCK_RESOLUTION[0] + MyDefine.BLOCK_RESOLUTION[0] / 2,
+                       path[i][0] * MyDefine.BLOCK_RESOLUTION[1] + MyDefine.BLOCK_RESOLUTION[1] / 2))
         return positions

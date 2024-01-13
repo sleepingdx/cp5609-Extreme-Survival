@@ -22,12 +22,16 @@ class Player(Character, EventTrigger):
         # Clicked on the right button
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
             mouse_pos = pygame.mouse.get_pos()
-            self.m_target_pos = Vector(mouse_pos[0], mouse_pos[1])
-            # blocks = BlockLayer.get_instance().m_blocks
-            # row = int(mouse_pos[1] // MyDefine.BLOCK_RESOLUTION[0])
-            # col = int(mouse_pos[0] // MyDefine.BLOCK_RESOLUTION[1])
-            # self.m_path = PathFinding.astar_positions(blocks, (self.m_row, self.m_col), (row, col))
-            # # self.m_path.append(Vector(mouse_pos[0], mouse_pos[1]))
+            distance = (Vector(mouse_pos[0], mouse_pos[1]) - self.m_position).calculate_magnitude2()
+            if distance <= (MyDefine.BLOCK_RESOLUTION[0] * 3) ** 2:
+                self.m_path.clear()
+                self.m_target_pos = Vector(mouse_pos[0], mouse_pos[1])
+            else:
+                blocks = BlockLayer.get_instance().m_blocks
+                row = int(mouse_pos[1] // MyDefine.BLOCK_RESOLUTION[0])
+                col = int(mouse_pos[0] // MyDefine.BLOCK_RESOLUTION[1])
+                self.m_path = PathFinding.astar_positions(blocks, (self.m_row, self.m_col), (row, col))
+                self.m_path.append(Vector(mouse_pos[0], mouse_pos[1]))
             self.m_path_index = 0
             self.move()
 
