@@ -16,14 +16,16 @@ class Character:
     def __init__(self):
         # Position
         self.m_position = Vector(0, 0)
+        self.m_target_pos = self.m_position
         self.m_orientation = Vector(0, 0)
+        self.m_path = []
+        self.m_path_index = 0
         # Actions
         self.m_spriteMgr = SpriteManager()
         self.m_actions = {}
         self.m_current = 0
         # FSM
         self.m_fsm = FiniteStateMachine(self, "Character")
-        self.m_target_pos = Vector(0, 0)
         self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         # Collision
         self.m_collision_rect = MyDefine.BLOCK_COLLIDER_RECT

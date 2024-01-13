@@ -24,8 +24,24 @@ class Move(State):
         elapsed_sec = current_sec - self.m_object.m_sec
         self.m_object.m_sec = current_sec
 
+        if len(self.m_object.m_path) > 0 and 0 <= self.m_object.m_path_index < len(self.m_object.m_path) - 1:
+            self.m_object.m_target_pos = self.m_object.m_path[self.m_object.m_path_index]
+
         orientation = (self.m_object.m_target_pos - self.m_object.m_position)
         if orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_RANGE ** 2:
+            # Find the path
+            if len(self.m_object.m_path) > 0 and 0 <= self.m_object.m_path_index < len(self.m_object.m_path) - 1:
+                if ((self.m_object.m_target_pos - self.m_object.m_path[
+                    self.m_object.m_path_index]).calculate_magnitude2()
+                        <= MyDefine.ARRIVE_TARGET_POS_RANGE ** 2):
+                    self.m_object.m_path_index += 1
+                    self.m_object.m_target_pos = self.m_object.m_path[self.m_object.m_path_index]
+                    if self.m_object.m_path_index >= len(self.m_object.m_path) - 1:
+                        self.m_object.m_path.clear()
+                        self.m_object.m_path_index = 0
+                        self.m_object.m_target_pos = self.m_object.m_target_pos
+                    return
+            # Already arrived the destination
             self.m_object.m_fsm.change_status(0)
             return
         else:
@@ -48,27 +64,27 @@ class Move(State):
                         rect = pygame.Rect(c * MyDefine.TILE_RESOLUTION[0], r * MyDefine.TILE_RESOLUTION[1],
                                            MyDefine.TILE_RESOLUTION[0], MyDefine.TILE_RESOLUTION[1])
                         # Pixel collide detection
-                        if terrain.mask_layer_2[r][c]:
-                            if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
-                                                                    orientation * CONST_DEVIATION,
-                                                                    terrain.mask_layer_2[r][c], rect):
-                                self.m_object.m_fsm.change_status(0)
-                                return
+                        # if terrain.mask_layer_2[r][c]:
+                        #     if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
+                        #                                             orientation * CONST_DEVIATION,
+                        #                                             terrain.mask_layer_2[r][c], rect):
+                        #         self.m_object.m_fsm.change_status(0)
+                        #         return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
                         objects = BlockLayer.get_instance().m_objects[f'{r},{c}']
-                        if objects:
-                            for i in range(len(objects)):
-                                if objects[i] and objects[i] != self.m_object:
-                                    # Pixel collide detection
-                                    # if CollideDetection.detect_sprite_collide(self.m_object.get_current_action(),
-                                    #                                           orientation * CONST_DEVIATION,
-                                    #                                           [objects[i].m_spriteMgr.m_sprites]):
-                                    if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
-                                                                            orientation * CONST_DEVIATION,
-                                                                            objects[i].get_current_action().mask,
-                                                                            objects[i].get_current_action().rect):
-                                        self.m_object.m_fsm.change_status(0)
-                                        return
+                        # if objects:
+                        #     for i in range(len(objects)):
+                        #         if objects[i] and objects[i] != self.m_object:
+                        #             # Pixel collide detection
+                        #             # if CollideDetection.detect_sprite_collide(self.m_object.get_current_action(),
+                        #             #                                           orientation * CONST_DEVIATION,
+                        #             #                                           [objects[i].m_spriteMgr.m_sprites]):
+                        #             if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
+                        #                                                     orientation * CONST_DEVIATION,
+                        #                                                     objects[i].get_current_action().mask,
+                        #                                                     objects[i].get_current_action().rect):
+                        #                 self.m_object.m_fsm.change_status(0)
+                        #                 return
         self.m_object.set_center_pos(new_pos.x, new_pos.z)
 
     def end(self):
