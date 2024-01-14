@@ -179,8 +179,8 @@
   },
   {
     "id": 2,
-    "type": "Npc",
-    "name": "Girl",
+    "type": "Monster",
+    "name": "Zombie",
     "fsm_name": "Monster",
     "portrait": "",
     "hp": 1000,

@@ -15,6 +15,9 @@ class Player(Character, EventTrigger):
     def update(self):
         super().update()
 
+    def move(self, pos):
+        self.m_fsm.change_state(1, pos)
+
     def trigger(self, event):
         # Clicked on the right button
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
@@ -32,3 +35,8 @@ class Player(Character, EventTrigger):
                 self.onDamaged(-self.m_max_hp * 20 / 100)
             elif event.key == pygame.K_a:
                 self.attack(None)
+            elif event.key == pygame.K_p:
+                # Test code
+                from codes.Characters.CharacterManager import CharacterManager
+                obj = CharacterManager.get_instance().find_character(2)
+                obj.m_fsm.change_state(2)

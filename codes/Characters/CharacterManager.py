@@ -9,7 +9,7 @@ class CharacterManager(Singleton):
 
     def update(self):
         """
-        Update all registered characters by using the update method of each character
+        Update all registered Characters by using the update method of each character
         :return: None
         """
         if self.m_characters:

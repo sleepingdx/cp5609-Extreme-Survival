@@ -8,3 +8,6 @@ class Npc(Character):
 
     def update(self):
         super().update()
+
+    def patrol(self):
+        self.m_fsm.change_state(2)

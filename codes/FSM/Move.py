@@ -38,10 +38,12 @@ class Move(State):
                         (row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
                         (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
                     for i in range(len(directions)):
-                        if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                            row = directions[i][0]
-                            col = directions[i][1]
-                            break
+                        if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(
+                                blocks[directions[i][0]]):
+                            if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                                row = directions[i][0]
+                                col = directions[i][1]
+                                break
                 self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col), (row, col))
                 if len(self.m_path) > 0:
                     del self.m_path[0]

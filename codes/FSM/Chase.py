@@ -26,11 +26,12 @@ class Chase(State):
                 directions = ((row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
                               (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
                 for i in range(len(directions)):
-                    if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                        row = directions[i][0]
+                    if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
+                        if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                            row = directions[i][0]
                         col = directions[i][1]
                         break
-            self.m_path = PathFinding.astar_pos(blocks, (self.m_object.m_row, self.m_object.m_col), (row, col))
+            self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col), (row, col))
             if len(self.m_path) > 0:
                 del self.m_path[0]
             self.m_current = 0
@@ -42,17 +43,18 @@ class Chase(State):
 
     def update(self):
         super().update()
-        # Velocity
-        current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
-        elapsed_sec = current_sec - self.m_sec
-        self.m_sec = current_sec
-        # Velocity
-        orientation = (self.m_path[self.m_current] - self.m_object.m_position).normalize()
-        new_pos = (self.m_object.m_position + orientation * MyDefine.PIXELS_PER_METER
-                   * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
+        if len(self.m_path) > 0:
+            # Velocity
+            current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
+            elapsed_sec = current_sec - self.m_sec
+            self.m_sec = current_sec
+            # Velocity
+            orientation = (self.m_path[self.m_current] - self.m_object.m_position).normalize()
+            new_pos = (self.m_object.m_position + orientation * MyDefine.PIXELS_PER_METER
+                       * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
 
-        if self.m_object.path_finding(self, new_pos):
-            self.m_object.m_fsm.change_state(0)
+            if self.m_object.path_finding(self, new_pos):
+                self.m_object.m_fsm.change_state(0)
 
     def end(self):
         self.m_target = None
