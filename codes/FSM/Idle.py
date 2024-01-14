@@ -5,12 +5,13 @@ class Idle(State):
     def __init__(self, obj):
         super().__init__(obj)
 
-    def begin(self):
-        super().begin()
+    def begin(self, arg1):
+        super().begin(arg1)
+        # Action
         self.m_object.change_action(0)
 
     def update(self):
         super().update()
 
     def end(self):
-        super().end()
+        return super().end()

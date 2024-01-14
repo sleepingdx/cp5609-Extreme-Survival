@@ -13,8 +13,8 @@ class PathFinding:
 
         # the 4 possible target position/direction from current point. Thus, the reason why the eight directions are not
         # applicable is because the grid may be blocked, resulting in the character being blocked and unable to move.
-        # directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
+        # directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
         # 启发函数: Manhattan distance/Euclidean distance
         def heuristic(curr, goal):
@@ -51,7 +51,7 @@ class PathFinding:
         return []  # No path found
 
     @staticmethod
-    def astar_positions(grids, start, end):
+    def astar_pos(grids, start, end):
         path = PathFinding.astar_array(grids, start, end)
         positions = []
         for i in range(len(path)):

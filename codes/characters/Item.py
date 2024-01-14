@@ -2,7 +2,6 @@ from codes.characters.Character import Character
 
 
 class Item(Character):
-    """Items that fall to the ground can be picked up"""
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, fsm_name):
+        super().__init__(fsm_name)

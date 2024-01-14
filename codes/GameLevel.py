@@ -39,7 +39,7 @@ class GameLevel:
                 objects[i]["id"] = GlobalVariables.get_instance().m_role_id
             for j in range(len(characters)):
                 if characters[j]["id"] == objects[i]["id"]:
-                    character = globals()[characters[j]["type"]]()
+                    character = globals()[characters[j]["type"]](characters[j]["fsm_name"])
                     character.m_collision_rect = characters[j]["collision_rect"]
                     character.m_id = characters[j]["id"]
                     character.m_max_hp = characters[j]['hp']

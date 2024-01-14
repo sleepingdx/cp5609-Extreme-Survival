@@ -15,7 +15,7 @@ COLLIDER_RADIUS = 2  # Circular collider radius
 BLOCK_COLLIDER_RECT = (48, 48)  # width and height of Block collider
 MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png')  # image resource of main role
 GAME_FRAME_RATE = 200  # frame rate of the game
-ARRIVE_TARGET_POS_RANGE = 1  # distance from the target position, entering this range is considered to have been reached
+ARRIVE_TARGET_POS_SCOPE = 1  # Entering this scope is considered to have been reached the target position
 INVALID_ID = -1  # invalid id
 
 JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gameLevels.json")
