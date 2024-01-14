@@ -39,6 +39,7 @@ class Player(Character, EventTrigger):
                             col = direction[i][1]
                             break
                 self.m_path = PathFinding.astar_positions(blocks, (self.m_row, self.m_col), (row, col))
+                del self.m_path[0]
                 self.m_path.append(Vector(mouse_pos[0], mouse_pos[1]))
             self.m_path_index = 0
             self.move()
