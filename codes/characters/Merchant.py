@@ -1,7 +1,7 @@
-from codes.characters.Character import Character
+from codes.characters.Npc import Npc
 
 
-class Npc(Character):
+class Merchant(Npc):
 
     def __init__(self):
         super().__init__()
