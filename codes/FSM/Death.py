@@ -1,7 +1,7 @@
 from codes.FSM.State import State
 
 
-class Dead(State):
+class Death(State):
     def __init__(self, obj):
         super().__init__(obj)
 

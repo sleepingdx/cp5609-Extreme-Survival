@@ -3,9 +3,9 @@ from codes.FSM.Idle import Idle
 from codes.FSM.Move import Move
 from codes.FSM.Attack import Attack
 from codes.FSM.Injured import Injured
-from codes.FSM.Dead import Dead
+from codes.FSM.Death import Death
 
-ENUM_FSM_STATES = ["Idle", "Move", "Attack", "Injured", "Dead"]
+ENUM_FSM_STATES = ["Idle", "Move", "Attack", "Injured", "Death"]
 
 
 class FiniteStateMachine:
