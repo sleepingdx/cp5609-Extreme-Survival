@@ -89,19 +89,19 @@ class Character:
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
     def move(self):
-        self.m_fsm.change_status(1)
+        self.m_fsm.change_state(1)
 
     def attack(self, obj):
-        self.m_fsm.change_status(2)
+        self.m_fsm.change_state(2)
         if obj:
             obj.onDamaged(-10)
 
     def onDamaged(self, hp):
         self.m_hp += hp
-        self.m_fsm.change_status(3)
+        self.m_fsm.change_state(3)
 
     def onDied(self):
-        self.m_fsm.change_status(4)
+        self.m_fsm.change_state(4)
 
     def is_action_completed(self, index):
         if self.m_actions[CHARACTER_ACTIONS[index]].m_completed:

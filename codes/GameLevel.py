@@ -9,6 +9,9 @@ from codes.characters.CharacterManager import CharacterManager
 from codes.characters.Character import Character
 from codes.characters.Player import Player
 from codes.characters.Npc import Npc
+from codes.characters.Merchant import Merchant
+from codes.characters.Monster import Monster
+from codes.characters.Pet import Pet
 from codes.characters.Equipment import Equipment
 from codes.characters.Item import Item
 

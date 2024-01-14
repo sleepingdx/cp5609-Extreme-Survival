@@ -5,7 +5,7 @@ from codes.FSM.Attack import Attack
 from codes.FSM.Injured import Injured
 from codes.FSM.Death import Death
 
-ENUM_FSM_STATES = ["Idle", "Move", "Attack", "Injured", "Death"]
+ENUM_FSM_STATES = ["Idle", "Move", "Attack", "Injured", "Death"]  # Need to keep the order of states
 
 
 class FiniteStateMachine:
@@ -22,7 +22,7 @@ class FiniteStateMachine:
         if ENUM_FSM_STATES[self.m_current] in self.m_states:
             self.m_states[ENUM_FSM_STATES[self.m_current]].update()
 
-    def change_status(self, index):
+    def change_state(self, index):
         if index in self.m_fsm[ENUM_FSM_STATES[self.m_current]] and index != ENUM_FSM_STATES[self.m_current]:
             self.m_states[ENUM_FSM_STATES[self.m_current]].end()
             self.m_last_state = self.m_current

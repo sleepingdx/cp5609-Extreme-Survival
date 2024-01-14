@@ -16,8 +16,8 @@ class Attack(State):
             if self.m_object.m_hp <= 0:
                 self.m_object.onDied()
             else:
-                if not self.m_object.m_fsm.change_status(self.m_object.m_fsm.m_last_state):
-                    self.m_object.m_fsm.change_status(0)
+                if not self.m_object.m_fsm.change_state(self.m_object.m_fsm.m_last_state):
+                    self.m_object.m_fsm.change_state(0)
 
     def end(self):
         super().end()

@@ -42,7 +42,7 @@ class Move(State):
                         self.m_object.m_target_pos = self.m_object.m_target_pos
                     return
             # Already arrived the destination
-            self.m_object.m_fsm.change_status(0)
+            self.m_object.m_fsm.change_state(0)
             return
         else:
             from codes.GameLevelManager import GameLevelManager
@@ -68,7 +68,7 @@ class Move(State):
                             if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
                                                                     orientation * CONST_DEVIATION,
                                                                     terrain.mask_layer_2[r][c], rect):
-                                self.m_object.m_fsm.change_status(0)
+                                self.m_object.m_fsm.change_state(0)
                                 return
                     elif blocks[r][c] == MyDefine.BLOCK_PLACEHOLDERS[2]:
                         objects = BlockLayer.get_instance().m_objects[f'{r},{c}']
@@ -83,7 +83,7 @@ class Move(State):
                                                                             orientation * CONST_DEVIATION,
                                                                             objects[i].get_current_action().mask,
                                                                             objects[i].get_current_action().rect):
-                                        self.m_object.m_fsm.change_status(0)
+                                        self.m_object.m_fsm.change_state(0)
                                         return
         self.m_object.set_center_pos(new_pos.x, new_pos.z)
 
