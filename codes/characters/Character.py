@@ -7,7 +7,7 @@ from codes.FSM.FiniteStateMachine import FiniteStateMachine
 # Direction of a character
 MAX_CHARACTER_DIRECTION_COUNT = 4
 # Actions
-CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Damage', 'Die')
+CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Injured', 'Die')
 
 
 class Character:

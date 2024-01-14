@@ -1,4 +1,7 @@
+from codes import MyDefine
 from codes.characters.Character import Character
+
+ENEMY_DETECTION_RANGE = 3 * MyDefine.MAP_GRID  # Scope of Searching enemies
 
 
 class Npc(Character):
@@ -8,4 +11,3 @@ class Npc(Character):
 
     def update(self):
         super().update()
-        self.m_fsm.update()
