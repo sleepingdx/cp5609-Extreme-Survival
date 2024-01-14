@@ -1,5 +1,4 @@
 import random
-import time
 
 from codes import MyDefine
 from codes.AI.BaseAI import BaseAI
