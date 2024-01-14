@@ -424,5 +424,49 @@
         }
       }
     ]
+  },
+  {
+    "id": 9,
+    "type": "Monster",
+    "name": "dx01",
+    "fsm_name": "Monster",
+    "portrait": "",
+    "hp": 1000,
+    "mp": 1000,
+    "resolution": [48,48],
+    "collision_rect": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Monster.png",
+        "frames": [
+          {"name": "Up", "list": [[3,10]]},
+          {"name": "Right", "list": [[2,10]]},
+          {"name": "Down", "list": [[0,10]]},
+          {"name": "Left", "list": [[1,10]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Monster.png",
+        "frames": [
+          {"name": "Up", "list": [[3,9],[3,11]]},
+          {"name": "Right", "list": [[2,9],[2,11]]},
+          {"name": "Down", "list": [[0,9],[0,11]]},
+          {"name": "Left", "list": [[1,9],[1,11]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      }
+    ]
   }
 ]

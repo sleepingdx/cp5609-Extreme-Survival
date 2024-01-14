@@ -5,7 +5,8 @@
       {"id": 2, "position": [744, 600], "orientation": 2},
       {"id": 3, "position": [888, 264], "orientation": 2},
       {"id": 4, "position": [552, 72], "orientation": 2},
-      {"id": 5, "position": [504, 648], "orientation": 2}
+      {"id": 5, "position": [504, 648], "orientation": 2},
+      {"id": 9, "position": [744, 120], "orientation": 2}
     ],
     "terrain": 0
   },

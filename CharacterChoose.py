@@ -26,7 +26,7 @@ font_text = pygame.font.Font(None, 80)
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取上一级目录的路径
 parent_dir = os.path.dirname(current_dir)
-background_path = os.path.join(current_dir, r"res\Background\chara_selected.png")
+background_path = os.path.join(current_dir, r"res\background\chara_selected.png")
 
 # 加载背景图像
 background_image = pygame.image.load(background_path)
