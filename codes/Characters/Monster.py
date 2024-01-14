@@ -1,5 +1,5 @@
 from codes import MyDefine
-from codes.characters.Npc import Npc
+from codes.Characters.Npc import Npc
 
 ENEMY_DETECTION_RANGE = 3 * MyDefine.MAP_GRID  # Scope of Searching enemies
 

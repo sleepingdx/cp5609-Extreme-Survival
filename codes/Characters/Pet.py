@@ -1,4 +1,4 @@
-from codes.characters.Npc import Npc
+from codes.Characters.Npc import Npc
 
 
 class Pet(Npc):

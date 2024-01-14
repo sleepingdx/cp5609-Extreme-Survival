@@ -1,5 +1,5 @@
 import pygame
-from codes.characters.Character import Character
+from codes.Characters.Character import Character
 from codes.EventTrigger import EventTrigger
 from codes.EventTriggerManager import EventTriggerManager
 from codes.Vector import Vector

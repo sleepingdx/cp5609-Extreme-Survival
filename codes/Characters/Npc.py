@@ -1,4 +1,4 @@
-from codes.characters.Character import Character
+from codes.Characters.Character import Character
 
 
 class Npc(Character):

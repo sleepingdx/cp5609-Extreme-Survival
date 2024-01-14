@@ -5,15 +5,15 @@ from codes.Action import Action
 from codes.TerrainManager import TerrainManager
 from codes.BlockLayer import BlockLayer
 from codes.Effect import Effect
-from codes.characters.CharacterManager import CharacterManager
-from codes.characters.Character import Character
-from codes.characters.Player import Player
-from codes.characters.Npc import Npc
-from codes.characters.Merchant import Merchant
-from codes.characters.Monster import Monster
-from codes.characters.Pet import Pet
-from codes.characters.Equipment import Equipment
-from codes.characters.Item import Item
+from codes.Characters.CharacterManager import CharacterManager
+from codes.Characters.Character import Character
+from codes.Characters.Player import Player
+from codes.Characters.Npc import Npc
+from codes.Characters.Merchant import Merchant
+from codes.Characters.Monster import Monster
+from codes.Characters.Pet import Pet
+from codes.Characters.Equipment import Equipment
+from codes.Characters.Item import Item
 
 
 class GameLevel:

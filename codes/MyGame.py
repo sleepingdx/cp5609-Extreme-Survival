@@ -3,7 +3,7 @@ import sys
 
 from codes import MyDefine
 from codes.GameLevelManager import GameLevelManager
-from codes.characters.CharacterManager import CharacterManager
+from codes.Characters.CharacterManager import CharacterManager
 from codes.TerrainManager import TerrainManager
 from codes.EventTriggerManager import EventTriggerManager
 from codes.EventTrigger import EventTrigger
