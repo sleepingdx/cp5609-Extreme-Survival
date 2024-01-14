@@ -14,6 +14,7 @@ class Move(State):
     def __init__(self, obj):
         super().__init__(obj)
         self.m_target_pos = self.m_object.m_position
+        self.m_orientation = self.m_object.m_orientation
         self.m_path = []
         self.m_current = 0
         self.m_pathfinding = False
@@ -57,23 +58,24 @@ class Move(State):
         super().update()
 
         if not self.m_pathfinding:
-            orientation = (self.m_target_pos - self.m_object.m_position)
+            self.m_orientation = (self.m_target_pos - self.m_object.m_position)
             # Arrived
-            if orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
+            if self.m_orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
                 # Already arrived the destination
                 self.m_object.m_fsm.change_state(0)
                 return
         else:
-            orientation = (self.m_path[self.m_current] - self.m_object.m_position)
+            if len(self.m_path) > 0:
+                self.m_orientation = (self.m_path[self.m_current] - self.m_object.m_position)
 
         # Velocity
         current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         elapsed_sec = current_sec - self.m_sec
         self.m_sec = current_sec
 
-        orientation.normalize()
-        self.m_object.m_orientation = orientation
-        new_pos = (self.m_object.m_position + orientation * MyDefine.PIXELS_PER_METER
+        self.m_orientation.normalize()
+        self.m_object.m_orientation = self.m_orientation
+        new_pos = (self.m_object.m_position + self.m_orientation * MyDefine.PIXELS_PER_METER
                    * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
 
         if not self.m_pathfinding:
@@ -95,7 +97,7 @@ class Move(State):
                         # Pixel collide detection
                         if terrain.mask_layer_2[r][c]:
                             if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
-                                                                    orientation * CONST_DEVIATION,
+                                                                    self.m_orientation * CONST_DEVIATION,
                                                                     terrain.mask_layer_2[r][c], rect):
                                 self.m_object.m_fsm.change_state(0)
                                 return
@@ -106,7 +108,7 @@ class Move(State):
                                 if objects[i] and objects[i] != self.m_object:
                                     # Pixel collide detection
                                     if CollideDetection.detect_mask_collide(self.m_object.get_current_action(),
-                                                                            orientation * CONST_DEVIATION,
+                                                                            self.m_orientation * CONST_DEVIATION,
                                                                             objects[i].get_current_action().mask,
                                                                             objects[i].get_current_action().rect):
                                         self.m_object.m_fsm.change_state(0)

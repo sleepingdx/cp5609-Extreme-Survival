@@ -55,6 +55,8 @@ class Chase(State):
 
             if self.m_object.path_finding(self, new_pos):
                 self.m_object.m_fsm.change_state(0)
+        else:
+            self.m_object.m_fsm.change_state(0)
 
     def end(self):
         self.m_target = None
