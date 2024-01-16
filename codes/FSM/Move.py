@@ -26,7 +26,7 @@ class Move(State):
         self.m_current = 0
         # Position
         if pos:
-            if (pos - self.m_object.m_position).calculate_magnitude2() <= (MyDefine.MAP_GRID * 2) ** 2:
+            if (pos - self.m_object.m_position).calculate_magnitude2() <= (MyDefine.MAP_GRID * 3) ** 2:
                 self.m_pathfinding = False
                 self.m_target_pos = pos
             else:
