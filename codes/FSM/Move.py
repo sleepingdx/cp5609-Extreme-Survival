@@ -73,12 +73,11 @@ class Move(State):
         elapsed_sec = current_sec - self.m_sec
         self.m_sec = current_sec
 
-        self.m_orientation.normalize()
-        self.m_object.m_orientation = self.m_orientation
-        new_pos = (self.m_object.m_position + self.m_orientation * MyDefine.PIXELS_PER_METER
-                   * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
-
         if not self.m_pathfinding:
+            self.m_orientation.normalize()
+            self.m_object.m_orientation = self.m_orientation
+            new_pos = (self.m_object.m_position + self.m_orientation * MyDefine.PIXELS_PER_METER
+                       * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
             # Perform collision detection only during free movement
             from codes.GameLevelManager import GameLevelManager
             from codes.GameLevel import GameLevel
