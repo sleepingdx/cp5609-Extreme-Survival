@@ -3,8 +3,6 @@ from codes import MyDefine
 from codes.Characters.Npc import Npc
 from codes.AI.Ai001 import Ai001
 
-ENEMY_DETECTION_RANGE = 3 * MyDefine.MAP_GRID  # Scope of Searching enemies
-
 
 class Monster(Npc):
 

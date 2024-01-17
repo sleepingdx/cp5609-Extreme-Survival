@@ -53,7 +53,7 @@ class Chase(State):
             new_pos = (self.m_object.m_position + orientation * MyDefine.PIXELS_PER_METER
                        * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
 
-            if self.m_object.path_finding(self, new_pos):
+            if self.m_object.find_path(self, new_pos):
                 self.m_object.m_fsm.change_state(0)
         else:
             self.m_object.m_fsm.change_state(0)

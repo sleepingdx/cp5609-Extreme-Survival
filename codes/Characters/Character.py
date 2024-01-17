@@ -73,7 +73,7 @@ class Character:
     def render(self, window):
         self.m_spriteMgr.render(window)
 
-    def path_finding(self, cls, new_pos):
+    def find_path(self, cls, new_pos):
         if cls.m_path and 0 <= cls.m_current < len(cls.m_path):
             orientation = (cls.m_path[cls.m_current] - self.m_position)
             if orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
