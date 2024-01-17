@@ -42,7 +42,8 @@ class Action(pygame.sprite.Sprite):
         for i in range(endRow - beginRow):
             for j in range(endCol - beginCol):
                 frame_surface = pygame.Surface(resolution)
-                frame_surface.blit(res["image"], (0, 0), (i * resolution[0], j * resolution[1], resolution[0], resolution[1]))
+                frame_surface.blit(res["image"], (0, 0),
+                                   (i * resolution[0], j * resolution[1], resolution[0], resolution[1]))
                 self.m_frames[orientationName].append(frame_surface)
 
     def load_action_from_list(self, orientationName, frames, resolution):

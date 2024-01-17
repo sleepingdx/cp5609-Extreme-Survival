@@ -146,11 +146,11 @@ class Character:
     def attack(self, target):
         if target:
             self.m_fsm.change_state(5, target)
-            target.onDamaged(target.m_max_hp * 5 / 100)
+            target.onDamaged(target.m_max_hp * 2 / 100)
 
     def onDamaged(self, value):
         self.m_hp = max(0, self.m_hp - value)
-        self.m_fsm.change_state(6)
+        # self.m_fsm.change_state(6)
 
     def onDied(self):
         self.m_fsm.change_state(7)

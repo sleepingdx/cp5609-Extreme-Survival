@@ -17,24 +17,6 @@ class Chase(State):
         super().begin(target)
         self.m_target = target
         if self.m_target:
-            target_pos = self.m_target.m_position
-            # Path
-            blocks = BlockLayer.get_instance().m_blocks
-            row = min(max(0, int(target_pos.z // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
-            col = min(max(0, int(target_pos.x // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row]) - 1)
-            if blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
-                directions = ((row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
-                              (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
-                for i in range(len(directions)):
-                    if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
-                        if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                            row = directions[i][0]
-                        col = directions[i][1]
-                        break
-            self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col), (row, col))
-            if len(self.m_path) > 0:
-                del self.m_path[0]
-            self.m_current = 0
             # Action
             self.m_object.change_action(1)
             self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
@@ -43,6 +25,26 @@ class Chase(State):
 
     def update(self):
         super().update()
+
+        target_pos = self.m_target.m_position
+        # Path
+        blocks = BlockLayer.get_instance().m_blocks
+        row = min(max(0, int(target_pos.z // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
+        col = min(max(0, int(target_pos.x // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row]) - 1)
+        if blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+            directions = ((row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
+                          (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
+            for i in range(len(directions)):
+                if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
+                    if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                        row = directions[i][0]
+                    col = directions[i][1]
+                    break
+        self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col), (row, col))
+        if len(self.m_path) > 0:
+            del self.m_path[0]
+        self.m_current = 0
+
         if len(self.m_path) > 0:
             # Velocity
             current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
