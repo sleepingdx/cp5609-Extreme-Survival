@@ -4,7 +4,7 @@ from codes import MyDefine
 from codes.AI.BaseAI import BaseAI
 
 SEARCH_ENEMY_RADIUS = 5 * MyDefine.MAP_GRID  # Radius of searching enemies
-PATROL_TIME = (1000, 3000)  # The range of random time(ms) of patrolling
+PATROL_TIME = (1000, 5000)  # The range of random time(ms) of patrolling
 
 
 class Ai001(BaseAI):
