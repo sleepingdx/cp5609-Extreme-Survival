@@ -24,12 +24,14 @@ class Character:
         self.m_fsm = FiniteStateMachine(self, fsm_name)
         # Collision
         self.m_collision_rect = MyDefine.BLOCK_COLLIDER_RECT
-        #
+        # Common attributes
         self.m_id = MyDefine.INVALID_ID
         self.m_max_hp = 1
         self.m_hp = self.m_max_hp
         self.m_max_mp = 1
         self.m_mp = self.m_max_mp
+        self.m_search_enemy_scope = 0
+        self.m_attack_enemy_scope = 0
 
     def get_current_action(self):
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]]

@@ -46,6 +46,8 @@ class GameLevel:
                     character.m_hp = character.m_max_hp
                     character.m_max_mp = characters[j]['mp']
                     character.m_mp = character.m_max_mp
+                    character.m_search_enemy_scope = characters[j]['searchEnemyScope']
+                    character.m_attack_enemy_scope = characters[j]['attackEnemyScope']
                     CharacterManager.get_instance().append_character(objects[i]["id"], character)
                     for k in range(len(characters[j]["actions"])):
                         action = Action(character, characters[j]["actions"][k]["filename"])
