@@ -116,7 +116,7 @@ class Move(State):
             self.m_object.set_center_pos(new_pos.x, new_pos.z)
         else:
             # Do not perform collision detection only during free movement
-            if self.m_object.find_path(self, new_pos):
+            if self.m_object.find_path(self, MyDefine.BASIC_CHARACTER_MOVE_SPEED, elapsed_sec):
                 self.m_object.m_fsm.change_state(0)
 
     def end(self):

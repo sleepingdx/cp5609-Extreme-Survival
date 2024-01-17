@@ -98,7 +98,7 @@ class Character:
         pygame.draw.rect(window, (0, 0, 255), (self.get_rect().x, self.get_rect().y - 6, magic_bar_width, bar_height),
                          border_radius=2)
 
-    def find_path(self, cls, new_pos):
+    def find_path(self, cls, speed, elapsed_sec):
         if cls.m_path and 0 <= cls.m_current < len(cls.m_path):
             orientation = (cls.m_path[cls.m_current] - self.m_position)
             if orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
@@ -132,6 +132,7 @@ class Character:
                 # Velocity
                 orientation.normalize()
                 self.m_orientation = orientation
+                new_pos = (self.m_position + orientation * MyDefine.PIXELS_PER_METER * speed * (elapsed_sec / 1000))
                 self.set_center_pos(new_pos.x, new_pos.z)
             return False
 
