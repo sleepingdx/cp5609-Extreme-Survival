@@ -41,6 +41,7 @@ class GameLevel:
                 if characters[j]["id"] == objects[i]["id"]:
                     character = globals()[characters[j]["type"]](characters[j]["fsm_name"])
                     character.m_collision_rect = characters[j]["collision_rect"]
+                    character.m_type = characters[j]["type"]
                     character.m_id = characters[j]["id"]
                     character.m_max_hp = characters[j]['hp']
                     character.m_hp = character.m_max_hp

@@ -48,8 +48,13 @@ class Chase(State):
             current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
             elapsed_sec = current_sec - self.m_sec
             self.m_sec = current_sec
+            # Calculate speed
+            speed = MyDefine.BASIC_CHARACTER_CHASE_SPEED
+            if ((self.m_target.m_position - self.m_object.m_position).calculate_magnitude2() <=
+                    MyDefine.DECELERATION_SCOPE ** 2):
+                speed *= MyDefine.DECELERATION_RATE
 
-            if self.m_object.find_path(self, MyDefine.BASIC_CHARACTER_CHASE_SPEED, elapsed_sec):
+            if self.m_object.find_path(self, speed, elapsed_sec):
                 self.m_object.m_fsm.change_state(0)
         else:
             self.m_object.m_fsm.change_state(0)

@@ -36,7 +36,7 @@ class Player(Character, EventTrigger):
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
-                self.onDamaged(-self.m_max_hp * 20 / 100)
+                self.onDamaged(self.m_max_hp * 20 / 100)
             elif event.key == pygame.K_a:
                 self.attack(None)
             elif event.key == pygame.K_p:

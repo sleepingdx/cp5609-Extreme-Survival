@@ -25,6 +25,7 @@ class Character:
         # Collision
         self.m_collision_rect = MyDefine.BLOCK_COLLIDER_RECT
         # Common attributes
+        self.m_type = None
         self.m_id = MyDefine.INVALID_ID
         self.m_max_hp = 1
         self.m_hp = self.m_max_hp
@@ -142,13 +143,13 @@ class Character:
     def get_rect(self):
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
-    def attack(self, obj):
+    def attack(self, target):
         self.m_fsm.change_state(5)
-        if obj:
-            obj.onDamaged(-10)
+        if target:
+            target.onDamaged(target.m_max_hp * 10 / 100)
 
-    def onDamaged(self, hp):
-        self.m_hp += hp
+    def onDamaged(self, value):
+        self.m_hp = max(0, self.m_hp - value)
         self.m_fsm.change_state(6)
 
     def onDied(self):
