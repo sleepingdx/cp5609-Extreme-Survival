@@ -73,7 +73,6 @@ class Character:
 
     def render(self, window):
         self.m_spriteMgr.render(window)
-        self.draw_health_bar(window)
 
     def draw_health_bar(self, window):
         # 计算血条的宽度
