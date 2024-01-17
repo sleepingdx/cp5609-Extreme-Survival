@@ -3,6 +3,7 @@ from codes import MyDefine
 from codes.SpriteManager import SpriteManager
 from codes.Vector import Vector
 from codes.FSM.FiniteStateMachine import FiniteStateMachine
+from codes.BlockLayer import BlockLayer
 
 MAX_CHARACTER_DIRECTION_COUNT = 4  # Direction of a character
 CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Injured', 'Die')  # Actions
@@ -104,6 +105,13 @@ class Character:
                     if ((self.m_position - cls.m_path[cls.m_current]).calculate_magnitude2() <=
                             MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2):
                         cls.m_current += 1
+                        # The next grid is blocked. Need to recalculate a new route.
+                        blocks = BlockLayer.get_instance().m_blocks
+                        next_row = int(cls.m_path[cls.m_current].z // MyDefine.BLOCK_RESOLUTION[0])
+                        next_col = int(cls.m_path[cls.m_current].x // MyDefine.BLOCK_RESOLUTION[1])
+                        if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+                            self.m_fsm.change_state(self.m_fsm.m_current)
+                            print("Pathfinding blocked, recalculate a new route")
                         return False
                 # Arrived
                 return True
