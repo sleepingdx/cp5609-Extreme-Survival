@@ -51,7 +51,7 @@ class Flee(State):
             # Velocity
             orientation = (self.m_path[self.m_current] - self.m_object.m_position).normalize()
             new_pos = (self.m_object.m_position + orientation * MyDefine.PIXELS_PER_METER
-                       * MyDefine.BASIC_CHARACTER_MOVE_SPEED * (elapsed_sec / 1000))
+                       * MyDefine.BASIC_CHARACTER_FLEE_SPEED * (elapsed_sec / 1000))
 
             if self.m_object.find_path(self, new_pos):
                 self.m_object.m_fsm.change_state(0)

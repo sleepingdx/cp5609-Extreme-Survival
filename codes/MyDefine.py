@@ -13,6 +13,7 @@ BLOCK_PLACEHOLDERS = [0, 1, 2]  # enum of placeholder in one block 0-available 1
 BASIC_CHARACTER_MOVE_SPEED = 2.5  # Basic move speed (m/s)
 BASIC_CHARACTER_PATROL_SPEED = 1.5  # Speed of patrolling
 BASIC_CHARACTER_CHASE_SPEED = 3.5  # Speed of chasing
+BASIC_CHARACTER_FLEE_SPEED = 4.5  # Speed of fleeing
 COLLIDER_RADIUS = 2  # Circular collider radius
 BLOCK_COLLIDER_RECT = (48, 48)  # width and height of Block collider
 MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png')  # image resource of main role
