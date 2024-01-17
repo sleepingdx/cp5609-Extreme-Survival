@@ -21,7 +21,3 @@ class Monster(Npc):
         self.m_ai_script.update(elapsed_sec)
         # Super
         super().update()
-
-    def render(self, window):
-        super().render(window)
-        self.draw_health_bar(window)

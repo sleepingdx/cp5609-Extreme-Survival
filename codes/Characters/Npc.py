@@ -11,3 +11,7 @@ class Npc(Character):
 
     def patrol(self):
         self.m_fsm.change_state(2)
+
+    def render(self, window):
+        super().render(window)
+        self.draw_health_bar(window)
