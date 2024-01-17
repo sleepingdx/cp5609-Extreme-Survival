@@ -105,21 +105,30 @@ class Character:
                     if ((self.m_position - cls.m_path[cls.m_current]).calculate_magnitude2() <=
                             MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2):
                         cls.m_current += 1
-                        # The next grid is blocked. Need to recalculate a new route.
-                        blocks = BlockLayer.get_instance().m_blocks
-                        next_row = int(cls.m_path[cls.m_current].z // MyDefine.BLOCK_RESOLUTION[0])
-                        next_col = int(cls.m_path[cls.m_current].x // MyDefine.BLOCK_RESOLUTION[1])
-                        if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
-                            self.m_fsm.change_state(self.m_fsm.m_current)
-                            print("Pathfinding blocked, recalculate a new route")
                         return False
                 # Arrived
                 return True
             else:
+                if len(cls.m_path) > 0 and 0 <= cls.m_current < len(cls.m_path) - 1:
+                    blocks = BlockLayer.get_instance().m_blocks
+                    objects = BlockLayer.get_instance().m_objects
+                    # The current grid is blocked. Need to recalculate a new route
+                    cur_row = int(cls.m_path[cls.m_current].z // MyDefine.BLOCK_RESOLUTION[0])
+                    cur_col = int(cls.m_path[cls.m_current].x // MyDefine.BLOCK_RESOLUTION[1])
+                    if blocks[cur_row][cur_col] != MyDefine.BLOCK_PLACEHOLDERS[0] and len(
+                            objects[f'{cur_row},{cur_col}']) > 1:
+                        self.m_fsm.change_state(self.m_fsm.m_current)
+                        print("Current point is blocked, recalculate a new route.")
+                    # The next grid is blocked. Need to recalculate a new route.
+                    next_row = int(cls.m_path[cls.m_current + 1].z // MyDefine.BLOCK_RESOLUTION[0])
+                    next_col = int(cls.m_path[cls.m_current + 1].x // MyDefine.BLOCK_RESOLUTION[1])
+                    if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+                        self.m_fsm.change_state(self.m_fsm.m_current)
+                        print("Next point is blocked, recalculate a new route.")
                 # Velocity
                 orientation.normalize()
                 self.m_orientation = orientation
-            self.set_center_pos(new_pos.x, new_pos.z)
+                self.set_center_pos(new_pos.x, new_pos.z)
             return False
 
     def set_center_pos(self, x, z):
