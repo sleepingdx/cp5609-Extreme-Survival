@@ -20,7 +20,7 @@ MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png
 GAME_FRAME_RATE = 200  # frame rate of the game
 ARRIVE_TARGET_POS_SCOPE = 1  # Entering this scope is considered to have been reached the target position
 DECELERATION_SCOPE = 96  # Entering this scope is considered to decelerate the chasing speed
-DECELERATION_RATE = 3 / 5  # Deceleration rate
+DECELERATION_RATE = 80 / 100  # Deceleration rate
 INVALID_ID = -1  # invalid id
 
 JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gameLevels.json")
