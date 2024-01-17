@@ -119,12 +119,14 @@ class Character:
                             objects[f'{cur_row},{cur_col}']) > 1:
                         self.m_fsm.change_state(self.m_fsm.m_current)
                         print("Current point is blocked, recalculate a new route.")
+                        return False
                     # The next grid is blocked. Need to recalculate a new route.
                     next_row = int(cls.m_path[cls.m_current + 1].z // MyDefine.BLOCK_RESOLUTION[0])
                     next_col = int(cls.m_path[cls.m_current + 1].x // MyDefine.BLOCK_RESOLUTION[1])
                     if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
                         self.m_fsm.change_state(self.m_fsm.m_current)
                         print("Next point is blocked, recalculate a new route.")
+                        return False
                 # Velocity
                 orientation.normalize()
                 self.m_orientation = orientation
