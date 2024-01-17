@@ -8,7 +8,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -59,13 +59,13 @@
         }
       },
       {
-        "name": "Die",
+        "name": "Injured",
         "filename": "./res/characters/Actor1_1.png",
         "frames": [
-          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
-          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
-          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
-          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
+          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
         ],
         "effect": {
           "filename": "",
@@ -74,13 +74,13 @@
         }
       },
       {
-        "name": "Injured",
+        "name": "Die",
         "filename": "./res/characters/Actor1_1.png",
         "frames": [
-          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
-          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
-          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
-          {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
+          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
         ],
         "effect": {
           "filename": "",
@@ -150,13 +150,13 @@
         }
       },
       {
-        "name": "Die",
+        "name": "Injured",
         "filename": "./res/characters/Actor2_7.png",
         "frames": [
-          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
-          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
-          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
-          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
+          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
         ],
         "effect": {
           "filename": "",
@@ -165,13 +165,13 @@
         }
       },
       {
-        "name": "Injured",
+        "name": "Die",
         "filename": "./res/characters/Actor2_7.png",
         "frames": [
-          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
-          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
-          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
-          {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
+          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
         ],
         "effect": {
           "filename": "",
@@ -190,7 +190,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -241,6 +241,21 @@
         }
       },
       {
+        "name": "Injured",
+        "filename": "./res/characters/Monster.png",
+        "frames": [
+          {"name": "Up", "list": [[7,4]]},
+          {"name": "Right", "list": [[7,4]]},
+          {"name": "Down", "list": [[7,4]]},
+          {"name": "Left", "list": [[7,4]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
         "name": "Die",
         "filename": "./res/items/Inside_C.png",
         "frames": [
@@ -266,7 +281,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -312,7 +327,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -343,7 +358,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -374,7 +389,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -405,7 +420,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -436,7 +451,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -467,7 +482,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 1,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -515,6 +530,218 @@
           "filename": "./res/effects/Wind1.png",
           "resolution": [192,192],
           "frames": [[4,0],[4,1]]
+        }
+      },
+      {
+        "name": "Injured",
+        "filename": "./res/characters/Monster.png",
+        "frames": [
+          {"name": "Up", "list": [[3,10]]},
+          {"name": "Right", "list": [[3,10]]},
+          {"name": "Down", "list": [[3,10]]},
+          {"name": "Left", "list": [[3,10]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Die",
+        "filename": "./res/items/Inside_C.png",
+        "frames": [
+          {"name": "Up", "list": [[10,9]]},
+          {"name": "Right", "list": [[10,9]]},
+          {"name": "Down", "list": [[10,9]]},
+          {"name": "Left", "list": [[10,9]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "Monster",
+    "name": "warrior",
+    "fsm_name": "Monster",
+    "portrait": "",
+    "hp": 1000,
+    "mp": 1000,
+    "searchEnemyScope": 5,
+    "attackEnemyScope": 2,
+    "resolution": [48,48],
+    "collision_rect": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,1]]},
+          {"name": "Right", "list": [[2,1]]},
+          {"name": "Down", "list": [[0,1]]},
+          {"name": "Left", "list": [[1,1]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,0],[3,2]]},
+          {"name": "Right", "list": [[2,0],[2,2]]},
+          {"name": "Down", "list": [[0,0],[0,2]]},
+          {"name": "Left", "list": [[1,0],[1,2]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Attack",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,1],[2,1],[0,1],[1,1]]},
+          {"name": "Right", "list": [[3,1],[2,1],[0,1],[1,1]]},
+          {"name": "Down", "list": [[3,1],[2,1],[0,1],[1,1]]},
+          {"name": "Left", "list": [[3,1],[2,1],[0,1],[1,1]]}
+        ],
+        "effect": {
+          "filename": "./res/effects/Darkness4.png",
+          "resolution": [192,192],
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
+        }
+      },
+      {
+        "name": "Injured",
+        "filename": "./res/characters/Actor1_1.png",
+        "frames": [
+          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Die",
+        "filename": "./res/characters/Actor1_1.png",
+        "frames": [
+          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "type": "Monster",
+    "name": "warrior",
+    "fsm_name": "Monster",
+    "portrait": "",
+    "hp": 1000,
+    "mp": 1000,
+    "searchEnemyScope": 5,
+    "attackEnemyScope": 2,
+    "resolution": [48,48],
+    "collision_rect": [48,48],
+    "colliders": {"radius": 24, "indices": [[0,0]]},
+    "actions": [
+      {
+        "name": "Stand",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,1]]},
+          {"name": "Right", "list": [[2,1]]},
+          {"name": "Down", "list": [[0,1]]},
+          {"name": "Left", "list": [[1,1]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Move",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,0],[3,2]]},
+          {"name": "Right", "list": [[2,0],[2,2]]},
+          {"name": "Down", "list": [[0,0],[0,2]]},
+          {"name": "Left", "list": [[1,0],[1,2]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Attack",
+        "filename": "./res/characters/Actor1.png",
+        "frames": [
+          {"name": "Up", "list": [[3,1],[2,1],[0,1],[1,1]]},
+          {"name": "Right", "list": [[3,1],[2,1],[0,1],[1,1]]},
+          {"name": "Down", "list": [[3,1],[2,1],[0,1],[1,1]]},
+          {"name": "Left", "list": [[3,1],[2,1],[0,1],[1,1]]}
+        ],
+        "effect": {
+          "filename": "./res/effects/Darkness4.png",
+          "resolution": [192,192],
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
+        }
+      },
+      {
+        "name": "Injured",
+        "filename": "./res/characters/Actor1_1.png",
+        "frames": [
+          {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Down", "list": [[2,0],[0,7],[2,8]]},
+          {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
+        }
+      },
+      {
+        "name": "Die",
+        "filename": "./res/characters/Actor1_1.png",
+        "frames": [
+          {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Down", "list": [[5,6],[5,7],[5,8]]},
+          {"name": "Left", "list": [[5,6],[5,7],[5,8]]}
+        ],
+        "effect": {
+          "filename": "",
+          "resolution": [192,192],
+          "frames": []
         }
       }
     ]

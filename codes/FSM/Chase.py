@@ -13,9 +13,9 @@ class Chase(State):
         self.m_current = 0
         self.m_sec = 0
 
-    def begin(self, obj):
-        super().begin(obj)
-        self.m_target = obj
+    def begin(self, target):
+        super().begin(target)
+        self.m_target = target
         if self.m_target:
             target_pos = self.m_target.m_position
             # Path

@@ -144,9 +144,9 @@ class Character:
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect
 
     def attack(self, target):
-        self.m_fsm.change_state(5)
         if target:
-            target.onDamaged(target.m_max_hp * 10 / 100)
+            self.m_fsm.change_state(5, target)
+            target.onDamaged(target.m_max_hp * 5 / 100)
 
     def onDamaged(self, value):
         self.m_hp = max(0, self.m_hp - value)

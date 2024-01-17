@@ -16,15 +16,15 @@ class WarriorDT(BasicDT):
         super().update()
         # Find the nearest enemy
         blocks = BlockLayer.get_instance().m_blocks
-        row_left = max(0, int((self.m_object.m_position.x - self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
+        row_left = max(0, int((self.m_object.m_position.z - self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
                               MyDefine.BLOCK_RESOLUTION[0]))
         row_right = min(len(blocks) - 1,
-                        int((self.m_object.m_position.x + self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
+                        int((self.m_object.m_position.z + self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
                             MyDefine.BLOCK_RESOLUTION[0]))
-        col_top = max(0, int((self.m_object.m_position.z - self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
+        col_top = max(0, int((self.m_object.m_position.x - self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
                              MyDefine.BLOCK_RESOLUTION[1]))
         col_bottom = min(len(blocks[row_left]) - 1,
-                         int((self.m_object.m_position.z + self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
+                         int((self.m_object.m_position.x + self.m_object.m_search_enemy_scope * MyDefine.MAP_GRID) //
                              MyDefine.BLOCK_RESOLUTION[1]))
         final_distance = None
         target = None

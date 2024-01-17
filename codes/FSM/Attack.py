@@ -4,11 +4,12 @@ from codes.FSM.State import State
 class Attack(State):
     def __init__(self, obj):
         super().__init__(obj)
-        self.m_arg1 = None
+        self.m_target = None
 
-    def begin(self, arg1):
-        super().begin(arg1)
-        self.m_arg1 = arg1
+    def begin(self, target):
+        super().begin(target)
+        self.m_target = target
+        self.m_target.onDamaged(self.m_target.m_max_hp * 10 / 100)
         self.m_object.change_action(2)
 
     def update(self):
