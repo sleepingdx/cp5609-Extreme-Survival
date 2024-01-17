@@ -81,13 +81,13 @@ class Character:
 
         health_bar_width = int(bar_width * (self.m_hp / self.m_max_hp))
         # 绘制底层血条（红色矩形）
-        pygame.draw.rect(window, (255, 0, 0), (self.get_rect().x, self.get_rect().y - 10, bar_width, bar_height),
+        pygame.draw.rect(window, (192, 192, 192), (self.get_rect().x, self.get_rect().y - 10, bar_width, bar_height),
                          border_radius=2)
         # 绘制实际血量（绿色矩形）
         pygame.draw.rect(window, (0, 255, 0), (self.get_rect().x, self.get_rect().y - 10, health_bar_width, bar_height),
                          border_radius=2)
 
-        magic_bar_width = int(bar_width * (self.m_hp / self.m_max_hp))
+        magic_bar_width = int(bar_width * (self.m_mp / self.m_max_mp))
         # 绘制底层蓝条（红色矩形）
         pygame.draw.rect(window, (192, 192, 192), (self.get_rect().x, self.get_rect().y - 6, bar_width, bar_height),
                          border_radius=2)
