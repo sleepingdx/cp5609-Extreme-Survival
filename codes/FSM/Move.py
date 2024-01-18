@@ -17,7 +17,6 @@ class Move(State):
         self.m_orientation = self.m_object.m_orientation
         self.m_path = []
         self.m_current = 0
-        self.m_pathfinding = False
         self.m_sec = 0
 
     def begin(self, pos):
@@ -27,28 +26,7 @@ class Move(State):
         self.m_current = 0
         # Position
         if pos:
-            if (pos - self.m_object.m_position).calculate_magnitude2() <= (MyDefine.MAP_GRID * 3) ** 2:
-                self.m_pathfinding = False
-                self.m_target_pos = pos
-            else:
-                self.m_pathfinding = True
-                blocks = BlockLayer.get_instance().m_blocks
-                row = int(pos.z // MyDefine.BLOCK_RESOLUTION[0])
-                col = int(pos.x // MyDefine.BLOCK_RESOLUTION[1])
-                if blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
-                    directions = (
-                        (row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
-                        (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
-                    for i in range(len(directions)):
-                        if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(
-                                blocks[directions[i][0]]):
-                            if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                                row = directions[i][0]
-                                col = directions[i][1]
-                                break
-                self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col), (row, col))
-                if len(self.m_path) > 0:
-                    del self.m_path[0]
+            self.m_target_pos = pos
             # Action
             self.m_object.change_action(1)
             self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
@@ -58,23 +36,18 @@ class Move(State):
     def update(self):
         super().update()
 
-        if not self.m_pathfinding:
-            self.m_orientation = (self.m_target_pos - self.m_object.m_position)
-            # Arrived
-            if self.m_orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
-                # Already arrived the destination
-                self.m_object.m_fsm.change_state(0)
-                return
-        else:
-            if len(self.m_path) > 0:
-                self.m_orientation = (self.m_path[self.m_current] - self.m_object.m_position)
-
         # Velocity
         current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         elapsed_sec = current_sec - self.m_sec
         self.m_sec = current_sec
 
-        if not self.m_pathfinding:
+        self.m_orientation = (self.m_target_pos - self.m_object.m_position)
+        if self.m_orientation.calculate_magnitude2() <= (MyDefine.MAP_GRID * 5) ** 2:
+            # Arrived
+            if self.m_orientation.calculate_magnitude2() <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
+                # Already arrived the destination
+                self.m_object.m_fsm.change_state(0)
+                return
             self.m_orientation.normalize()
             self.m_object.m_orientation = self.m_orientation
             new_pos = (self.m_object.m_position + self.m_orientation * MyDefine.PIXELS_PER_METER
@@ -115,7 +88,12 @@ class Move(State):
                                         return
             self.m_object.set_center_pos(new_pos.x, new_pos.z)
         else:
-            # Do not perform collision detection only during free movement
+            blocks = BlockLayer.get_instance().m_blocks
+            self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
+                                                   (self.m_target_pos.x, self.m_target_pos.z))
+            if len(self.m_path) > 0:
+                del self.m_path[0]
+            # Start to move: do not perform collision detection only during free movement
             if self.m_object.find_path(self, self.m_speed, elapsed_sec):
                 self.m_object.m_fsm.change_state(0)
 
@@ -123,5 +101,4 @@ class Move(State):
         self.m_target_pos = self.m_object.m_position
         self.m_path.clear()
         self.m_current = 0
-        self.m_pathfinding = False
         return super().end()

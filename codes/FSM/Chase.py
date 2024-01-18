@@ -45,7 +45,7 @@ class Chase(State):
         blocks = BlockLayer.get_instance().m_blocks
         self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
                                                (predict_pos.x, predict_pos.z), True)
-        if len(self.m_path) > 2:
+        if len(self.m_path) >= 2:
             del self.m_path[0]
             del self.m_path[-1]
         self.m_current = 0
