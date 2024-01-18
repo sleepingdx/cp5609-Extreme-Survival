@@ -27,7 +27,7 @@ class Move(State):
         self.m_current = 0
         # Position
         if pos:
-            if (pos - self.m_object.m_position).calculate_magnitude2() <= (MyDefine.MAP_GRID * 3) ** 2:
+            if (pos - self.m_object.m_position).calculate_magnitude2() <= (MyDefine.MAP_GRID * 0) ** 2:
                 self.m_pathfinding = False
                 self.m_target_pos = pos
             else:
@@ -37,8 +37,11 @@ class Move(State):
                 col = int(pos.x // MyDefine.BLOCK_RESOLUTION[1])
                 if blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
                     directions = (
-                        (row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
-                        (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
+                        (row - 1, col),
+                        (row, col - 1),
+                        (row, col + 1),
+                        (row + 1, col),
+                    )
                     for i in range(len(directions)):
                         if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(
                                 blocks[directions[i][0]]):

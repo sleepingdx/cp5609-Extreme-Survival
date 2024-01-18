@@ -2,7 +2,7 @@ import time
 from codes import MyDefine
 from codes.FSM.State import State
 
-BLOOD_VOLUME_RESTORED_PER_SECOND = 1 / 100  # 每秒恢复的血量
+BLOOD_VOLUME_RESTORED_PER_SECOND = 3 / 100  # 每秒恢复的血量
 
 
 class Idle(State):
