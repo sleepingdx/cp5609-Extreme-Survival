@@ -18,11 +18,11 @@ class Idle(State):
 
     def update(self):
         super().update()
-
+        # Velocity
         current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         elapsed_sec = current_sec - self.m_sec
         self.m_sec = current_sec
-
+        # Restore HP
         self.m_object.m_hp = min(self.m_object.m_max_hp, self.m_object.m_hp + self.m_object.m_max_hp *
                                  BLOOD_VOLUME_RESTORED_PER_SECOND * (elapsed_sec / 1000))
 

@@ -22,14 +22,23 @@ class PathFinding:
 
             for neighbor in neighbors:
                 r, c = neighbor
-                if 0 <= r < rows and 0 <= c < cols:
-                    new_distance = distances[current_node] + 1  # Assuming unweighted edges
+                if grid[r][c] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                    if 0 <= r < rows and 0 <= c < cols:
+                        new_distance = distances[current_node] + 1  # Assuming unweighted edges
 
-                    if new_distance < distances[neighbor]:
-                        distances[neighbor] = new_distance
-                        heapq.heappush(heap, (new_distance, neighbor))
+                        if new_distance < distances[neighbor]:
+                            distances[neighbor] = new_distance
+                            heapq.heappush(heap, (new_distance, neighbor))
 
         return distances
+
+    @staticmethod
+    def dijkstra_ex(grid, pos):
+        rows, cols = len(grid), len(grid[0])
+        # Start position
+        row_start = min(max(0, int(pos[1] // MyDefine.BLOCK_RESOLUTION[0])), rows - 1)
+        col_start = min(max(0, int(pos[0] // MyDefine.BLOCK_RESOLUTION[1])), cols - 1)
+        return PathFinding.dijkstra(grid, (row_start, col_start))
 
     @staticmethod
     def astar_array(grids, start, end):

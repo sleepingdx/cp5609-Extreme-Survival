@@ -1,5 +1,3 @@
-import math
-import random
 import time
 from codes import MyDefine
 from codes.FSM.State import State
@@ -15,6 +13,7 @@ class Flee(State):
         self.m_target = None
         self.m_path = []
         self.m_current = 0
+        self.m_distances = {}
         self.m_sec = 0
 
     def begin(self, target):
@@ -22,28 +21,24 @@ class Flee(State):
         self.m_speed = MyDefine.BASIC_CHARACTER_FLEE_SPEED
         self.m_target = target
         if self.m_target:
-            # Orientation
-            orientation = (self.m_object.m_position - self.m_target.m_position).normalize()
-            angle = math.radians(random.randint(-45, 45))
-            orientation.x *= math.cos(angle)
-            orientation.z *= math.sin(angle)
-            for i in range(20, -10, -1):
-                new_pos = self.m_object.m_position + orientation * MyDefine.MAP_GRID * i
-                angle = math.radians(random.randint(0, 45))
-                new_pos.x *= math.cos(angle)
-                new_pos.z *= math.sin(angle)
-                self.m_path = self.m_object.is_pos_arrived(new_pos)
+            blocks = BlockLayer.get_instance().m_blocks
+            self.m_distances = PathFinding.dijkstra_ex(blocks, (self.m_target.m_position.x, self.m_target.m_position.z))
+            if len(self.m_distances) > 0:
+                # Assuming distances is a dictionary with keys as node coordinates and values as distances
+                non_infinity_distances = {node: distance for node, distance in self.m_distances.items() if
+                                          distance != float('infinity')}
+                # Assuming distances is a dictionary with keys as node coordinates and values as distances
+                sorted_distances = sorted(non_infinity_distances.items(), key=lambda x: x[1], reverse=True)
+                # First element of sorted_distances is the node with the maximum distance
+                max_distance_node, max_distance = sorted_distances[0]
+                # Extracting row and col from the node coordinates
+                max_distance_row, max_distance_col = max_distance_node
+                # Path
+                self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col),
+                                                    (max_distance_row, max_distance_col))
                 if len(self.m_path) > 0:
                     del self.m_path[0]
                 self.m_current = 0
-                break
-            # # Path
-            # blocks = BlockLayer.get_instance().m_blocks
-            # self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
-            #                                        (new_pos.x, new_pos.z))
-            # if len(self.m_path) > 0:
-            #     del self.m_path[0]
-            # self.m_current = 0
             # Action
             self.m_object.change_action(1)
             self.m_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
@@ -56,9 +51,12 @@ class Flee(State):
         current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
         elapsed_sec = current_sec - self.m_sec
         self.m_sec = current_sec
-
+        # Restore HP
         self.m_object.m_hp = min(self.m_object.m_max_hp, self.m_object.m_hp + self.m_object.m_max_hp *
                                  BLOOD_VOLUME_RESTORED_PER_SECOND * (elapsed_sec / 1000))
+        if self.m_object.m_hp >= self.m_object.m_max_hp:
+            self.m_object.m_fsm.change_state(2, None)
+
         # Start to move
         if len(self.m_path) > 0:
             if self.m_object.find_path(self, self.m_speed, elapsed_sec):
