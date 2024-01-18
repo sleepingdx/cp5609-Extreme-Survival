@@ -130,16 +130,20 @@ class Character:
                     cur_col = int(cls.m_path[cls.m_current].x // MyDefine.BLOCK_RESOLUTION[1])
                     if blocks[cur_row][cur_col] != MyDefine.BLOCK_PLACEHOLDERS[0] and len(
                             objects[f'{cur_row},{cur_col}']) > 1:
+                        # del cls.m_path[cls.m_current]
+                        # cls.m_current += 1
                         self.m_fsm.change_state(self.m_fsm.m_last_state)
                         print("Current point is blocked, recalculate a new route.")
-                        return False
+                        return True
                     # The next grid is blocked. Need to recalculate a new route.
                     next_row = int(cls.m_path[cls.m_current + 1].z // MyDefine.BLOCK_RESOLUTION[0])
                     next_col = int(cls.m_path[cls.m_current + 1].x // MyDefine.BLOCK_RESOLUTION[1])
                     if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+                        # del cls.m_path[cls.m_current]
+                        # cls.m_current += 1
                         self.m_fsm.change_state(self.m_fsm.m_last_state)
                         print("Next point is blocked, recalculate a new route.")
-                        return False
+                        return True
                 # Velocity
                 orientation.normalize()
                 self.m_orientation = orientation
@@ -163,8 +167,8 @@ class Character:
             for i in range(len(directions)):
                 if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
                     if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                        row_start = directions[i][0]
-                        col = directions[i][1]
+                        row_end = directions[i][0]
+                        col_end = directions[i][1]
                         break
         return PathFinding.astar_pos(blocks, (row_start, col_start), (row_end, col_end))
 
