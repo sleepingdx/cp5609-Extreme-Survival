@@ -28,18 +28,18 @@ class Flee(State):
                                                    (new_pos.x, new_pos.z))
             if len(self.m_path) > 0:
                 del self.m_path[0]
-            sum = Vector(0, 0)
-            num = len(self.m_path)
-            for i in range(num):
-                sum += self.m_path[i]
-            distance = ((sum / num) - self.m_object.m_position).calculate_magnitude2()
-            if distance <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
-                new_pos = (
-                    random.randint(0, MyDefine.GAME_RESOLUTION[0]), random.randint(0, MyDefine.GAME_RESOLUTION[1]))
-                self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
-                                                       (new_pos[0], new_pos[1]))
-            if len(self.m_path) > 0:
-                del self.m_path[0]
+            # sum = Vector(0, 0)
+            # num = len(self.m_path)
+            # for i in range(num):
+            #     sum += self.m_path[i]
+            # distance = ((sum / num) - self.m_object.m_position).calculate_magnitude2()
+            # if distance <= MyDefine.ARRIVE_TARGET_POS_SCOPE ** 2:
+            #     new_pos = (
+            #         random.randint(0, MyDefine.GAME_RESOLUTION[0]), random.randint(0, MyDefine.GAME_RESOLUTION[1]))
+            #     self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
+            #                                            (new_pos[0], new_pos[1]))
+            # if len(self.m_path) > 0:
+            #     del self.m_path[0]
             self.m_current = 0
             # Action
             self.m_object.change_action(1)

@@ -11,6 +11,11 @@ CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Injured', 'Die')  # Actions
 
 class Character:
     """Basic class of all characters"""
+    # Events
+    CHARACTER_EVENTS = (
+        "EVENT_CHANGE_STATE",
+        "EVENT_ON_INJURED"
+    )
 
     def __init__(self, fsm_name):
         # Position
@@ -24,6 +29,8 @@ class Character:
         self.m_fsm = FiniteStateMachine(self, fsm_name)
         # Collision
         self.m_collision_rect = MyDefine.BLOCK_COLLIDER_RECT
+        # Events
+        self.m_events = []
         # Common attributes
         self.m_type = None
         self.m_id = MyDefine.INVALID_ID
@@ -72,6 +79,7 @@ class Character:
             return False
 
     def update(self):
+        self.execute_events()
         self.m_fsm.update()
         self.m_spriteMgr.update()
 
@@ -159,3 +167,20 @@ class Character:
         if self.m_actions[CHARACTER_ACTIONS[index]].m_completed:
             return True
         return False
+
+    def push_event(self, event):
+        if event:
+            self.m_events.append(event)
+
+    def execute_events(self):
+        events_to_remove = []
+        for event in self.m_events:
+            if event[0] == Character.CHARACTER_EVENTS[0]:
+                self.m_fsm.change_state(event[1], event[2])
+            elif event[0] == Character.CHARACTER_EVENTS[1]:
+                self.onDamaged(event[1])
+            else:
+                pass
+            events_to_remove.append(event)
+        for event in events_to_remove:
+            self.m_events.remove(event)
