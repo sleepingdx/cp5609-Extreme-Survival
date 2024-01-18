@@ -8,7 +8,6 @@ class Injured(State):
 
     def begin(self, arg1):
         super().begin(arg1)
-        self.m_arg1 = arg1
         self.m_object.change_action(3)
 
     def update(self):

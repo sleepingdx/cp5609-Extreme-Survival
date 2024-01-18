@@ -4,9 +4,11 @@ from codes.SpriteManager import SpriteManager
 from codes.Vector import Vector
 from codes.FSM.FiniteStateMachine import FiniteStateMachine
 from codes.BlockLayer import BlockLayer
+from codes.PathFinding import PathFinding
 
 MAX_CHARACTER_DIRECTION_COUNT = 4  # Direction of a character
 CHARACTER_ACTIONS = ('Stand', 'Move', 'Attack', 'Injured', 'Die')  # Actions
+TARGET_TYPES = ("Player", "Npc", "Pet", "Monster")  # Type of attack target
 
 
 class Character:
@@ -144,6 +146,55 @@ class Character:
                 new_pos = (self.m_position + orientation * MyDefine.PIXELS_PER_METER * speed * (elapsed_sec / 1000))
                 self.set_center_pos(new_pos.x, new_pos.z)
             return False
+
+    def is_pos_arrived(self, pos):
+        blocks = BlockLayer.get_instance().m_blocks
+        row_start = min(max(0, int(self.m_position.z // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
+        col_start = min(max(0, int(self.m_position.x // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row_start]) - 1)
+        row_end = min(max(0, int(pos.z // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
+        col_end = min(max(0, int(pos.x // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row_end]) - 1)
+        if blocks[row_end][col_end] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+            directions = (
+                (row_end - 1, col_end),
+                (row_end, col_end - 1),
+                (row_end + 1, col_end),
+                (row_end, col_end + 1)
+            )
+            for i in range(len(directions)):
+                if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
+                    if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                        row_start = directions[i][0]
+                        col = directions[i][1]
+                        break
+        return PathFinding.astar_pos(blocks, (row_start, col_start), (row_end, col_end))
+
+    def find_nearest_enemy(self):
+        # Find the nearest enemy
+        blocks = BlockLayer.get_instance().m_blocks
+        row_left = max(0, int((self.m_position.z - self.m_search_enemy_scope * MyDefine.MAP_GRID) //
+                              MyDefine.BLOCK_RESOLUTION[0]))
+        row_right = min(len(blocks) - 1, int((self.m_position.z + self.m_search_enemy_scope * MyDefine.MAP_GRID) //
+                                             MyDefine.BLOCK_RESOLUTION[0]))
+        col_top = max(0, int((self.m_position.x - self.m_search_enemy_scope * MyDefine.MAP_GRID) //
+                             MyDefine.BLOCK_RESOLUTION[1]))
+        col_bottom = min(len(blocks[row_left]) - 1,
+                         int((self.m_position.x + self.m_search_enemy_scope * MyDefine.MAP_GRID) //
+                             MyDefine.BLOCK_RESOLUTION[1]))
+        final_distance2 = None
+        target = None
+        for row in range(row_left, row_right + 1):
+            for col in range(col_top, col_bottom + 1):
+                objects = BlockLayer.get_instance().m_objects[f'{row},{col}']
+                for i in range(len(objects)):
+                    if self != objects[i] and objects[i].m_hp > 0 and objects[i].m_type in TARGET_TYPES:
+                        distance = (objects[i].m_position - self.m_position).calculate_magnitude2()
+                        if not final_distance2:
+                            final_distance2 = distance
+                        elif distance <= final_distance2:
+                            final_distance2 = distance
+                        if distance <= (objects[i].m_search_enemy_scope * MyDefine.MAP_GRID) ** 2:
+                            target = objects[i]
+        return target, final_distance2
 
     def set_center_pos(self, x, z):
         self.m_position = Vector(x, z)

@@ -6,7 +6,7 @@
     "Patrol": [0, 3, 4, 5, 6, 8],
     "Chase": [0, 6],
     "Flee": [0, 6],
-    "Attack": [0, 6],
+    "Attack": [0, 2, 6],
     "Injured": [0, 7],
     "Death": [0],
     "Interact": [0, 6]
@@ -17,7 +17,7 @@
     "Patrol": [],
     "Chase": [],
     "Flee": [],
-    "Attack": [0, 7],
+    "Attack": [0, 2, 7],
     "Injured": [0, 1, 7],
     "Death": [0],
     "Interact": []
@@ -29,7 +29,7 @@
     "Patrol": [0, 3, 4, 5, 6],
     "Chase": [0, 6],
     "Flee": [0, 6],
-    "Attack": [0, 6],
+    "Attack": [0, 2, 6],
     "Injured": [0, 2, 7],
     "Death": [0],
     "Interact": []
