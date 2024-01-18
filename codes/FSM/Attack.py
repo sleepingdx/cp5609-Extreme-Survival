@@ -22,7 +22,7 @@ class Attack(State):
             # self.m_target.onDamaged(self.m_target.m_max_hp * 2 / 100)
             # 果然还是得用队列出列, 同一帧无法处理多个Character
             from codes.Characters.Character import Character
-            self.m_target.push_event((Character.CHARACTER_EVENTS[1], self.m_target.m_max_hp * 2 / 100))
+            self.m_target.push_event((Character.CHARACTER_EVENTS[1], self.m_target.m_max_hp * 5 / 100))
             if not self.m_object.m_fsm.change_state(self.m_object.m_fsm.m_last_state):
                 self.m_object.m_fsm.change_state(0, self.m_arg1)
 

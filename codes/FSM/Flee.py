@@ -1,10 +1,8 @@
-import random
 import time
 from codes import MyDefine
 from codes.FSM.State import State
 from codes.BlockLayer import BlockLayer
 from codes.PathFinding import PathFinding
-from codes.Vector import Vector
 
 
 class Flee(State):
@@ -17,6 +15,7 @@ class Flee(State):
 
     def begin(self, target):
         super().begin(target)
+        self.m_speed = MyDefine.BASIC_CHARACTER_FLEE_SPEED
         self.m_target = target
         if self.m_target:
             # Orientation
@@ -55,7 +54,7 @@ class Flee(State):
         self.m_sec = current_sec
         # Start to move
         if len(self.m_path) > 0:
-            if self.m_object.find_path(self, MyDefine.BASIC_CHARACTER_FLEE_SPEED, elapsed_sec):
+            if self.m_object.find_path(self, self.m_speed, elapsed_sec):
                 self.m_object.m_fsm.change_state(0)
         else:
             self.m_object.m_fsm.change_state(0)

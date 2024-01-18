@@ -7,6 +7,7 @@ class State:
         self.m_object = obj
         self.m_row = MyDefine.INVALID_ID
         self.m_col = MyDefine.INVALID_ID
+        self.m_speed = 0
         self.m_arg1 = None
 
     def begin(self, arg1):
@@ -27,4 +28,5 @@ class State:
     def end(self):
         self.m_row = MyDefine.INVALID_ID
         self.m_col = MyDefine.INVALID_ID
+        self.m_speed = 0
         return self.m_arg1

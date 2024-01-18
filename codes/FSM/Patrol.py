@@ -19,6 +19,7 @@ class Patrol(State):
 
     def begin(self, arg1):
         super().begin(arg1)
+        self.m_speed = MyDefine.BASIC_CHARACTER_PATROL_SPEED
         # Generate a random position
         self.m_radius = random.randint(PATROL_RANDOM_RADIUS_RANGE[0], PATROL_RANDOM_RADIUS_RANGE[1])
         angle = math.radians(random.randint(0, 360))
@@ -42,7 +43,7 @@ class Patrol(State):
             elapsed_sec = current_sec - self.m_sec
             self.m_sec = current_sec
             # Start to move
-            if self.m_object.find_path(self, MyDefine.BASIC_CHARACTER_PATROL_SPEED, elapsed_sec):
+            if self.m_object.find_path(self, self.m_speed, elapsed_sec):
                 self.m_object.m_fsm.change_state(0)
         else:
             self.m_object.m_fsm.change_state(0)

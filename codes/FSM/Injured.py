@@ -20,6 +20,5 @@ class Injured(State):
             if not self.m_object.m_fsm.change_state(self.m_object.m_fsm.m_last_state):
                 self.m_object.m_fsm.change_state(0, self.m_arg1)
 
-
-def end(self):
-    return super().end()
+    def end(self):
+        return super().end()

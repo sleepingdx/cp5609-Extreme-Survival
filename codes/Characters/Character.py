@@ -20,7 +20,7 @@ class Character:
     def __init__(self, fsm_name):
         # Position
         self.m_position = Vector(0, 0)
-        self.m_orientation = Vector(0, 0)
+        self.m_orientation = Vector(0, 1)
         # Actions
         self.m_spriteMgr = SpriteManager()
         self.m_actions = {}
@@ -147,6 +147,9 @@ class Character:
 
     def set_center_pos(self, x, z):
         self.m_position = Vector(x, z)
+
+    def get_current_speed(self):
+        return self.m_fsm.get_current_state().m_speed
 
     def get_rect(self):
         return self.m_actions[CHARACTER_ACTIONS[self.m_current]].rect

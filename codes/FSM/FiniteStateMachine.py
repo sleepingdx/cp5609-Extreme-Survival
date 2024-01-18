@@ -36,3 +36,6 @@ class FiniteStateMachine:
             self.m_states[ENUM_FSM_STATES[self.m_current]].begin(ret1 if not arg1 else arg1)
             return True
         return False
+
+    def get_current_state(self):
+        return self.m_states[ENUM_FSM_STATES[self.m_current]]
