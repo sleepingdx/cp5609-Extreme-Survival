@@ -29,20 +29,11 @@ class Chase(State):
         target_pos = self.m_target.m_position
         # Path
         blocks = BlockLayer.get_instance().m_blocks
-        row = min(max(0, int(target_pos.z // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
-        col = min(max(0, int(target_pos.x // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row]) - 1)
-        if blocks[row][col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
-            directions = ((row - 1, col - 1), (row - 1, col), (row - 1, col + 1), (row, col - 1), (row, col + 1),
-                          (row + 1, col - 1), (row + 1, col), (row + 1, col + 1))
-            for i in range(len(directions)):
-                if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
-                    if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
-                        row = directions[i][0]
-                    col = directions[i][1]
-                    break
-        self.m_path = PathFinding.astar_pos(blocks, (self.m_row, self.m_col), (row, col))
-        if len(self.m_path) > 0:
+        self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
+                                               (target_pos.x, target_pos.z), True)
+        if len(self.m_path) >= 2:
             del self.m_path[0]
+            del self.m_path[-1]
         self.m_current = 0
 
         if len(self.m_path) > 0:
@@ -50,12 +41,12 @@ class Chase(State):
             current_sec = MyDefine.convert_nsec_to_msec(time.time_ns())
             elapsed_sec = current_sec - self.m_sec
             self.m_sec = current_sec
-            # Calculate speed
+            # Calculate final speed
             speed = MyDefine.BASIC_CHARACTER_CHASE_SPEED
             if ((self.m_target.m_position - self.m_object.m_position).calculate_magnitude2() <=
                     MyDefine.DECELERATION_SCOPE ** 2):
                 speed *= MyDefine.DECELERATION_RATE
-
+            # Start to move
             if self.m_object.find_path(self, speed, elapsed_sec):
                 self.m_object.m_fsm.change_state(0)
         else:

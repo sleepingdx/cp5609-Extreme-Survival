@@ -59,3 +59,33 @@ class PathFinding:
                 Vector(path[i][1] * MyDefine.BLOCK_RESOLUTION[0] + MyDefine.BLOCK_RESOLUTION[0] / 2,
                        path[i][0] * MyDefine.BLOCK_RESOLUTION[1] + MyDefine.BLOCK_RESOLUTION[1] / 2))
         return positions
+
+    @staticmethod
+    def astar_pos_ex(blocks, start_pos, end_pos, ignore_end=False):
+        # Start position
+        row_start = min(max(0, int(start_pos[1] // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
+        col_start = min(max(0, int(start_pos[0] // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row_start]) - 1)
+        # End position
+        row_end = min(max(0, int(end_pos[1] // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
+        col_end = min(max(0, int(end_pos[0] // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row_end]) - 1)
+        #
+        state = blocks[row_end][col_end]
+        if ignore_end:
+            blocks[row_end][col_end] = 0
+        if blocks[row_end][col_end] != MyDefine.BLOCK_PLACEHOLDERS[0]:
+            directions = (
+                (row_end - 1, col_end),
+                (row_end, col_end - 1),
+                (row_end + 1, col_end),
+                (row_end, col_end + 1)
+            )
+            for i in range(len(directions)):
+                if 0 <= directions[i][0] < len(blocks) and 0 <= directions[i][1] < len(blocks[directions[i][0]]):
+                    if blocks[directions[i][0]][directions[i][1]] == MyDefine.BLOCK_PLACEHOLDERS[0]:
+                        row_start = directions[i][0]
+                        col_end = directions[i][1]
+                        break
+        path = PathFinding.astar_pos(blocks, (row_start, col_start), (row_end, col_end))
+        if ignore_end:
+            blocks[row_end][col_end] = state
+        return path

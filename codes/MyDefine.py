@@ -19,7 +19,7 @@ BLOCK_COLLIDER_RECT = (48, 48)  # width and height of Block collider
 MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png')  # image resource of main role
 GAME_FRAME_RATE = 200  # frame rate of the game
 ARRIVE_TARGET_POS_SCOPE = 1  # Entering this scope is considered to have been reached the target position
-DECELERATION_SCOPE = 48  # Entering this scope is considered to decelerate the chasing speed
+DECELERATION_SCOPE = 72  # Entering this scope is considered to decelerate the chasing speed
 DECELERATION_RATE = 80 / 100  # Deceleration rate
 INVALID_ID = -1  # invalid id
 

@@ -16,8 +16,9 @@ class Attack(State):
 
     def update(self):
         super().update()
-        # Action has finished
+        # Complete action
         if self.m_object.is_action_completed(self.m_object.m_current):
+            # 如果不能在同一帧调用target object. 就做成队列
             self.m_target.onDamaged(self.m_target.m_max_hp * 2 / 100)
             if not self.m_object.m_fsm.change_state(self.m_object.m_fsm.m_last_state):
                 self.m_object.m_fsm.change_state(0, self.m_arg1)

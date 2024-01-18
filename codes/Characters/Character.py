@@ -150,7 +150,7 @@ class Character:
 
     def onDamaged(self, value):
         self.m_hp = max(0, self.m_hp - value)
-        # self.m_fsm.change_state(6)
+        self.m_fsm.change_state(6)
 
     def onDied(self):
         self.m_fsm.change_state(7)

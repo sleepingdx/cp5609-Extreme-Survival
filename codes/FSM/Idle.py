@@ -23,9 +23,8 @@ class Idle(State):
         elapsed_sec = current_sec - self.m_sec
         self.m_sec = current_sec
 
-        self.m_object.m_hp = min(self.m_object.m_max_hp,
-                                 self.m_object.m_hp + self.m_object.m_max_hp * BLOOD_VOLUME_RESTORED_PER_SECOND * (
-                                             elapsed_sec / 1000))
+        self.m_object.m_hp = min(self.m_object.m_max_hp, self.m_object.m_hp + self.m_object.m_max_hp *
+                                 BLOOD_VOLUME_RESTORED_PER_SECOND * (elapsed_sec / 1000))
 
     def end(self):
         return super().end()
