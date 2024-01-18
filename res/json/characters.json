@@ -573,7 +573,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 5,
-    "attackEnemyScope": 3,
+    "attackEnemyScope": 2,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
