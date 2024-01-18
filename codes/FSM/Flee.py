@@ -57,7 +57,7 @@ class Flee(State):
                                  BLOOD_VOLUME_RESTORED_PER_SECOND * (elapsed_sec / 1000))
         if self.m_object.m_hp >= self.m_object.m_max_hp:
             self.m_object.m_fsm.change_state(2, None)
-
+            return
         # Start to move
         if len(self.m_path) > 0:
             if self.m_object.find_path(self, self.m_speed, elapsed_sec):
