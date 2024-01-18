@@ -25,7 +25,7 @@ class WarriorDT(BasicDT):
             else:
                 target, distance2 = self.m_object.find_nearest_enemy()
                 if target:
-                    if distance2 <= (self.m_object.m_attack_enemy_scope * MyDefine.MAP_GRID) ** 2:
+                    if distance2 <= (target.m_attack_enemy_scope * MyDefine.MAP_GRID) ** 2:
                         self.change_state(5, target)
                     else:
                         self.change_state(3, target)
