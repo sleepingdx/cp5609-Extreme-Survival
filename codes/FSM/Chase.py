@@ -65,7 +65,7 @@ class Chase(State):
             if self.m_object.find_path(self, self.m_speed, elapsed_sec):
                 self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
                                                        (predict_pos.x, predict_pos.z), True)
-                self.m_object.m_fsm.change_state(0)
+                return
         else:
             self.m_object.m_fsm.change_state(0)
 
