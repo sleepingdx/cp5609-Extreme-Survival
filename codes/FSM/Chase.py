@@ -43,7 +43,7 @@ class Chase(State):
 
         distance2 = (predict_pos - self.m_object.m_position).calculate_magnitude2()
         if distance2 <= (self.m_object.m_attack_enemy_scope * MyDefine.MAP_GRID) ** 2:
-            self.m_object.m_fsm.change_state(0)
+            self.m_object.m_fsm.change_state(2)
             return
 
             # Path
