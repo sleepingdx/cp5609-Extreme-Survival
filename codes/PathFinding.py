@@ -7,6 +7,30 @@ class PathFinding:
     def __init__(self):
         pass
 
+    def dijkstra(grid, start):
+        rows, cols = len(grid), len(grid[0])
+        distances = {(r, c): float('infinity') for r in range(rows) for c in range(cols)}
+        distances[start] = 0
+
+        heap = [(0, start)]
+
+        while heap:
+            current_distance, current_node = heapq.heappop(heap)
+
+            row, col = current_node
+            neighbors = [(row - 1, col), (row + 1, col), (row, col - 1), (row, col + 1)]
+
+            for neighbor in neighbors:
+                r, c = neighbor
+                if 0 <= r < rows and 0 <= c < cols:
+                    new_distance = distances[current_node] + 1  # Assuming unweighted edges
+
+                    if new_distance < distances[neighbor]:
+                        distances[neighbor] = new_distance
+                        heapq.heappush(heap, (new_distance, neighbor))
+
+        return distances
+
     @staticmethod
     def astar_array(grids, start, end):
         rows, cols = len(grids), len(grids[0])
