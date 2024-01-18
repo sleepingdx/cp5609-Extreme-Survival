@@ -68,7 +68,7 @@ class PathFinding:
         # End position
         row_end = min(max(0, int(end_pos[1] // MyDefine.BLOCK_RESOLUTION[0])), len(blocks) - 1)
         col_end = min(max(0, int(end_pos[0] // MyDefine.BLOCK_RESOLUTION[1])), len(blocks[row_end]) - 1)
-        #
+        # State
         state = blocks[row_end][col_end]
         if ignore_end:
             blocks[row_end][col_end] = 0
