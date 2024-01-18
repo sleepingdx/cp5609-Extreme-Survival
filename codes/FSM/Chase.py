@@ -40,7 +40,7 @@ class Chase(State):
         speed = self.m_target.get_current_speed()
         predict_pos = target_pos + orientation * MyDefine.PIXELS_PER_METER * speed * MyDefine.PIXELS_PER_METER * (
                 elapsed_sec / 1000)
-
+        # distance
         distance2 = (predict_pos - self.m_object.m_position).calculate_magnitude2()
         if distance2 <= (self.m_object.m_attack_enemy_scope * MyDefine.MAP_GRID) ** 2:
             self.m_object.m_fsm.change_state(0)
@@ -65,7 +65,7 @@ class Chase(State):
             if self.m_object.find_path(self, self.m_speed, elapsed_sec):
                 self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
                                                        (predict_pos.x, predict_pos.z), True)
-                # self.m_object.m_fsm.change_state(0)
+                self.m_object.m_fsm.change_state(0)
         else:
             self.m_object.m_fsm.change_state(0)
 

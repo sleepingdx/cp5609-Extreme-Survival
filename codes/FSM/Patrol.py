@@ -28,8 +28,6 @@ class Patrol(State):
         # Path
         blocks = BlockLayer.get_instance().m_blocks
         self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z), (x, z))
-        if len(self.m_path) > 0:
-            del self.m_path[0]
         self.m_current = 0
         # Action
         self.m_object.change_action(1)
