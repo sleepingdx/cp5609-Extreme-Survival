@@ -196,7 +196,7 @@ class Character:
                             final_distance2 = distance
                         elif distance <= final_distance2:
                             final_distance2 = distance
-                        if distance <= (objects[i].m_search_enemy_scope * MyDefine.MAP_GRID) ** 2:
+                        if distance <= (self.m_search_enemy_scope * MyDefine.MAP_GRID) ** 2:
                             target = objects[i]
         return target, final_distance2
 
