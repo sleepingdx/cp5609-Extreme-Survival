@@ -68,9 +68,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "",
           "resolution": [192,192],
-          "frames": [[2,3],[2,4],[3,0],[3,1]]
+          "frames": []
         }
       },
       {
@@ -159,9 +159,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "",
           "resolution": [192,192],
-          "frames": [[3,2],[3,3],[3,4],[4,0]]
+          "frames": []
         }
       },
       {
@@ -190,7 +190,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 4,
-    "attackEnemyScope": 2,
+    "attackEnemyScope": 3,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -250,9 +250,9 @@
           {"name": "Left", "list": [[7,4]]}
         ],
         "effect": {
-          "filename": "./res/effects/Thunder5.png",
+          "filename": "",
           "resolution": [192,192],
-          "frames": [[0,4],[1,0]]
+          "frames": []
         }
       },
       {
@@ -327,7 +327,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 4,
-    "attackEnemyScope": 2,
+    "attackEnemyScope": 3,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -389,7 +389,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 4,
-    "attackEnemyScope": 2,
+    "attackEnemyScope": 3,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -451,7 +451,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 4,
-    "attackEnemyScope": 2,
+    "attackEnemyScope": 3,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -542,9 +542,9 @@
           {"name": "Left", "list": [[3,10]]}
         ],
         "effect": {
-          "filename": "./res/effects/Wind1.png",
+          "filename": "",
           "resolution": [192,192],
-          "frames": [[4,0],[4,1]]
+          "frames": []
         }
       },
       {
@@ -573,7 +573,7 @@
     "hp": 1000,
     "mp": 1000,
     "searchEnemyScope": 4,
-    "attackEnemyScope": 2,
+    "attackEnemyScope": 3,
     "resolution": [48,48],
     "collision_rect": [48,48],
     "colliders": {"radius": 24, "indices": [[0,0]]},
@@ -633,9 +633,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "",
           "resolution": [192,192],
-          "frames": [[2,3],[2,4],[3,0],[3,1]]
+          "frames": []
         }
       },
       {
@@ -724,9 +724,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "",
           "resolution": [192,192],
-          "frames": [[3,2],[3,3],[3,4],[4,0]]
+          "frames": []
         }
       },
       {
