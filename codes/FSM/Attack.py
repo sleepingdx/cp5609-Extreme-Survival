@@ -2,7 +2,7 @@ import time
 from codes import MyDefine
 from codes.FSM.State import State
 
-DAMAGE_CD = 800
+DAMAGE_CD = 650
 
 
 class Attack(State):
