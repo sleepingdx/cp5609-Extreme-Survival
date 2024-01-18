@@ -1,3 +1,4 @@
+import random
 import time
 from codes import MyDefine
 from codes.FSM.State import State
@@ -30,7 +31,7 @@ class Flee(State):
                 # Assuming distances is a dictionary with keys as node coordinates and values as distances
                 sorted_distances = sorted(non_infinity_distances.items(), key=lambda x: x[1], reverse=True)
                 # First element of sorted_distances is the node with the maximum distance
-                max_distance_node, max_distance = sorted_distances[0]
+                max_distance_node, max_distance = sorted_distances[random.randint(0, 10)]
                 # Extracting row and col from the node coordinates
                 max_distance_row, max_distance_col = max_distance_node
                 # Path

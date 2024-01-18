@@ -1,3 +1,5 @@
+import random
+
 import pygame
 from codes import MyDefine
 from codes.SpriteManager import SpriteManager
@@ -130,8 +132,7 @@ class Character:
                     cur_col = int(cls.m_path[cls.m_current].x // MyDefine.BLOCK_RESOLUTION[1])
                     if blocks[cur_row][cur_col] != MyDefine.BLOCK_PLACEHOLDERS[0] and len(
                             objects[f'{cur_row},{cur_col}']) > 1:
-                        # del cls.m_path[cls.m_current]
-                        # cls.m_current += 1
+                        cls.m_current -= 1
                         self.m_fsm.change_state(self.m_fsm.m_last_state)
                         print("Current point is blocked, recalculate a new route.")
                         return True
@@ -139,8 +140,7 @@ class Character:
                     next_row = int(cls.m_path[cls.m_current + 1].z // MyDefine.BLOCK_RESOLUTION[0])
                     next_col = int(cls.m_path[cls.m_current + 1].x // MyDefine.BLOCK_RESOLUTION[1])
                     if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
-                        # del cls.m_path[cls.m_current]
-                        # cls.m_current += 1
+                        cls.m_current -= random.randint(0, 1)
                         self.m_fsm.change_state(self.m_fsm.m_last_state)
                         print("Next point is blocked, recalculate a new route.")
                         return True
