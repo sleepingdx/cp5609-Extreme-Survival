@@ -140,7 +140,7 @@ class Character:
                     next_row = int(cls.m_path[cls.m_current + 1].z // MyDefine.BLOCK_RESOLUTION[0])
                     next_col = int(cls.m_path[cls.m_current + 1].x // MyDefine.BLOCK_RESOLUTION[1])
                     if blocks[next_row][next_col] != MyDefine.BLOCK_PLACEHOLDERS[0]:
-                        cls.m_current -= max(0, random.randint(2, 3))
+                        cls.m_current -= max(0, random.randint(1, 2))
                         self.m_fsm.change_state(self.m_fsm.m_last_state)
                         print("Next point is blocked, recalculate a new route.")
                         return True
