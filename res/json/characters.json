@@ -68,9 +68,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "",
+          "filename": "./res/effects/Darkness4.png",
           "resolution": [192,192],
-          "frames": []
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
@@ -159,9 +159,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "",
+          "filename": "./res/effects/Darkness4.png",
           "resolution": [192,192],
-          "frames": []
+          "frames": [[3,2],[3,3],[3,4],[4,0]]
         }
       },
       {
@@ -235,9 +235,9 @@
           {"name": "Left", "list": [[7,4],[6,4],[4,4],[5,4]]}
         ],
         "effect": {
-          "filename": "./res/effects/Thunder5.png",
+          "filename": "./res/effects/Darkness4.png",
           "resolution": [192,192],
-          "frames": [[0,4],[1,0]]
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
@@ -250,9 +250,9 @@
           {"name": "Left", "list": [[7,4]]}
         ],
         "effect": {
-          "filename": "",
+          "filename": "./res/effects/Thunder5.png",
           "resolution": [192,192],
-          "frames": []
+          "frames": [[0,4],[1,0]]
         }
       },
       {
@@ -527,9 +527,9 @@
           {"name": "Left", "list": [[3,10],[2,10],[0,10],[1,10]]}
         ],
         "effect": {
-          "filename": "./res/effects/Wind1.png",
+          "filename": "./res/effects/Darkness4.png",
           "resolution": [192,192],
-          "frames": [[4,0],[4,1]]
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
@@ -542,9 +542,9 @@
           {"name": "Left", "list": [[3,10]]}
         ],
         "effect": {
-          "filename": "",
+          "filename": "./res/effects/Wind1.png",
           "resolution": [192,192],
-          "frames": []
+          "frames": [[4,0],[4,1]]
         }
       },
       {
@@ -633,9 +633,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "",
+          "filename": "./res/effects/Darkness4.png",
           "resolution": [192,192],
-          "frames": []
+          "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
@@ -724,9 +724,9 @@
           {"name": "Left", "list": [[2,0],[0,7],[2,82,0],[0,7],[2,8]]}
         ],
         "effect": {
-          "filename": "",
+          "filename": "./res/effects/Darkness4.png",
           "resolution": [192,192],
-          "frames": []
+          "frames": [[3,2],[3,3],[3,4],[4,0]]
         }
       },
       {
