@@ -41,12 +41,12 @@ class Chase(State):
         predict_pos = target_pos + orientation * MyDefine.PIXELS_PER_METER * speed * MyDefine.PIXELS_PER_METER * (
                 elapsed_sec / 1000)
 
-        distance = (predict_pos - self.m_object.m_position).calculate_magnitude2()
-        if distance <= self.m_object.m_attack_enemy_scope ** 2:
-            # self.m_object.m_fsm.change_state(5, self.m_target)
+        distance2 = (predict_pos - self.m_object.m_position).calculate_magnitude2()
+        if distance2 <= (self.m_object.m_attack_enemy_scope * MyDefine.MAP_GRID) ** 2:
             self.m_object.m_fsm.change_state(0)
+            return
 
-        # Path
+            # Path
         blocks = BlockLayer.get_instance().m_blocks
         self.m_path = PathFinding.astar_pos_ex(blocks, (self.m_object.m_position.x, self.m_object.m_position.z),
                                                (predict_pos.x, predict_pos.z), True)
