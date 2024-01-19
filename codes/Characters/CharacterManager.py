@@ -9,18 +9,23 @@ class CharacterManager(Singleton):
 
     def update(self):
         """
-        Update all registered characters by using the update method of each character
+        Update all registered Characters by using the update method of each character
         :return: None
         """
         if self.m_characters:
-            for i in range(len(self.m_characters)):
-                self.m_characters[i].update()
+            for key in self.m_characters:
+                self.m_characters[key].update()
+
+    def render(self, window):
+        if self.m_characters:
+            for key in self.m_characters:
+                self.m_characters[key].render(window)
 
     def trigger_event(self, event):
         if self.m_characters:
-            for i in range(len(self.m_characters)):
-                if hasattr(self.m_characters[i], "trigger_event"):
-                    self.m_characters[i].trigger_event(event)
+            for key in self.m_characters:
+                if hasattr(self.m_characters[key], "trigger_event"):
+                    self.m_characters[key].trigger_event(event)
 
     def append_character(self, character_id, character):
         """

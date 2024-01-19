@@ -1,6 +1,4 @@
 from codes.Singelton import Singleton
-from codes import MyDefine
-from codes.Json import Json
 from codes.GameLevel import GameLevel
 
 

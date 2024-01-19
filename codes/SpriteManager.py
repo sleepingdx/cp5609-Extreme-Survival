@@ -1,8 +1,7 @@
 import pygame
-from codes.Singelton import Singleton
 
 
-class SpriteManager(Singleton):
+class SpriteManager:
     """Centralized management of all sprites"""
 
     def __init__(self):

@@ -1,6 +1,7 @@
 import pygame
 import sys
 import os
+import subprocess
 
 # 初始化Pygame
 pygame.init()
@@ -25,10 +26,11 @@ font_text = pygame.font.Font(None, 80)
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取上一级目录的路径
 parent_dir = os.path.dirname(current_dir)
-background_path = os.path.join(parent_dir, r"res\Background\chara_selected.png")
+background_path = os.path.join(current_dir, r"res\background\chara_selected.png")
 
 # 加载背景图像
 background_image = pygame.image.load(background_path)
+
 
 # 函数：显示文本
 def draw_text(text, x, y, color=black):
@@ -36,27 +38,40 @@ def draw_text(text, x, y, color=black):
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
+
 def draw_button(text, x, y, color=black):
     text_surface = font_button.render(text, True, color)
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
+
 
 # 主循环
 running = True
 character_selected = None  # 存储选择的角色
 
 while running:
+    warrior_button_rect = pygame.Rect(width // 4 - 100, 600, 200, 50)
+    archer_button_rect = pygame.Rect(width - (width // 4 + 150), 600, 200, 50)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if warrior_button_rect.collidepoint(event.pos):
+                pygame.quit()
                 character_selected = "Warrior"
+                args_to_pass = ['0']
+                subprocess.run(["python", "main.py"] + args_to_pass)
                 print("Selected Warrior")
+                sys.exit()
             elif archer_button_rect.collidepoint(event.pos):
+                pygame.quit()
                 character_selected = "Archer"
+                args_to_pass = ['1']
+                subprocess.run(["python", "main.py"] + args_to_pass)
                 print("Selected Archer")
+                sys.exit()
 
     # 清屏
     screen.fill(white)
@@ -67,11 +82,9 @@ while running:
     draw_text("Character Selection", width // 2, 50)
 
     # 创建按钮
-    warrior_button_rect = pygame.Rect(width // 4 -100, 600, 200, 50)
     pygame.draw.rect(screen, white, warrior_button_rect)
     draw_button("Warrior", warrior_button_rect.centerx, warrior_button_rect.centery, black)
 
-    archer_button_rect = pygame.Rect(width-(width // 4 +150), 600, 200, 50)
     pygame.draw.rect(screen, white, archer_button_rect)
     draw_button("Archer", archer_button_rect.centerx, archer_button_rect.centery, black)
 

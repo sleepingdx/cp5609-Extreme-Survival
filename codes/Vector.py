@@ -30,3 +30,6 @@ class Vector:
 
     def calculate_magnitude2(self):
         return self.x ** 2 + self.z ** 2
+
+    def dot_product(self, vector):
+        return self.x * vector.x + self.z * vector.z

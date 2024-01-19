@@ -1,8 +1,10 @@
 import pygame
+import sys
+
 from codes import MyDefine
-from codes.SpriteManager import SpriteManager
-from codes.CharacterManager import CharacterManager
 from codes.GameLevelManager import GameLevelManager
+from codes.Characters.CharacterManager import CharacterManager
+from codes.TerrainManager import TerrainManager
 from codes.EventTriggerManager import EventTriggerManager
 from codes.EventTrigger import EventTrigger
 
@@ -12,15 +14,17 @@ class MyGame(EventTrigger):
     def __init__(self):
         super().__init__()
         pygame.init()
-        self.m_window = pygame.display.set_mode((MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]))
+        self.m_window = pygame.display.set_mode((MyDefine.GAME_RESOLUTION[0], MyDefine.GAME_RESOLUTION[1]),
+                                                pygame.SRCALPHA)
         pygame.display.set_caption(MyDefine.GAME_NAME)
         self.m_clock = pygame.time.Clock()
         self.m_player = None
         self.m_running = False
         EventTriggerManager.get_instance().append_trigger(self)
 
-    def start(self):
-        GameLevelManager.get_instance().start(0)
+    @staticmethod
+    def start():
+        GameLevelManager.get_instance().start(GameLevelManager.get_instance().m_current)
 
     def run(self):
         # 游戏循环
@@ -43,15 +47,22 @@ class MyGame(EventTrigger):
             # 刷新屏幕
             pygame.display.flip()
 
-    def update(self):
+    @staticmethod
+    def update():
+        TerrainManager.get_instance().update()
         CharacterManager.get_instance().update()
-        SpriteManager.get_instance().update()
 
     def render(self):
-        SpriteManager.get_instance().render(self.m_window)
+        TerrainManager.get_instance().render_base_layer_1(self.m_window)
+        TerrainManager.get_instance().render_base_layer_2(self.m_window)
+        CharacterManager.get_instance().render(self.m_window)
+        TerrainManager.get_instance().render_masking_layer(self.m_window)
 
-    def end(self):
+    @staticmethod
+    def end():
         pygame.quit()
+        # subprocess.run(["python", "CharacterChoose.py"])
+        sys.exit()
 
     def trigger(self, event):
         if event.type == pygame.QUIT:

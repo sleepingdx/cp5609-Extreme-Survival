@@ -1,42 +1,66 @@
+from codes import MyDefine
+from codes.GlobalVariables import GlobalVariables
 from codes.JsonManager import JsonManager
-from codes.ImageManager import ImageManager
 from codes.Action import Action
-from codes.CharacterManager import CharacterManager
-from codes.SpriteManager import SpriteManager
-from codes.Character import Character
-from codes.Player import Player
-from codes.Npc import Npc
-from codes.Item import Item
-from codes.Equipment import Equipment
-
-CHARACTERS_KEY = "characters"
-TERRAIN_KEY = "terrain"
+from codes.TerrainManager import TerrainManager
+from codes.BlockLayer import BlockLayer
+from codes.Effect import Effect
+from codes.Characters.CharacterManager import CharacterManager
+from codes.Characters.Character import Character
+from codes.Characters.Player import Player
+from codes.Characters.Npc import Npc
+from codes.Characters.Merchant import Merchant
+from codes.Characters.Monster import Monster
+from codes.Characters.Pet import Pet
+from codes.Characters.Equipment import Equipment
+from codes.Characters.Item import Item
 
 
 class GameLevel:
+    CHARACTERS_KEY = "characters"
+    TERRAIN_KEY = "terrain"
+
     def __init__(self, index):
         self.m_index = index
 
     def start(self):
+        # Terrain
+        terrain_index = JsonManager.get_instance().m_json_gameLevels[self.m_index][GameLevel.TERRAIN_KEY]
+        TerrainManager.get_instance().load_terrain(terrain_index)
+        TerrainManager.get_instance().change_terrain(terrain_index)
+        # block layer
+        json_blocks = JsonManager.get_instance().m_json_terrain[terrain_index]['block_layer']
+        BlockLayer.get_instance().load_blocks(json_blocks)
         # Characters
         characters = JsonManager.get_instance().m_json_characters
-        objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][CHARACTERS_KEY]
-        for i in range(len(objects)):
+        objects = JsonManager.get_instance().m_json_gameLevels[self.m_index][GameLevel.CHARACTERS_KEY]
+        for i in range(len(objects) - 1, -1, -1):
+            if objects[i]["id"] == MyDefine.INVALID_ID:
+                objects[i]["id"] = GlobalVariables.get_instance().m_role_id
             for j in range(len(characters)):
                 if characters[j]["id"] == objects[i]["id"]:
-                    character = globals()[characters[j]["type"]]()
+                    character = globals()[characters[j]["type"]](characters[j]["fsm_name"])
+                    character.m_collision_rect = characters[j]["collision_rect"]
+                    character.m_type = characters[j]["type"]
+                    character.m_id = characters[j]["id"]
+                    character.m_max_hp = characters[j]['hp']
+                    character.m_hp = character.m_max_hp
+                    character.m_max_mp = characters[j]['mp']
+                    character.m_mp = character.m_max_mp
+                    character.m_search_enemy_scope = characters[j]['searchEnemyScope']
+                    character.m_attack_enemy_scope = characters[j]['attackEnemyScope']
                     CharacterManager.get_instance().append_character(objects[i]["id"], character)
                     for k in range(len(characters[j]["actions"])):
-                        action = Action(character)
+                        action = Action(character, characters[j]["actions"][k]["filename"])
                         action.m_orientation = objects[i]["orientation"]
                         character.append_action(characters[j]["actions"][k]["name"], action)
-                        # 因为不是一次性加在全部资源， 所以每次使用前需要确认该资源已经被加载了
-                        ImageManager.get_instance().load_resource(characters[j]["actions"][k]["name"],
-                                                                  characters[j]["actions"][k]["filename"])
                         for l in range(len(characters[j]["actions"][k]["frames"])):
-                            action.load_action_from_list(characters[j]["actions"][k]["name"],
-                                                         characters[j]["actions"][k]["frames"][l]["name"],
-                                                         characters[j]["actions"][k]["frames"][l]["list"])
+                            action.load_action_from_list(characters[j]["actions"][k]["frames"][l]["name"],
+                                                         characters[j]["actions"][k]["frames"][l]["list"],
+                                                         characters[j]["resolution"])
+                            action.m_effect = Effect(characters[j]["actions"][k]["effect"]["filename"])
+                            action.m_effect.load_frames(characters[j]["actions"][k]["effect"]["frames"],
+                                                        characters[j]["actions"][k]["effect"]["resolution"])
                     character.set_center_pos(objects[i]["position"][0], objects[i]["position"][1])
 
     def update(self):
