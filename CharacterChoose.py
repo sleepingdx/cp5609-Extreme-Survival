@@ -3,6 +3,8 @@ import sys
 import os
 import subprocess
 
+from codes import MyDefine
+
 # 初始化Pygame
 pygame.init()
 
@@ -27,12 +29,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取上一级目录的路径
 parent_dir = os.path.dirname(current_dir)
 # 获取上一级目录的路径
-if getattr(sys, 'frozen', False):
-    # 当程序被打包成exe文件时
-    base_path = sys._MEIPASS
-else:
-    base_path = os.path.abspath(".")
-background_path = os.path.join(base_path, r"res/background/chara_selected.png")
+cur_path = MyDefine.get_current_path()
+background_path = os.path.join(cur_path, "res/background/chara_selected.png")
 
 # 加载背景图像
 background_image = pygame.image.load(background_path)
@@ -64,18 +62,21 @@ while running:
             running = False
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
+            # 构建 main.py 的相对路径
+            cur_path = MyDefine.get_current_path()
+            main_py = os.path.normpath(os.path.join(cur_path, "main.py"))
             if warrior_button_rect.collidepoint(event.pos):
                 pygame.quit()
                 character_selected = "Warrior"
                 args_to_pass = ['0']
-                subprocess.run(["python", "main.py"] + args_to_pass)
+                subprocess.run(["python", main_py] + args_to_pass)
                 print("Selected Warrior")
                 sys.exit()
             elif archer_button_rect.collidepoint(event.pos):
                 pygame.quit()
                 character_selected = "Archer"
                 args_to_pass = ['1']
-                subprocess.run(["python", "main.py"] + args_to_pass)
+                subprocess.run(["python", main_py] + args_to_pass)
                 print("Selected Archer")
                 sys.exit()
 

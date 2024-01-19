@@ -2,6 +2,7 @@ import pygame.image
 import sys
 import os
 from codes.Singelton import Singleton
+from codes import MyDefine
 
 
 class ImageManager(Singleton):
@@ -18,12 +19,7 @@ class ImageManager(Singleton):
         :return: None
         """
         if name not in self.m_resDirectory:
-            if getattr(sys, 'frozen', False):
-                # 当程序被打包成exe文件时
-                base_path = sys._MEIPASS
-            else:
-                base_path = os.path.abspath(".")
-            path = os.path.join(base_path, filename)
+            path = MyDefine.get_current_dir(filename)
             image = pygame.image.load(path)
             # file: the image file name image: the image resource
             self.m_resDirectory[name] = {'filename': filename, 'image': image}

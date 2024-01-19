@@ -1,5 +1,7 @@
 import json
 
+from codes import MyDefine
+
 
 class Json:
     """Execute json files"""
@@ -14,8 +16,9 @@ class Json:
         :param mode: r-read only; w-write； a-append; b-binary; r+, w+....
         :return: json data
         """
-        with open(filename, mode) as filename:
-            self.m_json = json.load(filename)
+        file_dir = MyDefine.get_parent_dir(filename)
+        with open(file_dir, mode) as file:
+            self.m_json = json.load(file)
         return self.m_json
 
     def load_json_string(self, json_string):

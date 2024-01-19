@@ -1,7 +1,7 @@
 import os
-
 import pygame
 import sys
+from codes import MyDefine
 
 # 初始化Pygame
 pygame.init()
@@ -39,11 +39,7 @@ def draw_button(text, x, y, color=black):
 # 获取背景图像的路径，使用原始字符串
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取上一级目录的路径
-if getattr(sys, 'frozen', False):
-    # 当程序被打包成exe文件时
-    base_path = sys._MEIPASS
-else:
-    base_path = os.path.dirname(current_dir)
+base_path = MyDefine.get_current_path()
 background_path = os.path.join(base_path, r"res\Background\Startpage.png")
 
 # 加载背景图像
