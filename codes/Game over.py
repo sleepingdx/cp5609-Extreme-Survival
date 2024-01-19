@@ -10,7 +10,7 @@ screen = pygame.display.set_mode(window_size)
 pygame.display.set_caption("Game Over")
 
 # 加载背景图像
-background_image = pygame.image.load("E:/jcu/Extreme Survival/res/Background/gameover.jpg")
+background_image = pygame.image.load("D:/WorkSpace/cp5609-Extreme-Survival/res/background/gameover.jpg")
 background_rect = background_image.get_rect()
 
 # 设置字体
