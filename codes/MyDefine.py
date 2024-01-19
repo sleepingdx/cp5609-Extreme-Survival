@@ -1,6 +1,12 @@
 import os
+import sys
 
 current_folder = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, 'frozen', False):
+    # 当程序被打包成exe文件时
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.abspath(".")
 
 GAME_NAME = 'Extreme Survival'  # name of the game
 GAME_RESOLUTION = (960, 720)  # resolution of the game (pixel)
@@ -16,17 +22,17 @@ BASIC_CHARACTER_CHASE_SPEED = 2  # Speed of chasing
 BASIC_CHARACTER_FLEE_SPEED = 3  # Speed of fleeing
 COLLIDER_RADIUS = 2  # Circular collider radius
 BLOCK_COLLIDER_RECT = (48, 48)  # width and height of Block collider
-MAIN_ROLE_DIRECTORY = os.path.join(current_folder, '../res/characters/Actor1.png')  # image resource of main role
+MAIN_ROLE_DIRECTORY = os.path.join(base_path, 'res/characters/Actor1.png')  # image resource of main role
 GAME_FRAME_RATE = 200  # frame rate of the game
 ARRIVE_TARGET_POS_SCOPE = 1  # Entering this scope is considered to have been reached the target position
 DECELERATION_SCOPE = 72  # Entering this scope is considered to decelerate the chasing speed
 DECELERATION_RATE = 80 / 100  # Deceleration rate
 INVALID_ID = -1  # invalid id
 
-JSON_GAME_LEVEL_FILE = os.path.join(current_folder, "../res/json/gameLevels.json")
-JSON_CHARACTERS_FILE = os.path.join(current_folder, "../res/json/characters.json")
-JSON_FSM_FILE = os.path.join(current_folder, "../res/json/fsm.json")
-JSON_TERRAIN_FILE = os.path.join(current_folder, "../res/json/terrain.json")
+JSON_GAME_LEVEL_FILE = os.path.join(base_path, "res/json/gameLevels.json")
+JSON_CHARACTERS_FILE = os.path.join(base_path, "res/json/characters.json")
+JSON_FSM_FILE = os.path.join(base_path, "res/json/fsm.json")
+JSON_TERRAIN_FILE = os.path.join(base_path, "res/json/terrain.json")
 
 
 def convert_nsec_to_msec(nanosecond):

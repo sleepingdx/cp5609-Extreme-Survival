@@ -22,22 +22,29 @@ green = (0, 255, 0)
 font_button = pygame.font.Font(None, 36)
 font_text = pygame.font.Font(None, 100)
 
+
 # 函数：显示文本
 def draw_text(text, x, y, color=white):
     text_surface = font_text.render(text, True, color)
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
+
 def draw_button(text, x, y, color=black):
     text_surface = font_button.render(text, True, color)
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
+
 # 获取背景图像的路径，使用原始字符串
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取上一级目录的路径
-parent_dir = os.path.dirname(current_dir)
-background_path = os.path.join(parent_dir, r"res\Background\Startpage.png")
+if getattr(sys, 'frozen', False):
+    # 当程序被打包成exe文件时
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.dirname(current_dir)
+background_path = os.path.join(base_path, r"res\Background\Startpage.png")
 
 # 加载背景图像
 background_image = pygame.image.load(background_path)

@@ -15,7 +15,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[3,1]]},
           {"name": "Right", "list": [[2,1]]},
@@ -30,7 +30,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[3,0],[3,2]]},
           {"name": "Right", "list": [[2,0],[2,2]]},
@@ -45,7 +45,7 @@
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[3,1],[2,1],[0,1],[1,1]]},
           {"name": "Right", "list": [[3,1],[2,1],[0,1],[1,1]]},
@@ -53,14 +53,14 @@
           {"name": "Left", "list": [[3,1],[2,1],[0,1],[1,1]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "res/effects/Darkness4.png",
           "resolution": [192,192],
           "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
         "name": "Injured",
-        "filename": "./res/characters/Actor1_1.png",
+        "filename": "res/characters/Actor1_1.png",
         "frames": [
           {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
           {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
@@ -75,7 +75,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor1_1.png",
+        "filename": "res/characters/Actor1_1.png",
         "frames": [
           {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
           {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
@@ -106,7 +106,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[7,10]]},
           {"name": "Right", "list": [[6,10]]},
@@ -121,7 +121,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[7,9],[7,11]]},
           {"name": "Right", "list": [[6,9],[6,11]]},
@@ -136,7 +136,7 @@
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[7,10],[6,10],[4,10],[5,10]]},
           {"name": "Right", "list": [[7,10],[6,10],[4,10],[5,10]]},
@@ -144,14 +144,14 @@
           {"name": "Left", "list": [[7,10],[6,10],[4,10],[5,10]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "res/effects/Darkness4.png",
           "resolution": [192,192],
           "frames": [[3,2],[3,3],[3,4],[4,0]]
         }
       },
       {
         "name": "Injured",
-        "filename": "./res/characters/Actor2_7.png",
+        "filename": "res/characters/Actor2_7.png",
         "frames": [
           {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
           {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
@@ -166,7 +166,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor2_7.png",
+        "filename": "res/characters/Actor2_7.png",
         "frames": [
           {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
           {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
@@ -197,7 +197,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[7,4]]},
           {"name": "Right", "list": [[6,4]]},
@@ -212,7 +212,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[7,3],[7,5]]},
           {"name": "Right", "list": [[6,3],[6,5]]},
@@ -227,7 +227,7 @@
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[7,4],[6,4],[4,4],[5,4]]},
           {"name": "Right", "list": [[7,4],[6,4],[4,4],[5,4]]},
@@ -235,14 +235,14 @@
           {"name": "Left", "list": [[7,4],[6,4],[4,4],[5,4]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "res/effects/Darkness4.png",
           "resolution": [192,192],
           "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
         "name": "Injured",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[7,4]]},
           {"name": "Right", "list": [[7,4]]},
@@ -257,7 +257,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/items/Inside_C.png",
+        "filename": "res/items/Inside_C.png",
         "frames": [
           {"name": "Up", "list": [[10,9]]},
           {"name": "Right", "list": [[10,9]]},
@@ -288,7 +288,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/items/Chest.png",
+        "filename": "res/items/Chest.png",
         "frames": [
           {"name": "Up", "list": [[0, 0], [0, 1], [0, 2]]},
           {"name": "Right", "list": [[0, 0], [0, 1], [0, 2]]},
@@ -303,7 +303,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/items/Chest.png",
+        "filename": "res/items/Chest.png",
         "frames": [
           {"name": "Up", "list": [[2,0],[2,1],[2,2]]},
           {"name": "Right", "list": [[2,0],[2,1],[2,2]]},
@@ -334,7 +334,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/items/Inside_C.png",
+        "filename": "res/items/Inside_C.png",
         "frames": [
           {"name": "Up", "list": [[2,8]]},
           {"name": "Right", "list": [[2,8]]},
@@ -365,7 +365,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/items/Inside_C.png",
+        "filename": "res/items/Inside_C.png",
         "frames": [
           {"name": "Up", "list": [[2,11]]},
           {"name": "Right", "list": [[2,11]]},
@@ -396,7 +396,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/weapons/Weapons1.png",
+        "filename": "res/weapons/Weapons1.png",
         "frames": [
           {"name": "Up", "list": [[1,1]]},
           {"name": "Right", "list": [[1,1]]},
@@ -427,7 +427,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/weapons/Weapons1.png",
+        "filename": "res/weapons/Weapons1.png",
         "frames": [
           {"name": "Up", "list": [[1,0]]},
           {"name": "Right", "list": [[1,0]]},
@@ -458,7 +458,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/weapons/Weapons1.png",
+        "filename": "res/weapons/Weapons1.png",
         "frames": [
           {"name": "Up", "list": [[0,3]]},
           {"name": "Right", "list": [[0,3]]},
@@ -489,7 +489,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[3,10]]},
           {"name": "Right", "list": [[2,10]]},
@@ -504,7 +504,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[3,9],[3,11]]},
           {"name": "Right", "list": [[2,9],[2,11]]},
@@ -519,7 +519,7 @@
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[3,10],[2,10],[0,10],[1,10]]},
           {"name": "Right", "list": [[3,10],[2,10],[0,10],[1,10]]},
@@ -527,14 +527,14 @@
           {"name": "Left", "list": [[3,10],[2,10],[0,10],[1,10]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "res/effects/Darkness4.png",
           "resolution": [192,192],
           "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
         "name": "Injured",
-        "filename": "./res/characters/Monster.png",
+        "filename": "res/characters/Monster.png",
         "frames": [
           {"name": "Up", "list": [[3,10]]},
           {"name": "Right", "list": [[3,10]]},
@@ -549,7 +549,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/items/Inside_C.png",
+        "filename": "res/items/Inside_C.png",
         "frames": [
           {"name": "Up", "list": [[10,9]]},
           {"name": "Right", "list": [[10,9]]},
@@ -580,7 +580,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[3,1]]},
           {"name": "Right", "list": [[2,1]]},
@@ -595,7 +595,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[3,0],[3,2]]},
           {"name": "Right", "list": [[2,0],[2,2]]},
@@ -610,7 +610,7 @@
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[3,1],[2,1],[0,1],[1,1]]},
           {"name": "Right", "list": [[3,1],[2,1],[0,1],[1,1]]},
@@ -618,14 +618,14 @@
           {"name": "Left", "list": [[3,1],[2,1],[0,1],[1,1]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "res/effects/Darkness4.png",
           "resolution": [192,192],
           "frames": [[2,3],[2,4],[3,0],[3,1]]
         }
       },
       {
         "name": "Injured",
-        "filename": "./res/characters/Actor1_1.png",
+        "filename": "res/characters/Actor1_1.png",
         "frames": [
           {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
           {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
@@ -640,7 +640,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor1_1.png",
+        "filename": "res/characters/Actor1_1.png",
         "frames": [
           {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
           {"name": "Right", "list": [[5,6],[5,7],[5,8]]},
@@ -671,7 +671,7 @@
     "actions": [
       {
         "name": "Stand",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[7,10]]},
           {"name": "Right", "list": [[6,10]]},
@@ -686,7 +686,7 @@
       },
       {
         "name": "Move",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[7,9],[7,11]]},
           {"name": "Right", "list": [[6,9],[6,11]]},
@@ -701,7 +701,7 @@
       },
       {
         "name": "Attack",
-        "filename": "./res/characters/Actor1.png",
+        "filename": "res/characters/Actor1.png",
         "frames": [
           {"name": "Up", "list": [[7,10],[6,10],[4,10],[5,10]]},
           {"name": "Right", "list": [[7,10],[6,10],[4,10],[5,10]]},
@@ -709,14 +709,14 @@
           {"name": "Left", "list": [[7,10],[6,10],[4,10],[5,10]]}
         ],
         "effect": {
-          "filename": "./res/effects/Darkness4.png",
+          "filename": "res/effects/Darkness4.png",
           "resolution": [192,192],
           "frames": [[3,2],[3,3],[3,4],[4,0]]
         }
       },
       {
         "name": "Injured",
-        "filename": "./res/characters/Actor2_7.png",
+        "filename": "res/characters/Actor2_7.png",
         "frames": [
           {"name": "Up", "list": [[2,0],[0,7],[2,8]]},
           {"name": "Right", "list": [[2,0],[0,7],[2,8]]},
@@ -731,7 +731,7 @@
       },
       {
         "name": "Die",
-        "filename": "./res/characters/Actor2_7.png",
+        "filename": "res/characters/Actor2_7.png",
         "frames": [
           {"name": "Up", "list": [[5,6],[5,7],[5,8]]},
           {"name": "Right", "list": [[5,6],[5,7],[5,8]]},

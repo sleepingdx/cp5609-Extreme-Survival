@@ -3,17 +3,17 @@
     "id": 0,
     "name": "scene_01",
     "filenames": [
-      "./res/terrain/Dungeon_A2.png",
-      "./res/terrain/Dungeon_A4.png",
-      "./res/terrain/Inside_A4.png",
-      "./res/terrain/SF_Outside_C.png",
-      "./res/terrain/Dungeon_A3.jpg",
-      "./res/terrain/Dungeon_A5.png",
-      "./res/terrain/Dungeon_A1.png",
-      "./res/terrain/World_B.png",
-      "./res/terrain/Dungeon_B.png",
-      "./res/terrain/World_A1.png",
-      "./res/terrain/Dungeon_C.png"
+      "res/terrain/Dungeon_A2.png",
+      "res/terrain/Dungeon_A4.png",
+      "res/terrain/Inside_A4.png",
+      "res/terrain/SF_Outside_C.png",
+      "res/terrain/Dungeon_A3.jpg",
+      "res/terrain/Dungeon_A5.png",
+      "res/terrain/Dungeon_A1.png",
+      "res/terrain/World_B.png",
+      "res/terrain/Dungeon_B.png",
+      "res/terrain/World_A1.png",
+      "res/terrain/Dungeon_C.png"
     ],
     "base_layer_1": [
       [[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]],[1,[14,12]]],
@@ -88,10 +88,10 @@
     "id": 1,
     "name": "scene_02",
     "filenames": [
-      "./res/terrain/Dungeon_A2.png",
-      "./res/terrain/Dungeon_A4.png",
-      "./res/terrain/Inside_A4.png",
-      "./res/terrain/SF_Outside_C.png"
+      "res/terrain/Dungeon_A2.png",
+      "res/terrain/Dungeon_A4.png",
+      "res/terrain/Inside_A4.png",
+      "res/terrain/SF_Outside_C.png"
     ],
     "base_layer_1": [
       [[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]]],
@@ -166,10 +166,10 @@
     "id": 2,
     "name": "scene_03",
     "filenames": [
-      "./res/terrain/Dungeon_A2.png",
-      "./res/terrain/Dungeon_A4.png",
-      "./res/terrain/Inside_A4.png",
-      "./res/terrain/SF_Outside_C.png"
+      "res/terrain/Dungeon_A2.png",
+      "res/terrain/Dungeon_A4.png",
+      "res/terrain/Inside_A4.png",
+      "res/terrain/SF_Outside_C.png"
     ],
     "base_layer_1": [
       [[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]],[0,[0,5]]],

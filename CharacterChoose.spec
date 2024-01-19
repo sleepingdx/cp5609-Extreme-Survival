@@ -5,7 +5,7 @@ a = Analysis(
     ['codes\\CharacterChoose.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('res', 'res')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
