@@ -1,5 +1,4 @@
 import pygame
-import pygame.image
 import math
 import time
 from codes import MyDefine
